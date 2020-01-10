@@ -1,0 +1,14 @@
+Operator:     export_Maya_nParticles_cache
+Label:        Export Maya nParticles cache
+Path:         oplib:/Sop/export_Maya_nParticles_cache?Sop/export_Maya_nParticles_cache
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Dec  2 12:13:41 2019
+

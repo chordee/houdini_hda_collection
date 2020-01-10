@@ -1,0 +1,36 @@
+# Dialog script for Chordee_getmaterialfromjson automatically generated
+
+{
+    name	Chordee_getmaterialfromjson
+    script	Chordee_getmaterialfromjson
+    label	GetMaterialFromJson
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+	name	"file"
+	label	"File"
+	type	file
+	default	{ "" }
+    }
+    parm {
+	name	"backward"
+	label	"Backward"
+	type	integer
+	default	{ "0" }
+	range	{ 0 10 }
+    }
+    parm {
+	name	"material_attrib"
+	label	"Material Attrbute"
+	type	string
+	default	{ "" }
+    }
+}
