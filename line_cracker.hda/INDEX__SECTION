@@ -1,0 +1,14 @@
+Operator:     line_cracker::1.0
+Label:        Line Cracker
+Path:         oplib:/Sop/line_cracker::1.0?Sop/line_cracker::1.0
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Jan  8 16:05:33 2020
+
