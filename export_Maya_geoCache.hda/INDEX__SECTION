@@ -1,0 +1,14 @@
+Operator:     export_Maya_geoCache
+Label:        Export Maya geoCache
+Path:         oplib:/Sop/export_Maya_geoCache?Sop/export_Maya_geoCache
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Mar  9 19:47:53 2022
+

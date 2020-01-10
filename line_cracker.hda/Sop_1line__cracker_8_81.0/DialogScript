@@ -9,8 +9,9 @@
 	""
     }
 
-    inputlabel	1	"Single Primitive Poly Line"
-    inputlabel	2	Ground
+    inputlabel	1	Ground
+    inputlabel	2	"Single Primitive Poly Line"
+    parmtag { inputisref2 1 }
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
 

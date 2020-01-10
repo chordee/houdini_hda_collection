@@ -1,0 +1,42 @@
+vector step2uv(int _step, int ut, int vt){
+    int ver = int(floor(float(_step) / float(ut)));
+    int hor = mod(_step, ut);
+    float vv = 1 - (ver / float(vt));
+    float uu = (1.0-(float(hor)/float(ut-1))) * (1.0/float(ut)) * (ut-1);
+    return vector(uu, vv, 0);
+}
+
+color pre_colormap(string texture_path, vector _uv){
+    color result = texture(texture_path, _uv[0], _uv[1], "wrap", "clamp", "width", 0);
+    return result;
+}
+
+shader volume_texture(
+    string texture_path = "", 
+    vector bb_pos = vector(0,0,0), 
+    int u_tile=8, 
+    int v_tile=8,
+    output color Cout = color(0,0,0))
+    {
+        int total_tiles = u_tile * v_tile;
+        float phase = (1.0 - bb_pos[1]) * total_tiles;
+        float blend = phase - floor(phase);
+        int pre_step = int(floor(phase));
+        int for_step = int(ceil(phase));
+        
+        vector scale_uv = vector((bb_pos[0]) / float(u_tile),(1- bb_pos[2]) / float(v_tile), 0);
+
+        vector pre_uv = step2uv(pre_step, u_tile, v_tile) + scale_uv;
+        vector for_uv = step2uv(for_step, u_tile, v_tile) + scale_uv;
+
+        color pre_value = pre_colormap(texture_path, pre_uv);
+        color for_value = pre_colormap(texture_path, for_uv);
+
+        color blend_value = color(
+            ((for_value[0] - pre_value[0]) * blend) + pre_value[0],
+            ((for_value[1] - pre_value[1]) * blend) + pre_value[1],
+            ((for_value[2] - pre_value[2]) * blend) + pre_value[2]
+        );
+
+        Cout = blend_value;
+    }

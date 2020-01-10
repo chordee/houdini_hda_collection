@@ -1,0 +1,15 @@
+Operator:     tanh01
+Label:        Tanh01
+Path:         oplib:/Vop/tanh01?Vop/tanh01
+Icon:         VOP_tanh01
+Table:        Vop
+License:      
+Extra:        *
+User:         
+Inputs:       0 to 2
+Outputs:      2048
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Fri Sep  2 20:52:24 2022
+

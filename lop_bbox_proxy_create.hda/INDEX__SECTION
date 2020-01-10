@@ -1,0 +1,14 @@
+Operator:     lop_bbox_proxy_create
+Label:        BBox Proxy Create
+Path:         oplib:/Lop/lop_bbox_proxy_create?Lop/lop_bbox_proxy_create
+Icon:         LOP_subnet
+Table:        Lop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Dec 14 12:23:53 2022
+
