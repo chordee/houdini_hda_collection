@@ -32,8 +32,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.28323 -9.42772
-connectornextid 2
+position -9.33215 -8.55472
+connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -41,17 +41,15 @@ outputsNamed3
 inputsNamed3
 {
 0 	measure1 1 1 "input1"
-1 	attribnoise1 1 1 "input2"
 }
 inputs
 {
 0 	measure1 0 1
-1 	attribnoise1 0 1
 }
 stat
 {
-  create 1579092420
-  modify 1579092518
+  create 1579092552
+  modify 1579095081
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -802,11 +800,14 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	136.40000000000001 ] 	)
+val	[ 0	locks=0 ]	(	[ val	80.700000000000003 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
 ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.621 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	5 ] 	[ freq2	5 ] 	[ freq3	5 ] 	[ freq4	12 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	100 ] 	[ offset4	0 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.047822374850511551 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
@@ -816,9 +817,6 @@ ramp3interp	[ 0	locks=0 ]	(	[ ramp3interp	1 ] 	)
 ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
 ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.746 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	10 ] 	[ freq2	10 ] 	[ freq3	10 ] 	[ freq4	10 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	100 ] 	[ offset4	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2850,7 +2848,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579092421
+  modify 1579093307
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3269,7 +3267,7 @@ for(int i = 1; i < pt_num; i++){
             alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
         }else{
             vector noise_p = pos[j] * chv('freq') + chv('offset');
-            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-1.7,-1.7,-1.7}, {1.7,1.7,1.7}, set(-bias, -bias, -bias),set(bias, bias, bias));
+            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-.5,-.5,-.5}, {.5,.5,.5}, set(-bias, -bias, -bias),set(bias, bias, bias));
             //temp_v = set(bias, bias, bias);
             vector4 temp_q = eulertoquaternion(temp_v, 0);
             alt_dir = qrotate(temp_q, dirs[j]);
@@ -3331,17 +3329,17 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	88.299999999999997 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.191 ] 	)
+bias	[ 8	locks=0 ]	(	[ bias	74.299999999999997 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.14999999999999999 ] 	)
 min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	7 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	10 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	24 ] 	[ freqy	24 ] 	[ freqz	24 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	15 ] 	)
+freq	[ 0	locks=0 ]	(	[ freqx	10 ] 	[ freqy	10 ] 	[ freqz	10 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.57399999999999995 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.56299999999999994 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.050000000000000003 ] 	)
-push_away	[ 0	locks=0 ]	(	[ push_away	1 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.10000000000000001 ] 	)
+push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4132,7 +4130,7 @@ autobind	[ 0	locks=0 ]	(	[ autobind	1 ] 	)
 bindings	[ 0	locks=0 ]	(	0	)
 groupautobind	[ 0	locks=0 ]	(	[ groupautobind	1 ] 	)
 groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	[ vex_cwdpath	/obj/grid1/subnet1/attribwrangle2 ] 	)
+vex_cwdpath	[ 0	locks=0 ]	(	[ vex_cwdpath	/obj/grid1/thunder_builder1/attribwrangle2 ] 	)
 vex_outputmask	[ 0	locks=0 ]	(	[ vex_outputmask	* ] 	)
 vex_updatenmls	[ 0	locks=0 ]	(	[ vex_updatenmls	0 ] 	)
 vex_matchattrib	[ 0	locks=0 ]	(	[ vex_matchattrib	id ] 	)
@@ -4805,7 +4803,7 @@ measure	[ 0	locks=0 ]	(	"arc"	)
 dolength	[ 0	locks=0 ]	(	"off"	)
 length	[ 0	locks=0 ]	(	0.10000000000000001	)
 dosegs	[ 0	locks=0 ]	(	"on"	)
-segs	[ 8	locks=0 ]	(	[ segs	200 ] 	)
+segs	[ 8	locks=0 ]	(	[ segs	150 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
 allequal	[ 0	locks=0 ]	(	"on"	)
 last	[ 0	locks=0 ]	(	"off"	)
