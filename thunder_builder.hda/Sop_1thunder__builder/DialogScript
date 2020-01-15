@@ -1,0 +1,223 @@
+# Dialog script for thunder_builder automatically generated
+
+{
+    name	thunder_builder
+    script	thunder_builder
+    label	"Thunder Builder"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Rest Line"
+    inputlabel	2	"Animated Line To Match"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "input"
+        label   "Match Tip"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "input2"
+        label   "Match Animated"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "segs"
+        label   "Segments"
+        type    integer
+        default { "100" }
+        range   { 1! 50 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    group {
+        name    "folder0"
+        label   "Main"
+
+        parm {
+            name    "freq"
+            label   "Frequency"
+            type    float
+            size    4
+            default { "10" "10" "10" "10" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            size    4
+            default { "0" "0" "100" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "rough"
+            label   "Roughness"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "val"
+            label   "Bias Angle"
+            type    angle
+            default { "121.5" }
+            range   { 0 180 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "ramp"
+            label   "Bias Along Curve"
+            type    ramp_flt
+            default { "4" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "rampbasis_var" "ramp_the_basis_strings" }
+            parmtag { "rampbasisdefault" "linear" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 0.047822374850511551 ) 2value ( 1 ) 2interp ( linear ) 3pos ( 0.85231113433837891 ) 3value ( 1 ) 3interp ( linear ) 4pos ( 1 ) 4value ( 0 ) 4interp ( linear )" }
+            parmtag { "rampkeys_var" "ramp_the_key_positions" }
+            parmtag { "rampshowcontrolsdefault" "1" }
+            parmtag { "rampvalues_var" "ramp_the_key_values" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Branch"
+
+        parm {
+            name    "branch"
+            label   "Branch"
+            type    float
+            default { "0.15" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seed"
+            label   "Seed"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "push_away"
+            label   "Push Away"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "bias"
+            label   "Bias Angle"
+            type    float
+            default { "146.3" }
+            range   { 0 180 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "min_branch_step"
+            label   "Min Branch Step"
+            type    integer
+            default { "5" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "max_branch_step"
+            label   "Max Branch Step"
+            type    integer
+            default { "10" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "freq5"
+            label   "Freq"
+            type    vector
+            size    3
+            default { "24" "24" "24" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "offset5"
+            label   "Offset"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "turb"
+            label   "Turb"
+            type    integer
+            default { "5" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rough2"
+            label   "Rough"
+            type    float
+            default { "0.59" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "atten"
+            label   "Atten"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "angle_sum"
+        label   "Angle Sum"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+}

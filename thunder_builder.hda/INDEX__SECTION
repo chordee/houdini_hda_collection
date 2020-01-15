@@ -1,0 +1,14 @@
+Operator:     thunder_builder
+Label:        Thunder Builder
+Path:         oplib:/Sop/thunder_builder?Sop/thunder_builder
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Jan 15 20:47:30 2020
+
