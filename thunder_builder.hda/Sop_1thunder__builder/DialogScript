@@ -28,6 +28,7 @@
         label   "Match Animated"
         type    toggle
         default { "0" }
+        disablewhen "{ input == 0 }"
         range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_callback_language" "python" }
@@ -45,6 +46,29 @@
         name    "folder0"
         label   "Main"
 
+        parm {
+            name    "basis"
+            label   "Noise Type"
+            type    string
+            default { "simplex" }
+            menu {
+                "value_fast"    "Value Noise | Fast"
+                "sparse"        "Value Noise | Sparse Convolution"
+                "alligator"     "Value Noise | Alligator"
+                "perlin"        "Perlin"
+                "flow"          "Perlin | Flow"
+                "simplex"       "Simplex"
+                "worleyFA"      "Worley/Cellular | F1"
+                "worleyFB"      "Worley/Cellular | F2-F1"
+                "mworleyFA"     "Worley/Cellular | Manhattan F1"
+                "mworleyFB"     "Worley/Cellular | Manhattan F2-F1"
+                "cworleyFA"     "Worley/Cellular | Chebyshev F1"
+                "cworleyFB"     "Worley/Cellular | Chebyshev F2-F1"
+            }
+            range   { 0 1 }
+            unquoted
+            parmtag { "autoscope" "0000000000000000" }
+        }
         parm {
             name    "freq"
             label   "Frequency"
@@ -68,6 +92,21 @@
             parmtag { "shaderparmcontexts" "cvex" }
         }
         parm {
+            name    "fractal"
+            label   "Fractal Type"
+            type    string
+            default { "fBm" }
+            menu {
+                "none"  "None"
+                "fBm"   "Standard (fBm)"
+                "mfT"   "Terrain"
+                "hmfT"  "Hybrid Terrain"
+            }
+            range   { 0 1 }
+            unquoted
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
             name    "rough"
             label   "Roughness"
             type    float
@@ -81,7 +120,7 @@
             name    "val"
             label   "Bias Angle"
             type    angle
-            default { "121.5" }
+            default { "60" }
             range   { 0 180 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -149,7 +188,7 @@
             name    "bias"
             label   "Bias Angle"
             type    float
-            default { "146.3" }
+            default { "60" }
             range   { 0 180 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -173,11 +212,31 @@
             parmtag { "script_callback_language" "python" }
         }
         parm {
+            name    "branch_step_extend_along_step"
+            label   "Branch Step Extend Along Step"
+            type    toggle
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "branch_along_step"
+            label   "Branch Along Step"
+            type    ramp_flt
+            default { "2" }
+            disablewhen "{ branch_step_extend_along_step == 0 }"
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 0 ) 2interp ( linear )" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "freq5"
             label   "Freq"
             type    vector
             size    3
-            default { "24" "24" "24" }
+            default { "10" "10" "10" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -205,7 +264,7 @@
             name    "rough2"
             label   "Rough"
             type    float
-            default { "0.59" }
+            default { "0.5" }
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }

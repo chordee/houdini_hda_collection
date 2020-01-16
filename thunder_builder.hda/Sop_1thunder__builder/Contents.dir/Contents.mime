@@ -32,24 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.33215 -8.55472
-connectornextid 1
+position -9.16334 -8.52483
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
 0 	measure1 1 1 "input1"
+2 	attribnoise1 1 1 "input2"
 }
 inputs
 {
 0 	measure1 0 1
+1 	attribnoise1 0 1
 }
 stat
 {
   create 1579092552
-  modify 1579145693
+  modify 1579150456
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -74,8 +77,8 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 0 7.6545971071195291 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 6.8861832474235136 7.5310677054806821 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.init"
@@ -90,7 +93,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.228625 -1.37691
+position -0.00345 -1.32891
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -108,7 +111,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579092458
+  modify 1579150602
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -800,14 +803,11 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	98.099999999999994 ] 	)
+val	[ 0	locks=0 ]	(	[ val	60 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
 ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.621 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	5 ] 	[ freq2	5 ] 	[ freq3	5 ] 	[ freq4	20 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	100 ] 	[ offset3	100 ] 	[ offset4	20 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.047822374850511551 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
@@ -817,6 +817,9 @@ ramp3interp	[ 0	locks=0 ]	(	[ ramp3interp	1 ] 	)
 ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
 ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	10 ] 	[ freq2	10 ] 	[ freq3	10 ] 	[ freq4	10 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1035,7 +1038,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579090769
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1045,19 +1048,40 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop1/unifiednoise_static1.chn"
+Content-Type: text/plain
+
+{
+    channel basis {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"simplex\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../basis\") }
+    }
+    channel fractal {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"fBm\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../../fractal\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1/unifiednoise_static1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 signature	[ 0	locks=0 ]	(	v3	)
-basis	[ 0	locks=0 ]	(	simplex	)
+basis	[ 0	locks=0 ]	(	[ basis	simplex ] 	)
 freq	[ 0	locks=0 ]	(	10	10	10	10	)
 offset	[ 0	locks=0 ]	(	0	1800	100	0	)
 periodic	[ 0	locks=0 ]	(	"off"	)
 period	[ 0	locks=0 ]	(	1	1	1	1	)
 folder1	[ 0	locks=0 ]	(	0	)
-fractal	[ 0	locks=0 ]	(	fBm	)
+fractal	[ 0	locks=0 ]	(	[ fractal	fBm ] 	)
 oct	[ 0	locks=0 ]	(	8	)
 lac	[ 0	locks=0 ]	(	2.01234	)
 rough	[ 0	locks=0 ]	(	0.5	)
@@ -1133,7 +1157,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1639,7 +1663,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1709,7 +1733,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1816,7 +1840,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1938,7 +1962,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2004,7 +2028,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2170,7 +2194,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579090752
+  modify 1579150451
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2397,7 +2421,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579090750
+  modify 1579150450
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2830,7 +2854,7 @@ sopflags sopflags =
 comment ""
 position 0.229075 -4.83576
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -2848,7 +2872,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579144957
+  modify 1579150488
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2856,6 +2880,15 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle2.multiparm"
+Content-Type: text/plain
+
+3
+branch_along_step#pos ../branch_along_step#pos
+branch_along_step#value ../branch_along_step#value
+branch_along_step#interp ../branch_along_step#interp
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle2.spareparmdef"
@@ -3114,6 +3147,20 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "branch_along_step"
+        label   "Branch Along Step"
+        type    ramp_flt
+        default { "2" }
+        range   { 1! 10 }
+    }
+    parm {
+        name    "branch_step_extend_along_step"
+        label   "Branch Step Extend Along Step"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle2.chn"
@@ -3234,6 +3281,58 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 3 3 expr = ch(\"../branch_limited\") }
     }
+    channel branch_step_extend_along_step {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_step_extend_along_step\") }
+    }
+    channel branch_along_step {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../branch_along_step\") }
+    }
+    channel branch_along_step1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step1pos\") }
+    }
+    channel branch_along_step1value {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1value\") }
+    }
+    channel branch_along_step1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1interp\") }
+    }
+    channel branch_along_step2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step2pos\") }
+    }
+    channel branch_along_step2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step2value\") }
+    }
+    channel branch_along_step2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step2interp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3252,13 +3351,18 @@ snippet	[ 0	locks=0 ]	(	"int pt_num = npoints(1);
 vector end_pos = vector(point(1, 'P', pt_num - 1));
 vector start_pos = vector(point(1, 'P', 0));
 vector dir = normalize(end_pos - start_pos);
-
 float step = prim(1, 'restlength', 0) / float(pt_num);
-f@test = step; ;
-//vector pos = start_pos;
-addpoint(0, start_pos);
+
+f@step_distance = step; // detail attribute
+
+addpoint(0, start_pos); // first point
 
 float bias = radians(abs(chf('bias')));
+float bias2 = chf('branch');
+int min_branch_step = chi('min_branch_step');
+int max_branch_step = chi('max_branch_step');
+
+//initial
 
 vector pos[], dirs[];
 int step_ages[], ids[], branch_step[];
@@ -3271,36 +3375,43 @@ append(step_ages, pt_num);
 append(ids ,mnt);
 append(branch_step, 0);
 
-float bias2 = chf('branch');
 
-setpointattrib(0, 'id', 0, 0, 'set');   
+
+setpointattrib(0, 'id', 0, 0, 'set');  
+
+// here we go
  
 for(int i = 1; i < pt_num; i++){
     for(int j = 0; j < len(pos); j++){
     
-        vector alt_dir = {0,0,0};
+        vector alt_dir = {0,0,0}; // initial alt_dir
+        
+        // get new angle
         
         if(j == 0){
             alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
         }else{
             vector noise_p = pos[j] * chv('freq') + chv('offset');
             vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-.5,-.5,-.5}, {.5,.5,.5}, set(-bias, -bias, -bias),set(bias, bias, bias));
-            //temp_v = set(bias, bias, bias);
             vector4 temp_q = eulertoquaternion(temp_v, 0);
             alt_dir = qrotate(temp_q, dirs[j]);
         }
         
-        pos[j] += alt_dir * step;
+        pos[j] += alt_dir * step; // move on
         
-        int pt = addpoint(0, pos[j]);
-        setpointattrib(0, 'id', pt, ids[j], 'set');        
+        int pt = addpoint(0, pos[j]); // add point
+        
+        // set attributes
+        
+        setpointattrib(0, 'id', pt, ids[j], 'set');
+        setpointattrib(0, 'step', pt, i, 'set');
+        setpointattrib(0, 'branch_step', pt, branch_step[j], 'set');   
+        
+        // push away abgle
         
         if(chi('angle_sum')==1)
             dirs[j] = alt_dir;
-            
-        setpointattrib(0, 'step', pt, i, 'set');
-        setpointattrib(0, 'branch_step', pt, branch_step[j], 'set');   
-            
+                        
         // Branch 
         
         if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2) && (branch_step[j] < chi('branch_limited'))){
@@ -3317,14 +3428,20 @@ for(int i = 1; i < pt_num; i++){
             }else{
                 append(dirs, alt_dir);
             }
-            append(step_ages, int(fit01(rand(pos[j]), chi('min_branch_step'), chi('max_branch_step'))));
+            if(chi('branch_step_extend_along_step') == 1){
+                append(step_ages, int(fit01(chramp('branch_along_step',  float(i)/pt_num), min_branch_step, max_branch_step)));
+            }else{
+                append(step_ages, int(fit01(rand(pos[j]), min_branch_step, max_branch_step)));
+            }
             append(ids, mnt);
             append(branch_step, branch_step[j]+1);
         }
         
         step_ages[j] -= 1;
         
+        // stop grow
         if(step_ages[j] < 0){
+            // remove frome array 
             removeindex(pos, j);
             removeindex(dirs, j);
             removeindex(step_ages, j);
@@ -3351,17 +3468,25 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
 bias	[ 8	locks=0 ]	(	[ bias	61.200000000000003 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.25900000000000001 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	10 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.32800000000000001 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
 max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	10 ] 	[ freqy	10 ] 	[ freqz	10 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.56299999999999994 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.095000000000000001 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.193 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
-branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
+branch_limited	[ 0	locks=0 ]	(	[ branch_limited	2 ] 	)
+branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
+branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
+branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
+branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
+branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
+branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
+branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
+branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3553,89 +3678,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color1.init"
-Content-Type: text/plain
-
-type = color
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.352793 -17.3461
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch2 2 1 "input1"
-}
-inputs
-{
-0 	switch2 0 1
-}
-stat
-{
-  create 1579089600
-  modify 1579143900
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
-class	[ 0	locks=0 ]	(	2	)
-colortype	[ 0	locks=0 ]	(	4	)
-color	[ 0	locks=0 ]	(	1	1	1	)
-seed	[ 0	locks=0 ]	(	0	)
-rampattribute	[ 0	locks=0 ]	(	id	)
-ramprange	[ 0	locks=0 ]	(	0	1	)
-ramp	[ 0	locks=0 ]	(	2	)
-ramp1pos	[ 0	locks=0 ]	(	0	)
-ramp1c	[ 0	locks=0 ]	(	0	0	0	)
-ramp1interp	[ 0	locks=0 ]	(	"linear"	)
-ramp2pos	[ 0	locks=0 ]	(	1	)
-ramp2c	[ 0	locks=0 ]	(	1	1	1	)
-ramp2interp	[ 0	locks=0 ]	(	"linear"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	},
-	"___toolcount___":{
-		"type":"string",
-		"value":"2"
-	},
-	"___toolid___":{
-		"type":"string",
-		"value":"sop_color"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle6.init"
 Content-Type: text/plain
 
@@ -3818,89 +3860,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color2.init"
-Content-Type: text/plain
-
-type = color
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.75988 -17.3461
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch2 2 1 "input1"
-}
-inputs
-{
-0 	switch2 0 1
-}
-stat
-{
-  create 1579089600
-  modify 1579144895
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
-class	[ 0	locks=0 ]	(	2	)
-colortype	[ 0	locks=0 ]	(	4	)
-color	[ 0	locks=0 ]	(	1	1	1	)
-seed	[ 0	locks=0 ]	(	0	)
-rampattribute	[ 0	locks=0 ]	(	branch_step	)
-ramprange	[ 0	locks=0 ]	(	0	10	)
-ramp	[ 0	locks=0 ]	(	2	)
-ramp1pos	[ 0	locks=0 ]	(	0	)
-ramp1c	[ 0	locks=0 ]	(	0	0	0	)
-ramp1interp	[ 0	locks=0 ]	(	"linear"	)
-ramp2pos	[ 0	locks=0 ]	(	1	)
-ramp2c	[ 0	locks=0 ]	(	1	1	1	)
-ramp2interp	[ 0	locks=0 ]	(	"linear"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/color2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	},
-	"___toolcount___":{
-		"type":"string",
-		"value":"2"
-	},
-	"___toolid___":{
-		"type":"string",
-		"value":"sop_color"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.order"
 Content-Type: text/plain
 
@@ -4025,7 +3984,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.12809 0.688598
+position -2.77556e-17 1.0836
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4043,7 +4002,7 @@ inputs
 stat
 {
   create 1579072247
-  modify 1579090414
+  modify 1579146186
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4150,7 +4109,7 @@ inputs
 stat
 {
   create 1579071957
-  modify 1579092421
+  modify 1579146182
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4366,7 +4325,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.352793 -19.0313
+position -0.252533 -18.22
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4374,16 +4333,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	color1 1 1 "input1"
+0 	attribpromote1 1 1 "input1"
 }
 inputs
 {
-0 	color1 0 1
+0 	attribpromote1 0 1
 }
 stat
 {
   create 1579090339
-  modify 1579143900
+  modify 1579147842
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4445,7 +4404,7 @@ inputs
 stat
 {
   create 1579090365
-  modify 1579144393
+  modify 1579145679
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4473,7 +4432,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4553,15 +4512,82 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -0.255983 -16.6157
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch2 2 1 "input1"
+}
+inputs
+{
+0 	switch2 0 1
+}
+stat
+{
+  create 1579147841
+  modify 1579147860
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	branch_step	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"primitive"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"mean"	)
+useoutname	[ 0	locks=0 ]	(	"off"	)
+outname	[ 0	locks=0 ]	(	""	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-16
+15
 pointvop1
 attribwrangle2
 attribwrangle4
 pointwrangle2
-color1
 attribwrangle6
 pointwrangle3
 add3
@@ -4572,7 +4598,7 @@ null1
 output0
 switch2
 blast1
-color2
+attribpromote1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
