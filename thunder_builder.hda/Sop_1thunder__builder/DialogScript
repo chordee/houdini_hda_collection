@@ -242,6 +242,15 @@
                 parmtag { "script_callback_language" "python" }
             }
             parm {
+                name    "branch_extend_by_branch_step"
+                label   "Branch Extend By Branch Step"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
                 name    "branch_step_extend_along_step"
                 label   "Branch Step Extend Along Step"
                 type    toggle
