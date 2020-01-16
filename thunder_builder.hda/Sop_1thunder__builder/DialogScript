@@ -119,6 +119,15 @@
             parmtag { "script_callback_language" "python" }
         }
         parm {
+            name    "branch_limited"
+            label   "Max Branch Limited"
+            type    integer
+            default { "3" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
             name    "seed"
             label   "Seed"
             type    float

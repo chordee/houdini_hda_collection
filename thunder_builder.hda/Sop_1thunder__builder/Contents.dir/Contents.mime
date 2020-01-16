@@ -49,7 +49,7 @@ inputs
 stat
 {
   create 1579092552
-  modify 1579095081
+  modify 1579145693
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -800,14 +800,14 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	80.700000000000003 ] 	)
+val	[ 0	locks=0 ]	(	[ val	98.099999999999994 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
 ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.621 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	5 ] 	[ freq2	5 ] 	[ freq3	5 ] 	[ freq4	12 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	100 ] 	[ offset4	0 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	5 ] 	[ freq2	5 ] 	[ freq3	5 ] 	[ freq4	20 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	100 ] 	[ offset3	100 ] 	[ offset4	20 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.047822374850511551 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
@@ -2828,9 +2828,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.229075 -4.83076
+position 0.229075 -4.83576
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -2848,7 +2848,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579093307
+  modify 1579144957
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3107,6 +3107,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "branch_limited"
+        label   "Branch Limited"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle2.chn"
@@ -3220,6 +3227,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../push_away\") }
     }
+    channel branch_limited {
+      lefttype = extend
+      righttype = extend
+      default = 3
+      flags = 0
+      segment { length = 0 value = 3 3 expr = ch(\"../branch_limited\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3247,12 +3261,15 @@ addpoint(0, start_pos);
 float bias = radians(abs(chf('bias')));
 
 vector pos[], dirs[];
-int step_ages[], ids[];
-int mnt = 0;
+int step_ages[], ids[], branch_step[];
+int mnt = 0; 
+int branch = 0;
+
 append(pos, start_pos);
 append(dirs, dir);
 append(step_ages, pt_num);
 append(ids ,mnt);
+append(branch_step, 0);
 
 float bias2 = chf('branch');
 
@@ -3282,14 +3299,16 @@ for(int i = 1; i < pt_num; i++){
             dirs[j] = alt_dir;
             
         setpointattrib(0, 'step', pt, i, 'set');
+        setpointattrib(0, 'branch_step', pt, branch_step[j], 'set');   
             
         // Branch 
         
-        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2)){
+        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2) && (branch_step[j] < chi('branch_limited'))){
             mnt++;
             int newpt = addpoint(0, pos[j]);
-            setpointattrib(0, 'id', newpt, mnt, 'set');
+            setpointattrib(0, 'id', newpt, mnt, 'set'); 
             setpointattrib(0, 'step', newpt, i, 'set');
+            setpointattrib(0, 'branch_step', newpt, branch_step[j]+1, 'set');
             append(pos, pos[j]);
             matrix3 mmm = ident();
             rotate(mmm, radians(180), dirs[j]);
@@ -3300,6 +3319,7 @@ for(int i = 1; i < pt_num; i++){
             }
             append(step_ages, int(fit01(rand(pos[j]), chi('min_branch_step'), chi('max_branch_step'))));
             append(ids, mnt);
+            append(branch_step, branch_step[j]+1);
         }
         
         step_ages[j] -= 1;
@@ -3309,6 +3329,7 @@ for(int i = 1; i < pt_num; i++){
             removeindex(dirs, j);
             removeindex(step_ages, j);
             removeindex(ids, j);
+            removeindex(branch_step, j);
         }
     }
 }
@@ -3329,17 +3350,18 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	74.299999999999997 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.14999999999999999 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	7 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	15 ] 	)
+bias	[ 8	locks=0 ]	(	[ bias	61.200000000000003 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.25900000000000001 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	10 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	10 ] 	[ freqy	10 ] 	[ freqz	10 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.56299999999999994 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.10000000000000001 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.095000000000000001 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
+branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3366,7 +3388,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.42282 -5.08814
+position 3.74272 -7.93556
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3376,17 +3398,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	pointvop1 1 1 "input1"
-1 	attribwrangle5 2 1 "input2"
+1 	blast1 1 1 "input2"
 }
 inputs
 {
 0 	pointvop1 0 1
-1 	attribwrangle5 0 1
+1 	blast1 0 1
 }
 stat
 {
   create 1579088927
-  modify 1579092421
+  modify 1579143980
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3443,727 +3465,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment "Referenced from attribwrangle2"
-position 3.88877 -2.91038
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on displaycomment on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	"" "" 1 "input1"
-1 	pointvop1 1 1 "input2"
-}
-inputs
-{
-0 	"" 0 1
-1 	pointvop1 0 1
-}
-stat
-{
-  create 1579072461
-  modify 1579092421
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-        parm {
-            name    "vex_precision"
-            baseparm
-            label   "VEX Precision"
-            export  none
-        }
-    }
-
-    parm {
-        name    "angle_sum"
-        label   "Angle Sum"
-        type    toggle
-        default { "0" }
-    }
-    parm {
-        name    "bias"
-        label   "Bias Angle"
-        type    float
-        default { "0" }
-        range   { 0 180 }
-    }
-    parm {
-        name    "seed"
-        label   "Seed"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "min_branch_step"
-        label   "Min Branch Step"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "max_branch_step"
-        label   "Max Branch Step"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "freq"
-        label   "Freq"
-        type    vector
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "offset"
-        label   "Offset"
-        type    vector
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "rough"
-        label   "Rough"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "atten"
-        label   "Atten"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "turb"
-        label   "Turb"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "branch"
-        label   "Branch"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "push_away"
-        label   "Push Away"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.chn"
-Content-Type: text/plain
-
-{
-    channel turb {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../attribwrangle2/turb\") }
-    }
-    channel atten {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../attribwrangle2/atten\") }
-    }
-    channel rough {
-      lefttype = extend
-      righttype = extend
-      default = 0.58999999999999997
-      flags = 0
-      segment { length = 0 value = 0.58999999999999997 0.58999999999999997 expr = ch(\"../attribwrangle2/rough\") }
-    }
-    channel offsetz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/offsetz\") }
-    }
-    channel offsety {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/offsety\") }
-    }
-    channel offsetx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/offsetx\") }
-    }
-    channel freqz {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../attribwrangle2/freqz\") }
-    }
-    channel freqy {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../attribwrangle2/freqy\") }
-    }
-    channel freqx {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../attribwrangle2/freqx\") }
-    }
-    channel max_branch_step {
-      lefttype = extend
-      righttype = extend
-      default = 10
-      flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../attribwrangle2/max_branch_step\") }
-    }
-    channel min_branch_step {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../attribwrangle2/min_branch_step\") }
-    }
-    channel seed {
-      lefttype = extend
-      righttype = extend
-      default = 7
-      flags = 0
-      segment { length = 0 value = 7 7 expr = ch(\"../attribwrangle2/seed\") }
-    }
-    channel bias {
-      lefttype = extend
-      righttype = extend
-      default = 146.30000000000001
-      flags = 0
-      segment { length = 0 value = 146.30000000000001 146.30000000000001 expr = ch(\"../attribwrangle2/bias\") }
-    }
-    channel angle_sum {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/angle_sum\") }
-    }
-    channel vex_precision {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"auto\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/vex_precision\") }
-    }
-    channel vex_selectiongroup {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/vex_selectiongroup\") }
-    }
-    channel vex_inplace {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/vex_inplace\") }
-    }
-    channel vex_matchattrib {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"id\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/vex_matchattrib\") }
-    }
-    channel vex_updatenmls {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/vex_updatenmls\") }
-    }
-    channel vex_outputmask {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"*\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/vex_outputmask\") }
-    }
-    channel vex_cwdpath {
-      lefttype = extend
-      righttype = extend
-      defaultString = \".\"
-      flags = 0
-      segment { length = 0 expr = chsop(\"../attribwrangle2/vex_cwdpath\") }
-    }
-    channel groupautobind {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../attribwrangle2/groupautobind\") }
-    }
-    channel autobind {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../attribwrangle2/autobind\") }
-    }
-    channel vex_strict {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/vex_strict\") }
-    }
-    channel exportlist {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"*\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/exportlist\") }
-    }
-    channel snippet {
-      lefttype = extend
-      righttype = extend
-      defaultString = "\"int pt_num = npoints(1);
-vector end_pos = vector(point(1, 'P', pt_num - 1));
-vector start_pos = vector(point(1, 'P', 0));
-vector dir = normalize(end_pos - start_pos);
-
-float step = prim(1, 'restlength', 0) / float(pt_num);
-f@test = step; ;
-//vector pos = start_pos;
-addpoint(0, start_pos);
-
-float bias = radians(abs(chf('bias')));
-
-vector pos[], dirs[];
-int step_ages[], ids[];
-int mnt = 0;
-append(pos, start_pos);
-append(dirs, dir);
-append(step_ages, pt_num);
-append(ids ,mnt);
-
-float bias2 = chf('branch');
-
-setpointattrib(0, 'id', 0, 0, 'set');   
- 
-for(int i = 1; i < pt_num; i++){
-    for(int j = 0; j < len(pos); j++){
-    
-        vector alt_dir = {0,0,0};
-        
-        if(j == 0){
-            alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
-        }else{
-            vector noise_p = pos[j] * chv('freq') + chv('offset');
-            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-1,-1,-1}, {1,1,1}, set(-bias, -bias, -bias),set(bias, bias, bias));
-            //temp_v = set(bias, bias, bias);
-            vector4 temp_q = eulertoquaternion(temp_v, 0);
-            alt_dir = qrotate(temp_q, dirs[j]);
-        }
-        
-        pos[j] += alt_dir * step;
-        
-        int pt = addpoint(0, pos[j]);
-        setpointattrib(0, 'id', pt, ids[j], 'set');        
-        
-        if(chi('angle_sum')==1)
-            dirs[j] = alt_dir;
-            
-        setpointattrib(0, 'step', pt, i, 'set');
-            
-        // Branch 
-        
-        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2)){
-            mnt++;
-            int newpt = addpoint(0, pos[j]);
-            setpointattrib(0, 'id', newpt, mnt, 'set');
-            setpointattrib(0, 'step', newpt, i, 'set');
-            append(pos, pos[j]);
-            matrix3 mmm = ident();
-            rotate(mmm, radians(180), dirs[j]);
-            //append(dirs, alt_dir * mmm);
-            append(dirs, alt_dir);
-            append(step_ages, int(fit01(rand(pos[j]), chi('min_branch_step'), chi('max_branch_step'))));
-            append(ids, mnt);
-        }
-        
-        step_ages[j] -= 1;
-        
-        if(step_ages[j] < 0){
-            removeindex(pos, j);
-            removeindex(dirs, j);
-            removeindex(step_ages, j);
-            removeindex(ids, j);
-        }
-    }
-}
-
- \""
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/snippet\") }
-    }
-    channel vex_threadjobsize {
-      lefttype = extend
-      righttype = extend
-      default = 1024
-      flags = 0
-      segment { length = 0 value = 1024 1024 expr = ch(\"../attribwrangle2/vex_threadjobsize\") }
-    }
-    channel vex_numcount {
-      lefttype = extend
-      righttype = extend
-      default = 10
-      flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../attribwrangle2/vex_numcount\") }
-    }
-    channel class {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/class\") }
-    }
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/grouptype\") }
-    }
-    channel group {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../attribwrangle2/group\") }
-    }
-    channel push_away {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle2/push_away\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0 ]	(	[ grouptype	0 ] 	)
-class	[ 0	locks=0 ]	(	[ class	0 ] 	)
-vex_numcount	[ 0	locks=0 ]	(	[ vex_numcount	10 ] 	)
-vex_threadjobsize	[ 0	locks=0 ]	(	[ vex_threadjobsize	1024 ] 	)
-snippet	[ 0	locks=0 ]	(	[ snippet	"int pt_num = npoints(1);
-vector end_pos = vector(point(1, 'P', pt_num - 1));
-vector start_pos = vector(point(1, 'P', 0));
-vector dir = normalize(end_pos - start_pos);
-
-float step = prim(1, 'restlength', 0) / float(pt_num);
-f@test = step; ;
-//vector pos = start_pos;
-addpoint(0, start_pos);
-
-float bias = radians(abs(chf('bias')));
-
-vector pos[], dirs[];
-int step_ages[], ids[];
-int mnt = 0;
-append(pos, start_pos);
-append(dirs, dir);
-append(step_ages, pt_num);
-append(ids ,mnt);
-
-float bias2 = chf('branch');
-
-setpointattrib(0, 'id', 0, 0, 'set');   
- 
-for(int i = 1; i < pt_num; i++){
-    for(int j = 0; j < len(pos); j++){
-    
-        vector alt_dir = {0,0,0};
-        
-        if(j == 0){
-            alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
-        }else{
-            vector noise_p = pos[j] * chv('freq') + chv('offset');
-            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-1.7,-1.7,-1.7}, {1.7,1.7,1.7}, set(-bias, -bias, -bias),set(bias, bias, bias));
-            //temp_v = set(bias, bias, bias);
-            vector4 temp_q = eulertoquaternion(temp_v, 0);
-            alt_dir = qrotate(temp_q, dirs[j]);
-        }
-        
-        pos[j] += alt_dir * step;
-        
-        int pt = addpoint(0, pos[j]);
-        setpointattrib(0, 'id', pt, ids[j], 'set');        
-        
-        if(chi('angle_sum')==1)
-            dirs[j] = alt_dir;
-            
-        setpointattrib(0, 'step', pt, i, 'set');
-            
-        // Branch 
-        
-        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2)){
-            mnt++;
-            int newpt = addpoint(0, pos[j]);
-            setpointattrib(0, 'id', newpt, mnt, 'set');
-            setpointattrib(0, 'step', newpt, i, 'set');
-            append(pos, pos[j]);
-            matrix3 mmm = ident();
-            rotate(mmm, radians(180), dirs[j]);
-            if(chi('push_away') == 1){
-                append(dirs, alt_dir * mmm);
-            }else{
-                append(dirs, alt_dir);
-            }
-            append(step_ages, int(fit01(rand(pos[j]), chi('min_branch_step'), chi('max_branch_step'))));
-            append(ids, mnt);
-        }
-        
-        step_ages[j] -= 1;
-        
-        if(step_ages[j] < 0){
-            removeindex(pos, j);
-            removeindex(dirs, j);
-            removeindex(step_ages, j);
-            removeindex(ids, j);
-        }
-    }
-}
-
- " ] 	)
-exportlist	[ 0	locks=0 ]	(	[ exportlist	* ] 	)
-vex_strict	[ 0	locks=0 ]	(	[ vex_strict	0 ] 	)
-autobind	[ 0	locks=0 ]	(	[ autobind	1 ] 	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	[ groupautobind	1 ] 	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	[ vex_cwdpath	/obj/grid1/thunder_builder1/attribwrangle2 ] 	)
-vex_outputmask	[ 0	locks=0 ]	(	[ vex_outputmask	* ] 	)
-vex_updatenmls	[ 0	locks=0 ]	(	[ vex_updatenmls	0 ] 	)
-vex_matchattrib	[ 0	locks=0 ]	(	[ vex_matchattrib	id ] 	)
-vex_inplace	[ 0	locks=0 ]	(	[ vex_inplace	0 ] 	)
-vex_selectiongroup	[ 0	locks=0 ]	(	[ vex_selectiongroup	"" ] 	)
-vex_precision	[ 0	locks=0 ]	(	[ vex_precision	auto ] 	)
-folder1	[ 0	locks=0 ]	(	0	0	)
-angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	88.299999999999997 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.191 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	7 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	24 ] 	[ freqy	24 ] 	[ freqz	24 ] 	)
-offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.57399999999999995 ] 	)
-atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
-turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	0	)
-push_away	[ 8	locks=0 ]	(	[ push_away	1 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle5.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle2.init"
 Content-Type: text/plain
 
@@ -4176,7 +3477,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.75713 -7.55314
+position 3.6381 -10.9591
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4196,7 +3497,7 @@ inputs
 stat
 {
   create 1579089279
-  modify 1579092421
+  modify 1579144376
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4264,7 +3565,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.2395 -14.3552
+position -0.352793 -17.3461
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4282,7 +3583,7 @@ inputs
 stat
 {
   create 1579089600
-  modify 1579090369
+  modify 1579143900
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4438,7 +3739,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 9.19104 -11.3817
+position 9.07775 -14.3726
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4458,7 +3759,7 @@ inputs
 stat
 {
   create 1579089279
-  modify 1579092421
+  modify 1579143900
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4517,6 +3818,89 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color2.init"
+Content-Type: text/plain
+
+type = color
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.75988 -17.3461
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch2 2 1 "input1"
+}
+inputs
+{
+0 	switch2 0 1
+}
+stat
+{
+  create 1579089600
+  modify 1579144895
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+deleteallcolorattribs	[ 0	locks=0 ]	(	"off"	)
+class	[ 0	locks=0 ]	(	2	)
+colortype	[ 0	locks=0 ]	(	4	)
+color	[ 0	locks=0 ]	(	1	1	1	)
+seed	[ 0	locks=0 ]	(	0	)
+rampattribute	[ 0	locks=0 ]	(	branch_step	)
+ramprange	[ 0	locks=0 ]	(	0	10	)
+ramp	[ 0	locks=0 ]	(	2	)
+ramp1pos	[ 0	locks=0 ]	(	0	)
+ramp1c	[ 0	locks=0 ]	(	0	0	0	)
+ramp1interp	[ 0	locks=0 ]	(	"linear"	)
+ramp2pos	[ 0	locks=0 ]	(	1	)
+ramp2c	[ 0	locks=0 ]	(	1	1	1	)
+ramp2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/color2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"sop_color"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.order"
 Content-Type: text/plain
 
@@ -4563,7 +3947,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.232075 -6.43982
+position 0.118782 -9.43075
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4581,7 +3965,7 @@ inputs
 stat
 {
   create 1579075805
-  modify 1579090435
+  modify 1579143900
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4845,7 +4229,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.232075 -9.12279
+position 0.118782 -12.1137
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4865,7 +4249,7 @@ inputs
 stat
 {
   create 1579089462
-  modify 1579092421
+  modify 1579143900
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4982,7 +4366,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.2395 -16.0404
+position -0.352793 -19.0313
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4999,7 +4383,7 @@ inputs
 stat
 {
   create 1579090339
-  modify 1579092098
+  modify 1579143900
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5041,7 +4425,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.13924 -12.2001
+position -0.252533 -15.191
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5061,7 +4445,7 @@ inputs
 stat
 {
   create 1579090365
-  modify 1579092421
+  modify 1579144393
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5104,14 +4488,78 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.init"
+Content-Type: text/plain
+
+type = blast
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.17028 -6.11265
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribwrangle2 2 1 "input1"
+}
+inputs
+{
+0 	attribwrangle2 0 1
+}
+stat
+{
+  create 1579143933
+  modify 1579144903
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	@id==0	)
+grouptype	[ 0	locks=0 ]	(	"points"	)
+computenorms	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"on"	)
+fillhole	[ 0	locks=0 ]	(	"off"	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/blast1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-15
+16
 pointvop1
 attribwrangle2
 attribwrangle4
-attribwrangle5
 pointwrangle2
 color1
 attribwrangle6
@@ -5123,6 +4571,8 @@ switch1
 null1
 output0
 switch2
+blast1
+color2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
