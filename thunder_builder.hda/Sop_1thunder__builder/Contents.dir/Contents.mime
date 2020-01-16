@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.809119 1.70471
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -1.39645 -1.37617
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
@@ -49,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1579163531
-  modify 1579163967
+  create 1579169374
+  modify 1579169430
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -113,7 +112,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579163998
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -821,7 +820,7 @@ ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 freq	[ 0	locks=0 ]	(	[ freq1	10 ] 	[ freq2	10 ] 	[ freq3	10 ] 	[ freq4	10 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	100 ] 	[ offset4	0 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1040,7 +1039,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1159,7 +1158,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1665,7 +1664,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1735,7 +1734,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1842,7 +1841,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1964,7 +1963,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2030,7 +2029,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2196,7 +2195,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579163962
+  modify 1579169425
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2423,7 +2422,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579163961
+  modify 1579169424
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3512,10 +3511,10 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
 bias	[ 8	locks=0 ]	(	[ bias	60 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.32100000000000001 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	10 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	10 ] 	)
+freq	[ 0	locks=0 ]	(	[ freqx	10 ] 	[ freqy	10 ] 	[ freqz	10 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)

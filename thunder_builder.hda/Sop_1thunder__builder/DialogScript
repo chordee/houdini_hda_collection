@@ -85,7 +85,7 @@
             label   "Offset"
             type    float
             size    4
-            default { "0" "0" "100" "0" }
+            default { "0" "0" "0" "0" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -228,7 +228,7 @@
                 label   "Min Branch Step"
                 type    integer
                 default { "5" }
-                range   { 0 10 }
+                range   { 0 20 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
             }
@@ -237,7 +237,7 @@
                 label   "Max Branch Step"
                 type    integer
                 default { "10" }
-                range   { 0 10 }
+                range   { 0 40 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
             }
