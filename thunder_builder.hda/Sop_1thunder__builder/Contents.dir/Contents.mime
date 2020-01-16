@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -9.16334 -8.52483
+position -9.16334 -8.53483
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -52,7 +52,7 @@ inputs
 stat
 {
   create 1579092552
-  modify 1579150456
+  modify 1579159483
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -69,6 +69,10 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
 	}
 }
 
@@ -111,7 +115,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579150602
+  modify 1579159268
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1038,7 +1042,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1157,7 +1161,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1663,7 +1667,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1733,7 +1737,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1840,7 +1844,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1962,7 +1966,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2028,7 +2032,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2194,7 +2198,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579150451
+  modify 1579159061
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2421,7 +2425,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579150450
+  modify 1579159059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2840,14 +2844,14 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.init"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.def"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
@@ -2872,7 +2876,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579150488
+  modify 1579159167
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2882,7 +2886,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.multiparm"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.multiparm"
 Content-Type: text/plain
 
 3
@@ -2891,7 +2895,7 @@ branch_along_step#value ../branch_along_step#value
 branch_along_step#interp ../branch_along_step#interp
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.spareparmdef"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.spareparmdef"
 Content-Type: text/plain
 
     group {
@@ -3161,12 +3165,65 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "branch_root_bias_angle"
+        label   "Branch Root Bias Angle"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "angle_decrease_by_branch_step"
+        label   "Angle Decrease By Branch Step"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.chn"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.chn"
 Content-Type: text/plain
 
 {
+    channel branch_along_step1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step1pos\") }
+    }
+    channel branch_along_step1value {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1value\") }
+    }
+    channel branch_along_step1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1interp\") }
+    }
+    channel branch_along_step2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step2pos\") }
+    }
+    channel branch_along_step2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_along_step2value\") }
+    }
+    channel branch_along_step2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step2interp\") }
+    }
     channel branch {
       lefttype = extend
       righttype = extend
@@ -3294,49 +3351,23 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../branch_along_step\") }
     }
-    channel branch_along_step1pos {
+    channel branch_root_bias_angle {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step1pos\") }
+      segment { length = 0 expr = ch(\"../branch_root_bias_angle\") }
     }
-    channel branch_along_step1value {
+    channel angle_decrease_by_branch_step {
       lefttype = extend
       righttype = extend
-      default = 1
+      default = 0.52600000000000002
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1value\") }
-    }
-    channel branch_along_step1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1interp\") }
-    }
-    channel branch_along_step2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step2pos\") }
-    }
-    channel branch_along_step2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step2value\") }
-    }
-    channel branch_along_step2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step2interp\") }
+      segment { length = 0 value = 0.52600000000000002 0.52600000000000002 expr = ch(\"../angle_decrease_by_branch_step\") }
     }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.parm"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.parm"
 Content-Type: text/plain
 
 {
@@ -3357,11 +3388,15 @@ f@step_distance = step; // detail attribute
 
 addpoint(0, start_pos); // first point
 
+// get parameters 
+
 float bias = radians(abs(chf('bias')));
 float bias2 = chf('branch');
 int min_branch_step = chi('min_branch_step');
 int max_branch_step = chi('max_branch_step');
-
+float branch_root_bias_angle = abs(chf('branch_root_bias_angle'));
+int branch_limited = chi('branch_limited');
+float angle_decrease_by_branch_step = chf('angle_decrease_by_branch_step');
 //initial
 
 vector pos[], dirs[];
@@ -3375,7 +3410,7 @@ append(step_ages, pt_num);
 append(ids ,mnt);
 append(branch_step, 0);
 
-
+// set attributes
 
 setpointattrib(0, 'id', 0, 0, 'set');  
 
@@ -3392,7 +3427,7 @@ for(int i = 1; i < pt_num; i++){
             alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
         }else{
             vector noise_p = pos[j] * chv('freq') + chv('offset');
-            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), {-.5,-.5,-.5}, {.5,.5,.5}, set(-bias, -bias, -bias),set(bias, bias, bias));
+            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), vector(-.5), vector(.5), vector(-bias), vector(bias));
             vector4 temp_q = eulertoquaternion(temp_v, 0);
             alt_dir = qrotate(temp_q, dirs[j]);
         }
@@ -3414,25 +3449,36 @@ for(int i = 1; i < pt_num; i++){
                         
         // Branch 
         
-        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2) && (branch_step[j] < chi('branch_limited'))){
+        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2) && (branch_step[j] < branch_limited)){
             mnt++;
             int newpt = addpoint(0, pos[j]);
             setpointattrib(0, 'id', newpt, mnt, 'set'); 
             setpointattrib(0, 'step', newpt, i, 'set');
             setpointattrib(0, 'branch_step', newpt, branch_step[j]+1, 'set');
             append(pos, pos[j]);
+            
+            // get new direction
             matrix3 mmm = ident();
             rotate(mmm, radians(180), dirs[j]);
             if(chi('push_away') == 1){
                 append(dirs, alt_dir * mmm);
-            }else{
-                append(dirs, alt_dir);
+            }else{            
+                float angle = branch_root_bias_angle;                
+                if(angle_decrease_by_branch_step  > 0){
+                    angle = fit01(angle_decrease_by_branch_step , angle, angle *= (1 - float(branch_step[j]) / (branch_limited)));
+                }
+                vector rotation = fit01(rand(pos[j] * -1), vector(-angle), vector(angle));
+                mmm = maketransform(0, rotation);
+                append(dirs,  alt_dir * mmm);
             }
+            
+            // get new branch step age 
             if(chi('branch_step_extend_along_step') == 1){
                 append(step_ages, int(fit01(chramp('branch_along_step',  float(i)/pt_num), min_branch_step, max_branch_step)));
             }else{
                 append(step_ages, int(fit01(rand(pos[j]), min_branch_step, max_branch_step)));
             }
+            
             append(ids, mnt);
             append(branch_step, branch_step[j]+1);
         }
@@ -3467,7 +3513,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	61.200000000000003 ] 	)
+bias	[ 8	locks=0 ]	(	[ bias	18.199999999999999 ] 	)
 seed	[ 8	locks=0 ]	(	[ seed	0.32800000000000001 ] 	)
 min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
 max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
@@ -3478,19 +3524,21 @@ atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
 branch	[ 0	locks=0 ]	(	[ branch	0.193 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
-branch_limited	[ 0	locks=0 ]	(	[ branch_limited	2 ] 	)
+branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
 branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
 branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
 branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
-branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
 branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
 branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
 branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
+branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
+branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	59.399999999999999 ] 	)
+angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle2.userdata"
+Content-Disposition: attachment; filename="hdaroot/attribwrangle0.userdata"
 Content-Type: text/plain
 
 {
@@ -3690,7 +3738,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.15871 3.01746
+position 6.88318 3.17876
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3710,7 +3758,7 @@ inputs
 stat
 {
   create 1579088927
-  modify 1579092421
+  modify 1579152882
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3781,7 +3829,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 9.07775 -14.3726
+position 6.7459 -13.7858
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3801,7 +3849,7 @@ inputs
 stat
 {
   create 1579089279
-  modify 1579143900
+  modify 1579152887
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3915,11 +3963,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle2 2 1 "input1"
+0 	attribwrangle0 2 1 "input1"
 }
 inputs
 {
-0 	attribwrangle2 0 1
+0 	attribwrangle0 0 1
 }
 stat
 {
@@ -4325,7 +4373,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.252533 -18.22
+position 0.118782 -18.2671
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4342,7 +4390,7 @@ inputs
 stat
 {
   create 1579090339
-  modify 1579147842
+  modify 1579152875
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4384,7 +4432,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.252533 -15.191
+position 0.118782 -15.2381
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4404,7 +4452,7 @@ inputs
 stat
 {
   create 1579090365
-  modify 1579145679
+  modify 1579152875
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4468,11 +4516,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	attribwrangle2 2 1 "input1"
+0 	attribwrangle0 2 1 "input1"
 }
 inputs
 {
-0 	attribwrangle2 0 1
+0 	attribwrangle0 0 1
 }
 stat
 {
@@ -4524,7 +4572,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.255983 -16.6157
+position 0.115332 -16.6628
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4542,7 +4590,7 @@ inputs
 stat
 {
   create 1579147841
-  modify 1579147860
+  modify 1579152875
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4585,7 +4633,7 @@ Content-Type: text/plain
 
 15
 pointvop1
-attribwrangle2
+attribwrangle0
 attribwrangle4
 pointwrangle2
 attribwrangle6

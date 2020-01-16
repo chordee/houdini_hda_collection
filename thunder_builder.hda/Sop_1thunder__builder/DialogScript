@@ -175,109 +175,147 @@
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
-        parm {
-            name    "push_away"
-            label   "Push Away"
-            type    toggle
-            default { "0" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
+        groupsimple {
+            name    "folder1"
+            label   "Angle"
+
+            parm {
+                name    "push_away"
+                label   "Push Away"
+                type    toggle
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "branch_root_bias_angle"
+                label   "Branch Root Bias Angle"
+                type    float
+                default { "30" }
+                disablewhen "{ push_away == 1 }"
+                range   { 0 180 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "angle_decrease_by_branch_step"
+                label   "Angle Decrease By Branch Step"
+                type    float
+                default { "0.526" }
+                disablewhen "{ push_away == 1 }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "bias"
+                label   "Bias Angle"
+                type    float
+                default { "60" }
+                range   { 0 180 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
         }
-        parm {
-            name    "bias"
-            label   "Bias Angle"
-            type    float
-            default { "60" }
-            range   { 0 180 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
+
+        groupsimple {
+            name    "folder2"
+            label   "Branch Step"
+
+            parm {
+                name    "min_branch_step"
+                label   "Min Branch Step"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "max_branch_step"
+                label   "Max Branch Step"
+                type    integer
+                default { "10" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "branch_step_extend_along_step"
+                label   "Branch Step Extend Along Step"
+                type    toggle
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "branch_along_step"
+                label   "Branch Along Step"
+                type    ramp_flt
+                default { "2" }
+                disablewhen "{ branch_step_extend_along_step == 0 }"
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 0 ) 2interp ( linear )" }
+                parmtag { "script_callback_language" "python" }
+            }
         }
-        parm {
-            name    "min_branch_step"
-            label   "Min Branch Step"
-            type    integer
-            default { "5" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
+
+        groupsimple {
+            name    "folder3"
+            label   "Noise"
+
+            parm {
+                name    "freq5"
+                label   "Freq"
+                type    vector
+                size    3
+                default { "10" "10" "10" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "offset5"
+                label   "Offset"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "turb"
+                label   "Turb"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rough2"
+                label   "Rough"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "atten"
+                label   "Atten"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
         }
-        parm {
-            name    "max_branch_step"
-            label   "Max Branch Step"
-            type    integer
-            default { "10" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "branch_step_extend_along_step"
-            label   "Branch Step Extend Along Step"
-            type    toggle
-            default { "0" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "branch_along_step"
-            label   "Branch Along Step"
-            type    ramp_flt
-            default { "2" }
-            disablewhen "{ branch_step_extend_along_step == 0 }"
-            range   { 1! 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 0 ) 2interp ( linear )" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "freq5"
-            label   "Freq"
-            type    vector
-            size    3
-            default { "10" "10" "10" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "offset5"
-            label   "Offset"
-            type    vector
-            size    3
-            default { "0" "0" "0" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "turb"
-            label   "Turb"
-            type    integer
-            default { "5" }
-            range   { 0 10 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "rough2"
-            label   "Rough"
-            type    float
-            default { "0.5" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
-        parm {
-            name    "atten"
-            label   "Atten"
-            type    float
-            default { "1" }
-            range   { 0 1 }
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "script_callback_language" "python" }
-        }
+
     }
 
     parm {
