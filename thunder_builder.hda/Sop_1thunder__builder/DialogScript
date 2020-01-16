@@ -202,7 +202,7 @@
                 name    "angle_decrease_by_branch_step"
                 label   "Angle Decrease By Branch Step"
                 type    float
-                default { "0.526" }
+                default { "0.5" }
                 disablewhen "{ push_away == 1 }"
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
