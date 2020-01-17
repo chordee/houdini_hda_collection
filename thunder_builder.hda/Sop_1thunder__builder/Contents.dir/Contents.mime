@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.81376 -0.974197
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.16461 -0.505487
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
@@ -48,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1579171422
-  modify 1579172814
+  create 1579242199
+  modify 1579242577
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -112,7 +113,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579172845
+  modify 1579242608
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -804,7 +805,7 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	60 ] 	)
+val	[ 0	locks=0 ]	(	[ val	72.5 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
@@ -819,7 +820,7 @@ ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
 ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	10 ] 	[ freq2	10 ] 	[ freq3	10 ] 	[ freq4	10 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	20 ] 	[ freq2	20 ] 	[ freq3	20 ] 	[ freq4	10 ] 	)
 offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
 }
 
@@ -1039,7 +1040,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1158,7 +1159,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1664,7 +1665,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1734,7 +1735,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1841,7 +1842,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1963,7 +1964,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2029,7 +2030,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2195,7 +2196,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579172809
+  modify 1579242572
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2422,7 +2423,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579172808
+  modify 1579242571
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2873,7 +2874,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579172810
+  modify 1579242293
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3492,7 +3493,7 @@ for(int i = 1; i < pt_num; i++){
                 age = int(fit01(rand(pos[j]), min_branch_step, max_branch_step));
             }
             
-            age = int(lerp(age, fit01((branch_step[j]+1 / branch_limited), max_branch_step, min_branch_step), branch_extend_by_branch_step));
+            age = int(lerp(age, fit01((branch_step[j]+1 / branch_limited), age, min_branch_step), branch_extend_by_branch_step));
             
             append(step_ages, age);
             
@@ -3530,10 +3531,10 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	43.5 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.26100000000000001 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	2 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
+bias	[ 8	locks=0 ]	(	[ bias	81.599999999999994 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.111 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	33 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	30 ] 	[ freqy	30 ] 	[ freqz	30 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
@@ -3544,15 +3545,15 @@ push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 branch_limited	[ 0	locks=0 ]	(	[ branch_limited	5 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
 branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
-branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
+branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	0 ] 	)
 branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
-branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
-branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
-branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
 branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	1 ] 	)
-branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	41 ] 	)
+branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	40 ] 	)
 angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	0.5 ] 	)
-branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0 ] 	)
+branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0.76100000000000001 ] 	)
+branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
+branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0.99399999999999999 ] 	)
+branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4385,7 +4386,7 @@ measure	[ 0	locks=0 ]	(	"arc"	)
 dolength	[ 0	locks=0 ]	(	"off"	)
 length	[ 0	locks=0 ]	(	0.10000000000000001	)
 dosegs	[ 0	locks=0 ]	(	"on"	)
-segs	[ 8	locks=0 ]	(	[ segs	100 ] 	)
+segs	[ 8	locks=0 ]	(	[ segs	300 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
 allequal	[ 0	locks=0 ]	(	"on"	)
 last	[ 0	locks=0 ]	(	"off"	)
@@ -4999,7 +5000,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	124 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	148 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
