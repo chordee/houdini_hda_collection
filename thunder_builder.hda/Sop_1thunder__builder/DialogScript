@@ -74,7 +74,7 @@
             label   "Frequency"
             type    float
             size    4
-            default { "10" "10" "10" "10" }
+            default { "2" "2" "2" "2" }
             range   { 0 10 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "parmvop" "1" }
@@ -212,7 +212,7 @@
                 name    "bias"
                 label   "Bias Angle"
                 type    float
-                default { "60" }
+                default { "40" }
                 range   { 0 180 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
@@ -281,7 +281,7 @@
                 label   "Freq"
                 type    vector
                 size    3
-                default { "10" "10" "10" }
+                default { "20" "20" "20" }
                 range   { 0 1 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
