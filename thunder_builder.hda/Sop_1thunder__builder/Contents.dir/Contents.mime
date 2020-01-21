@@ -32,11 +32,12 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.53555 -0.92357
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -1.44281 -0.103632
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
@@ -48,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1579598861
-  modify 1579601423
+  create 1579601387
+  modify 1579601710
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -112,7 +113,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579600886
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1039,7 +1040,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1158,7 +1159,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1664,7 +1665,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1734,7 +1735,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1841,7 +1842,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1963,7 +1964,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2029,7 +2030,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2195,7 +2196,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579600850
+  modify 1579601639
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2422,7 +2423,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579600849
+  modify 1579601638
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3603,15 +3604,15 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
 bias	[ 8	locks=0 ]	(	[ bias	40 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.372 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	6 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	40 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.16600000000000001 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	24 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.10000000000000001 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.14999999999999999 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
@@ -4010,7 +4011,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115782 -23.7642
+position 1.91193 -40.8437
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4030,7 +4031,7 @@ inputs
 stat
 {
   create 1579162462
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4102,7 +4103,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115782 -24.842
+position 1.91193 -41.9215
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4120,7 +4121,7 @@ inputs
 stat
 {
   create 1579162759
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4183,7 +4184,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.37485 -34.2815
+position 4.16635 -21.0869
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4203,7 +4204,7 @@ inputs
 stat
 {
   create 1579594610
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4456,7 +4457,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.37485 -37.4368
+position 4.16635 -24.2422
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4474,7 +4475,7 @@ inputs
 stat
 {
   create 1579595047
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4536,7 +4537,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12043 -48.5797
+position 1.91193 -47.1707
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4554,7 +4555,7 @@ inputs
 stat
 {
   create 1579595741
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5274,9 +5275,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12343 -50.5269
+position 1.91493 -48.2086
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -5291,7 +5292,7 @@ inputs
 stat
 {
   create 1579090339
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5541,7 +5542,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -26.9263
+position 1.91653 -44.0058
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5559,7 +5560,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5709,7 +5710,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	84 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	155 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
@@ -5751,7 +5752,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -19.429
+position 1.91653 -36.5085
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5769,7 +5770,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5815,7 +5816,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.07976 -19.3462
+position 5.87591 -36.4257
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5830,7 +5831,7 @@ inputs
 stat
 {
   create 1579162287
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5876,7 +5877,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -20.469
+position 1.91493 -37.5485
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5895,7 +5896,7 @@ inputs
 stat
 {
   create 1579162291
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5982,7 +5983,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.63054 -22.0586
+position 4.42669 -39.1381
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6000,7 +6001,7 @@ inputs
 stat
 {
   create 1579162373
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6043,7 +6044,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -28.012
+position 1.91653 -45.0915
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6061,7 +6062,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6107,7 +6108,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -16.5662
+position 1.91653 -33.6457
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6116,16 +6117,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	attribpromote1 1 1 "input1"
+1 	compile_end3 1 1 "input1"
 }
 inputs
 {
-0 	attribpromote1 0 1
+0 	compile_end3 0 1
 }
 stat
 {
   create 1579163325
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6170,7 +6171,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115332 -25.8799
+position 1.91148 -42.9594
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6188,7 +6189,7 @@ inputs
 stat
 {
   create 1579163373
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6234,7 +6235,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -18.2906
+position 1.91493 -35.3701
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6252,7 +6253,7 @@ inputs
 stat
 {
   create 1579170408
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6295,7 +6296,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12503 -42.3787
+position 1.91653 -29.1841
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6313,7 +6314,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6371,7 +6372,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12503 -32.1022
+position 1.91653 -18.9076
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6389,7 +6390,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579627642
+  modify 1579627645
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6435,7 +6436,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.3744 -35.3244
+position 4.1659 -22.1298
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6453,7 +6454,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6503,7 +6504,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.3744 -36.4591
+position 4.1659 -23.2645
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6521,7 +6522,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6571,7 +6572,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.08929 -32.108
+position -1.29779 -18.9134
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6589,7 +6590,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6635,7 +6636,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.09434 -33.1051
+position -1.30284 -19.9105
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6653,7 +6654,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6703,7 +6704,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12343 -40.0225
+position 1.91493 -26.8279
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6725,7 +6726,7 @@ inputs
 stat
 {
   create 1579594968
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6809,7 +6810,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.854779 -35.8191
+position 0.646277 -22.6245
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6825,7 +6826,7 @@ inputs
 stat
 {
   create 1579594975
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6868,7 +6869,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.37785 -38.6618
+position 4.16935 -25.4672
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6886,7 +6887,7 @@ inputs
 stat
 {
   create 1579595276
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7067,7 +7068,7 @@ group	[ 0	locks=0 ]	(	""	)
 firstu	[ 0	locks=0 ]	(	"on"	)
 domainu1	[ 0	locks=0 ]	(	0	)
 secondu	[ 0	locks=0 ]	(	"on"	)
-domainu2	[ 8	locks=0 ]	(	[ domainu2	0.5 ] 	)
+domainu2	[ 8	locks=0 ]	(	[ domainu2	0.99500000476837158 ] 	)
 firstv	[ 0	locks=0 ]	(	"off"	)
 domainv1	[ 0	locks=0 ]	(	0.25	)
 secondv	[ 0	locks=0 ]	(	"off"	)
@@ -7111,9 +7112,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.12503 -44.4688
+position 1.91653 -31.2742
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -7129,7 +7130,7 @@ inputs
 stat
 {
   create 1579595636
-  modify 1579600707
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7175,7 +7176,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.328884 -30.8109
+position 0.120382 -17.6163
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7184,16 +7185,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	compile_end1 1 1 "input1"
+1 	attribpromote1 1 1 "input1"
 }
 inputs
 {
-0 	compile_end1 0 1
+0 	attribpromote1 0 1
 }
 stat
 {
   create 1579595636
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7238,7 +7239,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.11998 -46.4865
+position 1.91148 -46.1308
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7247,16 +7248,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	compile_end3 1 1 "input1"
+0 	compile_end1 1 1 "input1"
 }
 inputs
 {
-0 	compile_end3 0 1
+0 	compile_end1 0 1
 }
 stat
 {
   create 1579595978
-  modify 1579600029
+  modify 1579601612
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
