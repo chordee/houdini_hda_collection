@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.68464 0.00820423
+position -1.53555 -0.92357
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -48,24 +48,10 @@ inputs
 }
 stat
 {
-  create 1579325421
-  modify 1579325456
-  author chordee@DESKTOP-N1KNDFA
+  create 1579598861
+  modify 1579601423
+  author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -92,8 +78,8 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 2
-0 0 7.6545971071195291 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 6.8861832474235136 7.5310677054806821 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+0 2.8622937353617317e-16 9.3602403382816526 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 6.8861832474235136 9.2367109366428046 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.init"
@@ -108,7 +94,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00345 -1.32891
+position -0.00345 0.37673
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -126,23 +112,9 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579325486
+  modify 1579600886
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -847,7 +819,7 @@ ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
 ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	10 ] 	[ freq2	10 ] 	[ freq3	10 ] 	[ freq4	10 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	2 ] 	[ freq2	2 ] 	[ freq3	2 ] 	[ freq4	2 ] 	)
 offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
 }
 
@@ -858,7 +830,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -893,20 +865,6 @@ stat
   modify 1579090567
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -972,20 +930,6 @@ stat
   modify 1579072370
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -1095,23 +1039,9 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -1228,23 +1158,9 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -1353,20 +1269,6 @@ stat
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
-}
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
@@ -1423,20 +1325,6 @@ stat
   modify 1579090457
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 1 1 0.4 
 delscript ""
@@ -1532,7 +1420,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -1569,20 +1457,6 @@ stat
   modify 1579090457
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -1660,20 +1534,6 @@ stat
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
-}
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
@@ -1743,20 +1603,6 @@ stat
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
-}
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
@@ -1818,23 +1664,9 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -1902,23 +1734,9 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.6 1 
 delscript ""
@@ -1990,7 +1808,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2023,23 +1841,9 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.6 1 
 delscript ""
@@ -2111,7 +1915,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2159,23 +1963,9 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -2239,23 +2029,9 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -2312,20 +2088,6 @@ stat
   modify 1579085059
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.6 1 
 delscript ""
@@ -2397,7 +2159,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2433,23 +2195,9 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579325447
+  modify 1579600850
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -2471,7 +2219,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2508,20 +2256,6 @@ stat
   modify 1579080226
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 1 1 0.4 
 delscript ""
@@ -2574,7 +2308,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2624,20 +2358,6 @@ stat
   modify 1579083028
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -2702,23 +2422,9 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579325446
+  modify 1579600849
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -2775,20 +2481,6 @@ stat
   modify 1579090833
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 1 1 0.4 
 delscript ""
@@ -2884,7 +2576,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -2919,20 +2611,6 @@ stat
   modify 1579090833
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 1 1 0.4 
 delscript ""
@@ -3028,7 +2706,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -3063,20 +2741,6 @@ stat
   modify 1579090833
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 1 1 0.4 
 delscript ""
@@ -3172,7 +2836,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -3211,20 +2875,6 @@ stat
   modify 1579325449
   author chordee@DESKTOP-N1KNDFA
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -3265,7 +2915,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115782 -3.40168
+position -0.003 -1.69604
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -3285,23 +2935,9 @@ inputs
 stat
 {
   create 1579072461
-  modify 1579242293
+  modify 1579600693
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -3855,7 +3491,8 @@ setpointattrib(0, 'id', 0, 0, 'set');
 // here we go
  
 for(int i = 1; i < pt_num; i++){
-    for(int j = 0; j < len(pos); j++){
+    int k = len(pos);
+    for(int j = 0; j < k; j++){
     
         vector alt_dir = {0,0,0}; // initial alt_dir
         
@@ -3929,6 +3566,12 @@ for(int i = 1; i < pt_num; i++){
         step_ages[j] -= 1;
         
         // stop grow
+
+        
+    }
+
+    k = len(pos);
+    for(int j = 0; j < k; j++){
         if(step_ages[j] < 0){
             // remove frome array 
             removeindex(pos, j);
@@ -3936,7 +3579,10 @@ for(int i = 1; i < pt_num; i++){
             removeindex(step_ages, j);
             removeindex(ids, j);
             removeindex(branch_step, j);
+            j--;
+            k--;
         }
+
     }
 }
 
@@ -3956,28 +3602,28 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	60 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	10 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	10 ] 	[ freqy	10 ] 	[ freqz	10 ] 	)
+bias	[ 8	locks=0 ]	(	[ bias	40 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.372 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	6 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	40 ] 	)
+freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.14999999999999999 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.10000000000000001 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
 branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
-branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	0 ] 	)
+branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
 branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
 branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
 branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	30 ] 	)
 angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	0.5 ] 	)
 branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0 ] 	)
 branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
-branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0.99399999999999999 ] 	)
+branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
 branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
 }
 
@@ -4005,7 +3651,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.74272 -7.93556
+position 3.74272 -6.22992
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4025,23 +3671,9 @@ inputs
 stat
 {
   create 1579088927
-  modify 1579143980
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4108,7 +3740,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.6381 -10.9591
+position 3.6381 -9.2535
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4128,23 +3760,9 @@ inputs
 stat
 {
   create 1579089279
-  modify 1579144376
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4210,7 +3828,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.88318 3.17876
+position 6.88318 4.8844
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4230,23 +3848,9 @@ inputs
 stat
 {
   create 1579088927
-  modify 1579152882
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4315,7 +3919,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 6.7459 -13.7858
+position 6.7459 -12.0802
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4335,23 +3939,9 @@ inputs
 stat
 {
   create 1579089279
-  modify 1579152887
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4420,7 +4010,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115782 -25.4698
+position 0.115782 -23.7642
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4440,23 +4030,9 @@ inputs
 stat
 {
   create 1579162462
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4526,7 +4102,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115782 -26.5476
+position 0.115782 -24.842
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4544,23 +4120,9 @@ inputs
 stat
 {
   create 1579162759
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4599,6 +4161,643 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointwrangle4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.37485 -34.2815
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_begin2 0 1 "input1"
+2 	attribpromote4 1 1 "input2"
+}
+inputs
+{
+0 	foreach_begin2 0 1
+1 	attribpromote4 0 1
+}
+stat
+{
+  create 1579594610
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "breakpt"
+        label   "Breakpt"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.chn"
+Content-Type: text/plain
+
+{
+    channel breakpt {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../growthing\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"float breakpt = chf('breakpt');
+int all_max_step = detail(1, 'max_step');
+
+f@breakpt = fit(breakpt, 0, 1, 0, all_max_step) ; "	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+breakpt	[ 0	locks=0 ]	(	[ breakpt	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle7.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.37485 -37.4368
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote3 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote3 0 1
+}
+stat
+{
+  create 1579595047
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	" f@carve_pos = fit(f@breakpt, f@min_step, f@max_step, 0, 1);
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle8.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.12043 -48.5797
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribdelete2 1 1 "input1"
+}
+inputs
+{
+0 	attribdelete2 0 1
+}
+stat
+{
+  create 1579595741
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "breakpt"
+        label   "Breakpt"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "max_step"
+        label   "Max Step"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.chn"
+Content-Type: text/plain
+
+{
+    channel breakpt {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../attribwrangle7/breakpt\") }
+    }
+    channel max_step {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../resample4/segs\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"float breakpt = chf('breakpt');
+int all_max_step = chi('max_step');
+
+f@breakpt = fit(breakpt, 0, 1, 0, all_max_step); "	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+breakpt	[ 8	locks=0 ]	(	[ breakpt	1 ] 	)
+max_step	[ 8	locks=0 ]	(	[ max_step	150 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle9.userdata"
 Content-Type: text/plain
 
 {
@@ -4656,7 +4855,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -9.43075
+position 0.118782 -7.72511
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4674,23 +4873,9 @@ inputs
 stat
 {
   create 1579075805
-  modify 1579143900
+  modify 1579600707
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4731,7 +4916,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -4748,7 +4933,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.77556e-17 1.0836
+position 2.58474e-16 2.78924
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4766,23 +4951,9 @@ inputs
 stat
 {
   create 1579072247
-  modify 1579146186
+  modify 1579600189
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4852,7 +5023,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -4869,7 +5040,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.77556e-17 3.17976
+position 2.58474e-16 4.8854
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4887,23 +5058,9 @@ inputs
 stat
 {
   create 1579071957
-  modify 1579146182
+  modify 1579600185
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -4938,7 +5095,7 @@ measure	[ 0	locks=0 ]	(	"arc"	)
 dolength	[ 0	locks=0 ]	(	"off"	)
 length	[ 0	locks=0 ]	(	0.10000000000000001	)
 dosegs	[ 0	locks=0 ]	(	"on"	)
-segs	[ 8	locks=0 ]	(	[ segs	100 ] 	)
+segs	[ 8	locks=0 ]	(	[ segs	150 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
 allequal	[ 0	locks=0 ]	(	"on"	)
 last	[ 0	locks=0 ]	(	"off"	)
@@ -4963,7 +5120,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -4980,7 +5137,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -12.1137
+position 0.118782 -10.4081
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5000,23 +5157,9 @@ inputs
 stat
 {
   create 1579089462
-  modify 1579143900
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 1 0.7 
 delscript ""
@@ -5053,7 +5196,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5070,7 +5213,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0 5.2176
+position 2.86229e-16 6.92324
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5088,23 +5231,9 @@ inputs
 stat
 {
   create 1579089958
-  modify 1579089975
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
@@ -5128,7 +5257,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5145,40 +5274,26 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -30.7569
+position 2.12343 -50.5269
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	compile_end1 1 1 "input1"
+0 	attribwrangle9 1 1 "input1"
 }
 inputs
 {
-0 	compile_end1 0 1
+0 	attribwrangle9 0 1
 }
 stat
 {
   create 1579090339
-  modify 1579172534
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -5201,7 +5316,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5218,7 +5333,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -15.2381
+position 0.118782 -13.5325
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5238,23 +5353,9 @@ inputs
 stat
 {
   create 1579090365
-  modify 1579152875
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 1 0.7 
 delscript ""
@@ -5290,7 +5391,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5307,7 +5408,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.02241 -5.63462
+position 5.02241 -3.92898
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5325,23 +5426,9 @@ inputs
 stat
 {
   create 1579143933
-  modify 1579171628
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -5369,7 +5456,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5386,7 +5473,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115332 -16.5615
+position 0.115332 -14.8559
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5404,23 +5491,9 @@ inputs
 stat
 {
   create 1579147841
-  modify 1579171503
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -5451,7 +5524,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5468,7 +5541,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -28.6319
+position 0.120382 -26.9263
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5486,23 +5559,9 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.75 0.4 0 
 delscript ""
@@ -5650,7 +5709,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	27 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	84 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
@@ -5675,7 +5734,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5692,7 +5751,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -21.1346
+position 0.120382 -19.429
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5710,23 +5769,9 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.75 0.4 0 
 delscript ""
@@ -5753,7 +5798,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5770,7 +5815,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.07976 -21.1346
+position 4.07976 -19.3462
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5785,23 +5830,9 @@ inputs
 stat
 {
   create 1579162287
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.75 0.4 0 
 delscript ""
@@ -5828,7 +5859,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -5845,7 +5876,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -22.1746
+position 0.118782 -20.469
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5864,23 +5895,9 @@ inputs
 stat
 {
   create 1579162291
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -5965,7 +5982,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.63054 -23.7642
+position 2.63054 -22.0586
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5983,23 +6000,9 @@ inputs
 stat
 {
   create 1579162373
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
@@ -6023,7 +6026,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -6040,7 +6043,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -29.7176
+position 0.120382 -28.012
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6058,23 +6061,9 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579172518
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.75 0.75 0 
 delscript ""
@@ -6101,7 +6090,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -6118,7 +6107,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -18.2718
+position 0.120382 -16.5662
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6136,23 +6125,9 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579171498
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.75 0.75 0 
 delscript ""
@@ -6178,7 +6153,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
 	}
 }
 
@@ -6195,7 +6170,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.115332 -27.5855
+position 0.115332 -25.8799
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6213,23 +6188,9 @@ inputs
 stat
 {
   create 1579163373
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
@@ -6273,7 +6234,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -19.9962
+position 0.118782 -18.2906
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6291,23 +6252,9 @@ inputs
 stat
 {
   create 1579170408
-  modify 1579171604
+  modify 1579600029
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
-}
-license
-{
-  id       f2606753
-  keyhole  QqcXmzSePHg35nbj@zc5943sy7bEK2wToKbXTT96tzdtrd+oGyH@3JqMTDCuD5W+AzBWBuDtgCA5M7
-  key      000000010000000100000012000000001002074393DESKTOP-N1KNDFA*.*.*.*f2606753
-  product  Houdini-Master
-  platform Generic
-  expires  2025-12-25
-  major    18
-  minor    0
-  count    100
-  ipmask   *.*.*.*
-  server	  DESKTOP-N1KNDFA
 }
 color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
@@ -6331,7 +6278,1014 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.287"
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.init"
+Content-Type: text/plain
+
+type = block_end
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.12503 -42.3787
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch3 1 1 "input1"
+}
+inputs
+{
+0 	switch3 0 1
+}
+stat
+{
+  create 1579594484
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+itermethod	[ 0	locks=0 ]	(	"pieces"	)
+method	[ 0	locks=0 ]	(	"merge"	)
+iterations	[ 0	locks=0 ]	(	10	)
+startvalue	[ 0	locks=0 ]	(	1	)
+increment	[ 0	locks=0 ]	(	1	)
+class	[ 0	locks=0 ]	(	"primitive"	)
+useattrib	[ 0	locks=0 ]	(	"off"	)
+attrib	[ 0	locks=0 ]	(	""	)
+usemaxiter	[ 0	locks=0 ]	(	"off"	)
+maxiter	[ 0	locks=0 ]	(	10	)
+blockpath	[ 0	locks=0 ]	(	../foreach_begin2	)
+templatepath	[ 0	locks=0 ]	(	../foreach_begin2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+dosinglepass	[ 0	locks=0 ]	(	"off"	)
+singlepass	[ 0	locks=0 ]	(	0	)
+stopcondition	[ 0	locks=0 ]	(	0	)
+multithread	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.init"
+Content-Type: text/plain
+
+type = block_begin
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.12503 -32.1022
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	compile_begin3 0 1 "input1"
+}
+inputs
+{
+0 	compile_begin3 0 1
+}
+stat
+{
+  create 1579594484
+  modify 1579627642
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"piece"	)
+blockpath	[ 0	locks=0 ]	(	../foreach_end2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+createmetablock	[ 0	locks=0 ]	(	0	)
+label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote2.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.3744 -35.3244
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribwrangle7 1 1 "input1"
+}
+inputs
+{
+0 	attribwrangle7 0 1
+}
+stat
+{
+  create 1579594550
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	step	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"max"	)
+useoutname	[ 0	locks=0 ]	(	"on"	)
+outname	[ 0	locks=0 ]	(	max_step	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote3.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.3744 -36.4591
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote2 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote2 0 1
+}
+stat
+{
+  create 1579594550
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	step	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"min"	)
+useoutname	[ 0	locks=0 ]	(	"on"	)
+outname	[ 0	locks=0 ]	(	min_step	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin3.init"
+Content-Type: text/plain
+
+type = block_begin
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.08929 -32.108
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	compile_begin3 0 1 "input1"
+}
+inputs
+{
+0 	compile_begin3 0 1
+}
+stat
+{
+  create 1579594484
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"input"	)
+blockpath	[ 0	locks=0 ]	(	../foreach_end2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+createmetablock	[ 0	locks=0 ]	(	0	)
+label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote4.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote4.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.09434 -33.1051
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_begin3 0 1 "input1"
+}
+inputs
+{
+0 	foreach_begin3 0 1
+}
+stat
+{
+  create 1579594550
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	step	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"detail"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"max"	)
+useoutname	[ 0	locks=0 ]	(	"on"	)
+outname	[ 0	locks=0 ]	(	max_step	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.12343 -40.0225
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	null4 0 1 "input1"
+0 	foreach_begin2 0 1 "input2"
+3 	carve1 1 1 "input3"
+}
+inputs
+{
+0 	null4 0 1
+1 	foreach_begin2 0 1
+2 	carve1 0 1
+}
+stat
+{
+  create 1579594968
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "input"
+        baseparm
+        label   "Select Input"
+        export  all
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "{
+    if(detail(-1, 'carve_pos', 0) == 0){
+        return 0;
+    }else if(detail(-1, 'carve_pos', 0) == 1){
+        return 1;
+    }else{
+        return 2;
+    }
+}" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../attribwrangle8	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null4.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null4.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.854779 -35.8191
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1579594975
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null4.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/null4.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.init"
+Content-Type: text/plain
+
+type = carve
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.37785 -38.6618
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribwrangle8 1 1 "input1"
+}
+inputs
+{
+0 	attribwrangle8 0 1
+}
+stat
+{
+  create 1579595276
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "group"
+        baseparm
+        label   "Group"
+        export  none
+        bindselector prims "Carve Primitives"
+            "Select the faces and/or hulls to carve and press Enter to complete."
+            0 1 0x000000ff 0 "" 0
+    }
+    parm {
+        name    "firstu"
+        baseparm
+        label   "First U"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "domainu1"
+        baseparm
+        label   "First U"
+        export  none
+    }
+    parm {
+        name    "secondu"
+        baseparm
+        label   "Second U"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "domainu2"
+        baseparm
+        label   "Second U"
+        export  none
+    }
+    parm {
+        name    "firstv"
+        baseparm
+        label   "First V"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "domainv1"
+        baseparm
+        label   "First V"
+        export  none
+    }
+    parm {
+        name    "secondv"
+        baseparm
+        label   "Second V"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "domainv2"
+        baseparm
+        label   "Second V"
+        export  none
+    }
+    groupradio {
+        name    "onlybreakpoints3"
+        label   "Divisions"
+
+        parm {
+            name    "divsu"
+            baseparm
+            label   "U Divisions"
+            export  none
+        }
+        parm {
+            name    "divsv"
+            baseparm
+            label   "V Divisions"
+            export  none
+        }
+    }
+
+    groupradio {
+        name    "onlybreakpoints3_1"
+        label   "Breakpoints"
+        tabbreak
+
+        parm {
+            name    "allubreakpoints"
+            baseparm
+            label   "Cut At All Internal U Breakpoints"
+            export  none
+        }
+        parm {
+            name    "allvbreakpoints"
+            baseparm
+            label   "Cut At All Internal V Breakpoints"
+            export  none
+        }
+    }
+
+    groupradio {
+        name    "stdswitcher3"
+        label   "Cut"
+
+        parm {
+            name    "keepin"
+            baseparm
+            label   "Keep Inside"
+            export  none
+        }
+        parm {
+            name    "keepout"
+            baseparm
+            label   "Keep Outside"
+            export  none
+        }
+    }
+
+    groupradio {
+        name    "stdswitcher3_1"
+        label   "Extract"
+
+        parm {
+            name    "extractop"
+            baseparm
+            label   "Extract Type"
+            export  none
+        }
+        parm {
+            name    "keepOriginal"
+            baseparm
+            label   "Keep Original"
+            export  none
+        }
+    }
+
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.chn"
+Content-Type: text/plain
+
+{
+    channel domainu2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = "detail(-1, 'carve_pos', 0)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+firstu	[ 0	locks=0 ]	(	"on"	)
+domainu1	[ 0	locks=0 ]	(	0	)
+secondu	[ 0	locks=0 ]	(	"on"	)
+domainu2	[ 8	locks=0 ]	(	[ domainu2	0.5 ] 	)
+firstv	[ 0	locks=0 ]	(	"off"	)
+domainv1	[ 0	locks=0 ]	(	0.25	)
+secondv	[ 0	locks=0 ]	(	"off"	)
+domainv2	[ 0	locks=0 ]	(	0.75	)
+onlybreakpoints	[ 0	locks=0 ]	(	"off"	"off"	)
+divsu	[ 0	locks=0 ]	(	2	)
+divsv	[ 0	locks=0 ]	(	2	)
+allubreakpoints	[ 0	locks=0 ]	(	"off"	)
+allvbreakpoints	[ 0	locks=0 ]	(	"off"	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+keepin	[ 0	locks=0 ]	(	"on"	)
+keepout	[ 0	locks=0 ]	(	"off"	)
+extractop	[ 0	locks=0 ]	(	"xisoparm"	)
+keepOriginal	[ 0	locks=0 ]	(	"off"	)
+onlybreakpoints3	[ 0	locks=0 ]	(	0	0	)
+stdswitcher3	[ 0	locks=0 ]	(	0	0	)
+spare_input0	[ 0	locks=0 ]	(	../attribwrangle8	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/carve1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_end3.init"
+Content-Type: text/plain
+
+type = compile_end
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_end3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.12503 -44.4688
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_end2 1 1 "input1"
+}
+inputs
+{
+0 	foreach_end2 0 1
+}
+stat
+{
+  create 1579595636
+  modify 1579600707
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.75 0.75 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_end3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+docompile	[ 0	locks=0 ]	(	"on"	)
+unload	[ 0	locks=0 ]	(	"always"	)
+primarypath	[ 0	locks=0 ]	(	""	)
+forcerecompile	[ 0	locks=0 ]	(	0	)
+delayillegal	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_end3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_begin3.init"
+Content-Type: text/plain
+
+type = compile_begin
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_begin3.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.328884 -30.8109
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	compile_end1 1 1 "input1"
+}
+inputs
+{
+0 	compile_end1 0 1
+}
+stat
+{
+  create 1579595636
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.75 0.75 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_begin3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+blockpath	[ 0	locks=0 ]	(	../compile_end3	)
+name	[ 0	locks=0 ]	(	""	)
+optional	[ 0	locks=0 ]	(	"off"	)
+createbeginblock	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/compile_begin3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.11998 -46.4865
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	compile_end3 1 1 "input1"
+}
+inputs
+{
+0 	compile_end3 0 1
+}
+stat
+{
+  create 1579595978
+  modify 1579600029
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+ptdel	[ 0	locks=0 ]	(	""	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+primdel	[ 0	locks=0 ]	(	""	)
+dtldel	[ 0	locks=0 ]	(	"carve_pos min_step"	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -6339,7 +7293,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-26
+41
 pointvop1
 attribwrangle0
 attribwrangle4
@@ -6366,6 +7320,21 @@ compile_end1
 compile_begin1
 attribdelete1
 null3
+foreach_end2
+foreach_begin2
+attribpromote2
+attribpromote3
+attribwrangle7
+foreach_begin3
+attribpromote4
+switch3
+null4
+attribwrangle8
+carve1
+compile_end3
+compile_begin3
+attribwrangle9
+attribdelete2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
