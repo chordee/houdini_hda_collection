@@ -14,6 +14,8 @@ Vop/geometryvopglobal::2.0 C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibV
 Vop/geometryvopglobal::2.0 otls/OPlibVop.hda
 Vop/geometryvopoutput C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibVop.hda
 Vop/geometryvopoutput otls/OPlibVop.hda
+Sop/groupexpression C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibSop.hda
+Sop/groupexpression otls/OPlibSop.hda
 Vop/m4tom3 C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda
 Vop/m4tom3 otls/OPlibScripted.hda
 Vop/makexform C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda

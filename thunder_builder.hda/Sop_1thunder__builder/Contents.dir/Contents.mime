@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.44281 -0.103632
+position -1.48657 0.185314
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -49,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1579601387
-  modify 1579602013
+  create 1579676120
+  modify 1579676940
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -113,7 +113,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579601907
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1040,7 +1040,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1159,7 +1159,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1665,7 +1665,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1735,7 +1735,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1842,7 +1842,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1964,7 +1964,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2030,7 +2030,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2196,7 +2196,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1579601872
+  modify 1579676935
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2423,7 +2423,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1579601871
+  modify 1579676934
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3604,15 +3604,15 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
 bias	[ 8	locks=0 ]	(	[ bias	40 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.16600000000000001 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0 ] 	)
 min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	24 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	25 ] 	)
 freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
 offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
 rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.14999999999999999 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.20300000000000001 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
@@ -4011,7 +4011,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91193 -40.8437
+position 1.93933 -42.6067
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4031,7 +4031,7 @@ inputs
 stat
 {
   create 1579162462
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4103,7 +4103,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91193 -41.9215
+position 1.93933 -43.6845
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4121,7 +4121,7 @@ inputs
 stat
 {
   create 1579162759
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4537,7 +4537,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0662039 -51.2491
+position -0.0388068 -53.0121
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4555,7 +4555,7 @@ inputs
 stat
 {
   create 1579595741
-  modify 1579601750
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4794,11 +4794,234 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 breakpt	[ 8	locks=0 ]	(	[ breakpt	1 ] 	)
-max_step	[ 8	locks=0 ]	(	[ max_step	150 ] 	)
+max_step	[ 8	locks=0 ]	(	[ max_step	100 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle9.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression1.init"
+Content-Type: text/plain
+
+type = groupexpression
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.91493 -21.5143
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_begin2 0 1 "input1"
+}
+inputs
+{
+0 	foreach_begin2 0 1
+}
+stat
+{
+  create 1579676161
+  modify 1579676226
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	0	)
+grouptype	[ 0	locks=0 ]	(	"point"	)
+expressions	[ 0	locks=0 ]	(	1	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+updatecode	[ 0	locks=0 ]	(	0	)
+generatedcode	[ 0	locks=0 ]	(	""	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+groupname1	[ 0	locks=0 ]	(	end_pts	)
+snippet1	[ 0	locks=0 ]	(	"vertexprimindex(0, @vtxnum)==(npoints(0)-1)"	)
+mergeop1	[ 0	locks=0 ]	(	"replace"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression2.init"
+Content-Type: text/plain
+
+type = groupexpression
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.16935 -26.4531
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	carve1 1 1 "input1"
+}
+inputs
+{
+0 	carve1 0 1
+}
+stat
+{
+  create 1579676161
+  modify 1579676563
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	0	)
+grouptype	[ 0	locks=0 ]	(	"point"	)
+expressions	[ 0	locks=0 ]	(	1	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+updatecode	[ 0	locks=0 ]	(	0	)
+generatedcode	[ 0	locks=0 ]	(	""	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+groupname1	[ 0	locks=0 ]	(	end_pts	)
+snippet1	[ 0	locks=0 ]	(	"vertexprimindex(0, @vtxnum)==(npoints(0)-1)"	)
+mergeop1	[ 0	locks=0 ]	(	"replace"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/groupexpression2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.16635 -27.4824
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	groupexpression2 1 1 "input1"
+}
+inputs
+{
+0 	groupexpression2 0 1
+}
+stat
+{
+  create 1579676453
+  modify 1579676776
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	end_pts	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"i@step = point(0, 'step', npoints(0)-2) + 1;
+i@id = point(0, 'id', 0);
+i@branch_step = point(0, 'branch_step', 0);
+
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
 Content-Type: text/plain
 
 {
@@ -5096,7 +5319,7 @@ measure	[ 0	locks=0 ]	(	"arc"	)
 dolength	[ 0	locks=0 ]	(	"off"	)
 length	[ 0	locks=0 ]	(	0.10000000000000001	)
 dosegs	[ 0	locks=0 ]	(	"on"	)
-segs	[ 8	locks=0 ]	(	[ segs	150 ] 	)
+segs	[ 8	locks=0 ]	(	[ segs	100 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
 allequal	[ 0	locks=0 ]	(	"on"	)
 last	[ 0	locks=0 ]	(	"off"	)
@@ -5275,9 +5498,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0632039 -52.287
+position -0.0358068 -54.05
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
@@ -5292,7 +5515,7 @@ inputs
 stat
 {
   create 1579090339
-  modify 1579601750
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5542,7 +5765,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -44.0058
+position 1.94393 -45.7688
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5560,7 +5783,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5752,7 +5975,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -36.5085
+position 1.94393 -38.2715
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -5770,7 +5993,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5877,7 +6100,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91493 -37.5485
+position 1.94233 -39.3115
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5896,7 +6119,7 @@ inputs
 stat
 {
   create 1579162291
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5983,7 +6206,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.42669 -39.1381
+position 4.45409 -40.9011
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6001,7 +6224,7 @@ inputs
 stat
 {
   create 1579162373
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6044,7 +6267,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -45.0915
+position 1.94393 -46.8545
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6062,7 +6285,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6108,7 +6331,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -33.6457
+position 1.94393 -35.4087
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6126,7 +6349,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6171,7 +6394,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91148 -42.9594
+position 1.93888 -44.7224
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6189,7 +6412,7 @@ inputs
 stat
 {
   create 1579163373
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6235,7 +6458,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91493 -35.3701
+position 1.94233 -37.1331
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6253,7 +6476,7 @@ inputs
 stat
 {
   create 1579170408
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6296,7 +6519,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -29.1841
+position 1.94393 -30.9471
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6314,7 +6537,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6390,7 +6613,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579627645
+  modify 1579676209
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6704,7 +6927,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91493 -26.8279
+position 1.94233 -28.5909
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6714,19 +6937,19 @@ outputsNamed3
 inputsNamed3
 {
 2 	null4 0 1 "input1"
-0 	foreach_begin2 0 1 "input2"
-3 	carve1 1 1 "input3"
+0 	groupexpression1 1 1 "input2"
+3 	pointwrangle1 1 1 "input3"
 }
 inputs
 {
 0 	null4 0 1
-1 	foreach_begin2 0 1
-2 	carve1 0 1
+1 	groupexpression1 0 1
+2 	pointwrangle1 0 1
 }
 stat
 {
   create 1579594968
-  modify 1579601612
+  modify 1579676454
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7068,7 +7291,7 @@ group	[ 0	locks=0 ]	(	""	)
 firstu	[ 0	locks=0 ]	(	"on"	)
 domainu1	[ 0	locks=0 ]	(	0	)
 secondu	[ 0	locks=0 ]	(	"on"	)
-domainu2	[ 8	locks=0 ]	(	[ domainu2	0.96700000762939453 ] 	)
+domainu2	[ 8	locks=0 ]	(	[ domainu2	0.95973712205886841 ] 	)
 firstv	[ 0	locks=0 ]	(	"off"	)
 domainv1	[ 0	locks=0 ]	(	0.25	)
 secondv	[ 0	locks=0 ]	(	"off"	)
@@ -7112,7 +7335,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -31.2742
+position 1.94393 -33.0372
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7130,7 +7353,7 @@ inputs
 stat
 {
   create 1579595636
-  modify 1579601612
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7239,7 +7462,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0666539 -50.2092
+position -0.0392568 -51.9722
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7257,7 +7480,7 @@ inputs
 stat
 {
   create 1579595978
-  modify 1579601762
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7303,7 +7526,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.28353 -47.9758
+position -1.25613 -49.7388
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7323,7 +7546,7 @@ inputs
 stat
 {
   create 1579601755
-  modify 1579601816
+  modify 1579676453
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7369,7 +7592,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-42
+45
 pointvop1
 attribwrangle0
 attribwrangle4
@@ -7412,6 +7635,9 @@ compile_begin3
 attribwrangle9
 attribdelete2
 switch4
+groupexpression1
+groupexpression2
+pointwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"
