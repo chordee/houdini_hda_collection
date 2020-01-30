@@ -24,6 +24,8 @@ Vop/matxtoquat C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda
 Vop/matxtoquat otls/OPlibScripted.hda
 Vop/negate C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda
 Vop/negate otls/OPlibScripted.hda
+Vop/pow C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda
+Vop/pow otls/OPlibScripted.hda
 Sop/split C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibSop.hda
 Sop/split otls/OPlibSop.hda
 Vop/turbnoise C:/PROGRA~1/SIDEEF~1/HOUDIN~1.348/houdini/otls/OPlibScripted.hda

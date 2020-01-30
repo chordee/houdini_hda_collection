@@ -145,6 +145,16 @@
             parmtag { "shaderparmcontexts" "cvex" }
         }
         parm {
+            name    "exp"
+            label   "Exponent"
+            type    float
+            default { "1" }
+            range   { 0 2 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
             name    "ramp"
             label   "Bias Along Curve"
             type    ramp_flt
@@ -235,6 +245,15 @@
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
             }
+            parm {
+                name    "angle_exp"
+                label   "Angle Exp"
+                type    float
+                default { "1" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
         }
 
         groupsimple {
@@ -265,6 +284,15 @@
                 type    float
                 default { "0" }
                 range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "extend_step_exp"
+                label   "Extend Step Exp"
+                type    float
+                default { "1" }
+                range   { 0 2 }
                 parmtag { "autoscope" "0000000000000000" }
                 parmtag { "script_callback_language" "python" }
             }
