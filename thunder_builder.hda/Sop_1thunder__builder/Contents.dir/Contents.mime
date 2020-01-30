@@ -32,12 +32,11 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.19552 -0.296398
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.12287 -0.607219
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-1 "output1"
 }
 inputsNamed3
 {
@@ -49,8 +48,8 @@ inputs
 }
 stat
 {
-  create 1580372243
-  modify 1580380598
+  create 1580379327
+  modify 1580379586
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -113,7 +112,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1580377426
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -821,7 +820,7 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	142.59999999999999 ] 	)
+val	[ 0	locks=0 ]	(	[ val	60 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
 ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
@@ -829,16 +828,16 @@ ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.047822374850511551 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
-ramp3pos	[ 0	locks=0 ]	(	[ ramp3pos	0.95681065320968628 ] 	)
+ramp3pos	[ 0	locks=0 ]	(	[ ramp3pos	0.85231113433837891 ] 	)
 ramp3value	[ 0	locks=0 ]	(	[ ramp3value	1 ] 	)
 ramp3interp	[ 0	locks=0 ]	(	[ ramp3interp	1 ] 	)
 ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
 ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
 ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.85399999999999998 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	14.300000000000001 ] 	[ freq2	14.300000000000001 ] 	[ freq3	14.300000000000001 ] 	[ freq4	14.300000000000001 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	7 ] 	[ offset3	0 ] 	[ offset4	-16 ] 	)
-exp	[ 0	locks=0 ]	(	[ exp	1.6000000000000001 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	2 ] 	[ freq2	2 ] 	[ freq3	2 ] 	[ freq4	2 ] 	)
+offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
+exp	[ 0	locks=0 ]	(	[ exp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1057,7 +1056,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1176,7 +1175,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1682,7 +1681,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1752,7 +1751,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1859,7 +1858,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1981,7 +1980,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2047,7 +2046,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2213,7 +2212,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1580377373
+  modify 1580379422
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2440,7 +2439,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1580377372
+  modify 1580379421
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2952,7 +2951,7 @@ inputs
 stat
 {
   create 1580372279
-  modify 1580377372
+  modify 1580379421
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3157,7 +3156,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1580377144
+  modify 1580379367
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3747,7 +3746,7 @@ vector exp_vec(vector v; float e){
     s.x = (v.x > 0)?1:-1;
     s.y = (v.y > 0)?1:-1;
     s.z = (v.z > 0)?1:-1;
-    v = pow(v, e) * s;
+    v = pow(abs(v), e) * s;
     return v; 
 
 }
@@ -3869,30 +3868,30 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
 bias	[ 8	locks=0 ]	(	[ bias	40 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.76600000000000001 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	8 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	34 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	79.900000000000006 ] 	[ freqy	79.900000000000006 ] 	[ freqz	79.900000000000006 ] 	)
-offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	150 ] 	[ offsetz	0 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.47599999999999998 ] 	)
+seed	[ 8	locks=0 ]	(	[ seed	0.161 ] 	)
+min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
+max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	20 ] 	)
+freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
+offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
 atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
 turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.050999999999999997 ] 	)
+branch	[ 0	locks=0 ]	(	[ branch	0.14999999999999999 ] 	)
 push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
 branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
 branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
 branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
 branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
 branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
+branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
+branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	30 ] 	)
+angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	0.5 ] 	)
+branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0 ] 	)
+age_exp	[ 0	locks=0 ]	(	[ age_exp	1 ] 	)
+angle_exp	[ 0	locks=0 ]	(	[ angle_exp	0.45100000000000001 ] 	)
 branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
 branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
 branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
-branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
-branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	1.7 ] 	)
-angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	0.5 ] 	)
-branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0.88 ] 	)
-age_exp	[ 0	locks=0 ]	(	[ age_exp	0.33600000000000002 ] 	)
-angle_exp	[ 0	locks=0 ]	(	[ angle_exp	0.36799999999999999 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -7843,7 +7842,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
