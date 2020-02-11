@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = thunder_builder
+type = tree_builder
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,15 +32,16 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -12.0772 1.12134
-connectornextid 1
+position -17.9892 1.12134
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+0 "output1"
 }
 inputsNamed3
 {
-0 	line1 0 1 "input1"
+1 	line1 0 1 "input1"
 }
 inputs
 {
@@ -48,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1580460308
-  modify 1581333292
+  create 1581391074
+  modify 1581391245
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -66,10 +67,6 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
-	},
-	"wirestyle":{
-		"type":"string",
-		"value":"rounded"
 	}
 }
 
@@ -77,9 +74,8 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
-2
-0 2.8622937353617317e-16 9.3602403382816526 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
-1 6.8861832474235136 9.2367109366428046 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1.init"
@@ -94,7 +90,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.00345 0.37673
+position -0.00345 1.61445
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -103,16 +99,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	measure3 1 1 "input1"
+0 	pointvop2 1 1 "input1"
 }
 inputs
 {
-0 	measure3 0 1
+0 	pointvop2 0 1
 }
 stat
 {
   create 1579071983
-  modify 1581333118
+  modify 1581391106
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -541,7 +537,7 @@ Content-Type: text/plain
     }
     parm {
         name    "val"
-        label   "Input Value"
+        label   "Bias Angle"
         type    angle
         default { "0" }
         range   { 0 180 }
@@ -623,9 +619,9 @@ Content-Type: text/plain
     channel ramp1interp {
       lefttype = extend
       righttype = extend
-      default = 1
+      default = 3
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ramp1interp\") }
+      segment { length = 0 value = 3 3 expr = ch(\"../ramp1interp\") }
     }
     channel ramp2pos {
       lefttype = extend
@@ -646,6 +642,20 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../ramp2interp\") }
     }
+    channel val {
+      lefttype = extend
+      righttype = extend
+      default = 115.59999999999999
+      flags = 0
+      segment { length = 0 value = 115.59999999999999 115.59999999999999 expr = ch(\"../val\") }
+    }
+    channel ramp {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../ramp\") }
+    }
     channel rough {
       lefttype = extend
       righttype = extend
@@ -656,30 +666,30 @@ Content-Type: text/plain
     channel freq1 {
       lefttype = extend
       righttype = extend
-      default = 10
+      default = 20
       flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../freq1\") }
+      segment { length = 0 value = 20 20 expr = ch(\"../freq1\") }
     }
     channel freq2 {
       lefttype = extend
       righttype = extend
-      default = 10
+      default = 20
       flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../freq2\") }
+      segment { length = 0 value = 20 20 expr = ch(\"../freq2\") }
     }
     channel freq3 {
       lefttype = extend
       righttype = extend
-      default = 10
+      default = 20
       flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../freq3\") }
+      segment { length = 0 value = 20 20 expr = ch(\"../freq3\") }
     }
     channel freq4 {
       lefttype = extend
       righttype = extend
-      default = 10
+      default = 40
       flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../freq4\") }
+      segment { length = 0 value = 40 40 expr = ch(\"../freq4\") }
     }
     channel offset1 {
       lefttype = extend
@@ -696,9 +706,8 @@ Content-Type: text/plain
     channel offset3 {
       lefttype = extend
       righttype = extend
-      default = 100
       flags = 0
-      segment { length = 0 value = 100 100 expr = ch(\"../offset3\") }
+      segment { length = 0 expr = ch(\"../offset3\") }
     }
     channel offset4 {
       lefttype = extend
@@ -706,64 +715,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../offset4\") }
     }
-    channel val {
-      lefttype = extend
-      righttype = extend
-      default = 121.5
-      flags = 0
-      segment { length = 0 value = 121.5 121.5 expr = ch(\"../val\") }
-    }
-    channel ramp {
-      lefttype = extend
-      righttype = extend
-      default = 4
-      flags = 0
-      segment { length = 0 value = 4 4 expr = ch(\"../ramp\") }
-    }
-    channel ramp3pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp3pos\") }
-    }
-    channel ramp3value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp3value\") }
-    }
-    channel ramp3interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ramp3interp\") }
-    }
-    channel ramp4pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp4pos\") }
-    }
-    channel ramp4value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../ramp4value\") }
-    }
-    channel ramp4interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../ramp4interp\") }
-    }
     channel exp {
       lefttype = extend
       righttype = extend
-      default = 1
+      default = 0.5
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../exp\") }
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../exp\") }
     }
   }
 
@@ -820,24 +777,18 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	60 ] 	)
-ramp	[ 0	locks=0 ]	(	[ ramp	4 ] 	)
+val	[ 0	locks=0 ]	(	[ val	131.69999999999999 ] 	)
+ramp	[ 0	locks=0 ]	(	[ ramp	2 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
-ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
-ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
-ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	0.047822374850511551 ] 	)
+ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0.5 ] 	)
+ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	3 ] 	)
+ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	1 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
-ramp3pos	[ 0	locks=0 ]	(	[ ramp3pos	0.85231113433837891 ] 	)
-ramp3value	[ 0	locks=0 ]	(	[ ramp3value	1 ] 	)
-ramp3interp	[ 0	locks=0 ]	(	[ ramp3interp	1 ] 	)
-ramp4pos	[ 0	locks=0 ]	(	[ ramp4pos	1 ] 	)
-ramp4value	[ 0	locks=0 ]	(	[ ramp4value	0 ] 	)
-ramp4interp	[ 0	locks=0 ]	(	[ ramp4interp	1 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	2 ] 	[ freq2	2 ] 	[ freq3	2 ] 	[ freq4	2 ] 	)
-offset	[ 0	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
-exp	[ 0	locks=0 ]	(	[ exp	0.97899999999999998 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	1 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	-5 ] 	[ freq2	-5 ] 	[ freq3	-5 ] 	[ freq4	0 ] 	)
+offset	[ 8	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
+exp	[ 0	locks=0 ]	(	[ exp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -863,7 +814,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/geometryvopglobal1.
 Content-Type: text/plain
 
 comment ""
-position -1.00982 0.37926
+position -1.56478 -0.623912
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -879,7 +830,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579090567
+  modify 1580460722
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -919,7 +870,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/geometryvopoutput1.
 Content-Type: text/plain
 
 comment ""
-position 36.4986 0.92555
+position 39.3843 5.27684
 connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -944,7 +895,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1579072370
+  modify 1580460899
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1056,7 +1007,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1581333118
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1175,7 +1126,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1264,7 +1215,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/negate1.def"
 Content-Type: text/plain
 
 comment ""
-position 9.52584 7.7204
+position 2.74818 10.0507
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1282,7 +1233,7 @@ inputs
 stat
 {
   create 1579072082
-  modify 1579074019
+  modify 1581322076
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1323,7 +1274,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/val.def"
 Content-Type: text/plain
 
 comment ""
-position 2.73355 6.25218
+position -4.04411 8.58245
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1339,7 +1290,7 @@ inputs
 stat
 {
   create 1579072087
-  modify 1579090457
+  modify 1581322076
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1359,7 +1310,7 @@ parmaccess	[ 0	locks=0 ]	(	""	)
 parmname	[ 0	locks=0 ]	(	val	)
 parmprefix	[ 0	locks=0 ]	(	""	)
 parmpostfix	[ 0	locks=0 ]	(	""	)
-parmlabel	[ 0	locks=0 ]	(	"Input Value"	)
+parmlabel	[ 0	locks=0 ]	(	"Bias Angle"	)
 showlabel	[ 0	locks=0 ]	(	"on"	)
 parmtype	[ 0	locks=0 ]	(	"angle"	)
 parmtypename	[ 0	locks=0 ]	(	""	)
@@ -1453,7 +1404,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/abs1.def"
 Content-Type: text/plain
 
 comment ""
-position 5.73355 6.25218
+position -1.04411 8.58245
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1471,7 +1422,7 @@ inputs
 stat
 {
   create 1579072102
-  modify 1579090457
+  modify 1581322076
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1525,7 +1476,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/floattovec1.def"
 Content-Type: text/plain
 
 comment ""
-position 12.9826 7.56029
+position 6.20494 9.89056
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1547,7 +1498,7 @@ inputs
 stat
 {
   create 1579072110
-  modify 1579074019
+  modify 1581322076
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1594,7 +1545,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/floattovec2.def"
 Content-Type: text/plain
 
 comment ""
-position 12.9826 4.10831
+position 6.20494 6.43858
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1616,7 +1567,7 @@ inputs
 stat
 {
   create 1579072110
-  modify 1579074019
+  modify 1581322076
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1663,7 +1614,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/degtorad1.def"
 Content-Type: text/plain
 
 comment ""
-position 25.218 1.29884
+position 28.1037 5.65013
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1681,7 +1632,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1734,7 +1685,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/bind1.def"
 Content-Type: text/plain
 
 comment ""
-position 33.9054 1.20926
+position 36.7911 5.56055
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1751,7 +1702,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1841,7 +1792,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/bind2.def"
 Content-Type: text/plain
 
 comment ""
-position 34.7162 -3.29167
+position 38.0784 -3.36751
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1858,7 +1809,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1948,7 +1899,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/makexform1.def"
 Content-Type: text/plain
 
 comment ""
-position 25.0182 -3.29167
+position 28.3804 -3.36751
 connectornextid 9
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1980,7 +1931,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2028,7 +1979,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/matxtoquat1.def"
 Content-Type: text/plain
 
 comment ""
-position 31.503 -3.29167
+position 34.8652 -3.36751
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -2046,7 +1997,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2192,7 +2143,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/multiply1.def"
 Content-Type: text/plain
 
 comment ""
-position 22.0182 0.918841
+position 24.5647 0.158431
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -2212,7 +2163,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1581333119
+  modify 1581390998
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2330,86 +2281,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/turbnoise1.init"
-Content-Type: text/plain
-
-type = turbnoise
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/turbnoise1.def"
-Content-Type: text/plain
-
-comment ""
-position 22.5802 -9.50309
-connectornextid 8
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
-outputsNamed3
-{
-}
-inputsNamed3
-{
-0 	"" "" 1 "type"
-1 	"" "" 1 "pos"
-2 	"" "" 1 "freq"
-3 	"" "" 1 "offset"
-4 	"" "" 1 "amp"
-5 	"" "" 1 "rough"
-6 	"" "" 1 "atten"
-7 	"" "" 1 "turb"
-}
-inputs
-{
-0 	"" 0 1
-1 	"" 0 1
-2 	"" 0 1
-3 	"" 0 1
-4 	"" 0 1
-5 	"" 0 1
-6 	"" 0 1
-7 	"" 0 1
-}
-stat
-{
-  create 1579083003
-  modify 1579083028
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/turbnoise1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-signature	[ 0	locks=0 ]	(	default	)
-type	[ 0	locks=0 ]	(	anoise	)
-pos	[ 0	locks=0 ]	(	0	0	0	)
-freq	[ 0	locks=0 ]	(	1	1	1	)
-offset	[ 0	locks=0 ]	(	0	0	0	)
-amp	[ 0	locks=0 ]	(	1	)
-rough	[ 0	locks=0 ]	(	0.5	)
-atten	[ 0	locks=0 ]	(	0.38	)
-turb	[ 0	locks=0 ]	(	5	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointvop1/turbnoise1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/pointvop1/m4tom3.init"
 Content-Type: text/plain
 
@@ -2421,7 +2292,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/m4tom3.def"
 Content-Type: text/plain
 
 comment ""
-position 28.2863 -3.29167
+position 31.6485 -3.36751
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -2439,7 +2310,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1581333118
+  modify 1581390996
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2869,7 +2740,7 @@ Content-Disposition: attachment; filename="hdaroot/pointvop1/vectohvec1.def"
 Content-Type: text/plain
 
 comment ""
-position 1.99018 -0.623912
+position 1.91253 -0.623912
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -2889,7 +2760,7 @@ inputs
 stat
 {
   create 1579325446
-  modify 1579325449
+  modify 1580460725
   author chordee@DESKTOP-N1KNDFA
   access 0777
 }
@@ -2951,7 +2822,7 @@ inputs
 stat
 {
   create 1580372279
-  modify 1581333118
+  modify 1581390996
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3136,9 +3007,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.003 -1.69604
+position -0.003 0.57455
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 2 "output1"
@@ -3156,7 +3027,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1581333082
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3169,10 +3040,41 @@ end
 Content-Disposition: attachment; filename="hdaroot/attribwrangle0.multiparm"
 Content-Type: text/plain
 
-3
-branch_along_step#pos ../branch_along_step#pos
-branch_along_step#value ../branch_along_step#value
-branch_along_step#interp ../branch_along_step#interp
+34
+start_at# ../start_at#
+branch# ../branch#
+seed# ../seed#
+min_branch_root_bias_angle# ../min_branch_root_bias_angle#
+max_branch_root_bias_angle# ../max_branch_root_bias_angle#
+branch_root_bias_angle_exp# ../branch_root_bias_angle_exp#
+min_branch_root_open_angle# ../min_branch_root_open_angle#
+max_branch_root_open_angle# ../max_branch_root_open_angle#
+branch_root_open_angle_exp# ../branch_root_open_angle_exp#
+min_branch_step# ../min_branch_step#
+max_branch_step# ../max_branch_step#
+step_ramp# ../step_ramp#
+step_ramp#_#pos ../step_ramp#_#pos
+step_ramp#_#value ../step_ramp#_#value
+step_ramp#_#interp ../step_ramp#_#interp
+age_exp# ../age_exp#
+bias# ../bias#
+freq#x ../freq#_2x
+freq#y ../freq#_2y
+freq#z ../freq#_2z
+offset#x ../offset#_2x
+offset#y ../offset#_2y
+offset#z ../offset#_2z
+rough# ../rough#
+atten# ../atten#
+turb# ../turb#
+angle_exp# ../angle_exp#
+branch_dir#x ../branch_dir#x
+branch_dir#y ../branch_dir#y
+branch_dir#z ../branch_dir#z
+branch_dir_ramp# ../branch_dir_ramp#
+branch_dir_ramp#_#pos ../branch_dir_ramp#_#pos
+branch_dir_ramp#_#value ../branch_dir_ramp#_#value
+branch_dir_ramp#_#interp ../branch_dir_ramp#_#interp
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle0.spareparmdef"
@@ -3339,299 +3241,217 @@ Content-Type: text/plain
         }
     }
 
-    parm {
-        name    "angle_sum"
-        label   "Angle Sum"
-        type    toggle
-        default { "0" }
-    }
-    parm {
-        name    "bias"
-        label   "Bias Angle"
-        type    float
-        default { "0" }
-        range   { 0 180 }
-    }
-    parm {
-        name    "seed"
-        label   "Seed"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "min_branch_step"
-        label   "Min Branch Step"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "max_branch_step"
-        label   "Max Branch Step"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "freq"
-        label   "Freq"
-        type    vector
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "offset"
-        label   "Offset"
-        type    vector
-        size    3
-        default { "0" "0" "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "rough"
-        label   "Rough"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "atten"
-        label   "Atten"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "turb"
-        label   "Turb"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "branch"
-        label   "Branch"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "push_away"
-        label   "Push Away"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
+    multiswitcher {
         name    "branch_limited"
-        label   "Branch Limited"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
+        label    "Branch Limited"
+
+        parm {
+            name    "start_at#"
+            label   "Start at"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "branch#"
+            label   "Branch"
+            type    float
+            default { "0.1" }
+            range   { 0 1 }
+        }
+        parm {
+            name    "seed#"
+            label   "Seed"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+        }
+        groupsimple {
+            name    "root_angle_#"
+            label   "Root Angle"
+
+            groupsimple {
+                name    "folder2_#_2"
+                label   "Vertical"
+
+                parm {
+                    name    "min_branch_root_bias_angle#"
+                    label   "Min Branch Root Bias Angle"
+                    type    float
+                    default { "0" }
+                    range   { 0 180 }
+                }
+                parm {
+                    name    "max_branch_root_bias_angle#"
+                    label   "Max Branch Root Bias Angle"
+                    type    float
+                    default { "90" }
+                    range   { 0 180 }
+                }
+                parm {
+                    name    "branch_root_bias_angle_exp#"
+                    label   "Branch Root Bias Angle Exp"
+                    type    float
+                    default { "1" }
+                    range   { 0 2 }
+                }
+            }
+
+            groupsimple {
+                name    "folder2_#"
+                label   "Horizontal"
+
+                parm {
+                    name    "min_branch_root_open_angle#"
+                    label   "Min Branch Root Open Angle"
+                    type    float
+                    default { "0" }
+                    range   { 0 180 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "max_branch_root_open_angle#"
+                    label   "Max Branch Root Open Angle"
+                    type    float
+                    default { "180" }
+                    range   { 0 180 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "branch_root_open_angle_exp#"
+                    label   "Branch Root Open Angle Exp"
+                    type    float
+                    default { "1" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+        groupsimple {
+            name    "step#"
+            label   "Step"
+
+            parm {
+                name    "min_branch_step#"
+                label   "Min Branch Step"
+                type    integer
+                default { "10" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "max_branch_step#"
+                label   "Max Branch Step"
+                type    integer
+                default { "20" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "step_ramp#"
+                label   "Step Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "age_exp#"
+                label   "Age Exp"
+                type    float
+                default { "1" }
+                range   { 0 2 }
+            }
+        }
+
+        groupsimple {
+            name    "noise#"
+            label   "Noise"
+
+            parm {
+                name    "bias#"
+                label   "Bias Angle"
+                type    float
+                default { "6" }
+                range   { 0 180 }
+            }
+            parm {
+                name    "freq#"
+                label   "Freq"
+                type    vector
+                size    3
+                default { "10" "10" "10" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "offset#"
+                label   "Offset"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "rough#"
+                label   "Rough"
+                type    float
+                default { "0.5" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "atten#"
+                label   "Atten"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "turb#"
+                label   "Turb"
+                type    integer
+                default { "1" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "angle_exp#"
+                label   "Angle Exp"
+                type    float
+                default { "1" }
+                range   { 0 2 }
+            }
+        }
+
+        groupsimple {
+            name    "foward_dir#"
+            label   "Forward Dir"
+
+            parm {
+                name    "branch_dir#"
+                label   "Branch Dir"
+                type    vector
+                size    3
+                default { "0" "1" "0" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "branch_dir_ramp#"
+                label   "Branch Dir Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 0.10000000000000001 ) 2interp ( linear )" }
+            }
+        }
+
     }
-    parm {
-        name    "branch_along_step"
-        label   "Branch Along Step"
-        type    ramp_flt
-        default { "2" }
-        range   { 1! 10 }
-    }
-    parm {
-        name    "branch_step_extend_along_step"
-        label   "Branch Step Extend Along Step"
-        type    integer
-        default { "0" }
-        range   { 0 10 }
-    }
-    parm {
-        name    "branch_root_bias_angle"
-        label   "Branch Root Bias Angle"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "angle_decrease_by_branch_step"
-        label   "Angle Decrease By Branch Step"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "branch_extend_by_branch_step"
-        label   "Branch Extend By Branch Step"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "age_exp"
-        label   "Age Exp"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
-    parm {
-        name    "angle_exp"
-        label   "Angle Exp"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-    }
+
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/attribwrangle0.chn"
 Content-Type: text/plain
 
 {
-    channel branch_along_step1pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step1pos\") }
-    }
-    channel branch_along_step1value {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1value\") }
-    }
-    channel branch_along_step1interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step1interp\") }
-    }
-    channel branch_along_step2pos {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step2pos\") }
-    }
-    channel branch_along_step2value {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_along_step2value\") }
-    }
-    channel branch_along_step2interp {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../branch_along_step2interp\") }
-    }
-    channel branch {
-      lefttype = extend
-      righttype = extend
-      default = 0.14999999999999999
-      flags = 0
-      segment { length = 0 value = 0.14999999999999999 0.14999999999999999 expr = ch(\"../branch\") }
-    }
-    channel seed {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../seed\") }
-    }
-    channel bias {
-      lefttype = extend
-      righttype = extend
-      default = 146.30000000000001
-      flags = 0
-      segment { length = 0 value = 146.30000000000001 146.30000000000001 expr = ch(\"../bias\") }
-    }
-    channel min_branch_step {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../min_branch_step\") }
-    }
-    channel max_branch_step {
-      lefttype = extend
-      righttype = extend
-      default = 10
-      flags = 0
-      segment { length = 0 value = 10 10 expr = ch(\"../max_branch_step\") }
-    }
-    channel freqx {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../freq5x\") }
-    }
-    channel freqy {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../freq5y\") }
-    }
-    channel freqz {
-      lefttype = extend
-      righttype = extend
-      default = 24
-      flags = 0
-      segment { length = 0 value = 24 24 expr = ch(\"../freq5z\") }
-    }
-    channel offsetx {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset5x\") }
-    }
-    channel offsety {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset5y\") }
-    }
-    channel offsetz {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../offset5z\") }
-    }
-    channel turb {
-      lefttype = extend
-      righttype = extend
-      default = 5
-      flags = 0
-      segment { length = 0 value = 5 5 expr = ch(\"../turb\") }
-    }
-    channel rough {
-      lefttype = extend
-      righttype = extend
-      default = 0.58999999999999997
-      flags = 0
-      segment { length = 0 value = 0.58999999999999997 0.58999999999999997 expr = ch(\"../rough2\") }
-    }
-    channel atten {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../atten\") }
-    }
-    channel angle_sum {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../angle_sum\") }
-    }
-    channel push_away {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../push_away\") }
-    }
     channel branch_limited {
       lefttype = extend
       righttype = extend
@@ -3639,51 +3459,268 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 3 3 expr = ch(\"../branch_limited\") }
     }
-    channel branch_step_extend_along_step {
+    channel step_ramp1_1pos {
       lefttype = extend
       righttype = extend
       flags = 0
-      segment { length = 0 expr = ch(\"../branch_step_extend_along_step\") }
+      segment { length = 0 expr = ch(\"../step_ramp1_1pos\") }
     }
-    channel branch_along_step {
+    channel step_ramp1_1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp1_1value\") }
+    }
+    channel step_ramp1_1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../step_ramp1_1interp\") }
+    }
+    channel step_ramp1_2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp1_2pos\") }
+    }
+    channel step_ramp1_2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp1_2value\") }
+    }
+    channel step_ramp1_2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../step_ramp1_2interp\") }
+    }
+    channel branch_dir_ramp1_1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp1_1pos\") }
+    }
+    channel branch_dir_ramp1_1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp1_1value\") }
+    }
+    channel branch_dir_ramp1_1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir_ramp1_1interp\") }
+    }
+    channel branch_dir_ramp1_2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp1_2pos\") }
+    }
+    channel branch_dir_ramp1_2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp1_2value\") }
+    }
+    channel branch_dir_ramp1_2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir_ramp1_2interp\") }
+    }
+    channel start_at1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../start_at1\") }
+    }
+    channel branch1 {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../branch1\") }
+    }
+    channel seed1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../seed1\") }
+    }
+    channel min_branch_root_bias_angle1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../min_branch_root_bias_angle1\") }
+    }
+    channel max_branch_root_bias_angle1 {
+      lefttype = extend
+      righttype = extend
+      default = 90
+      flags = 0
+      segment { length = 0 value = 90 90 expr = ch(\"../max_branch_root_bias_angle1\") }
+    }
+    channel branch_root_bias_angle_exp1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_root_bias_angle_exp1\") }
+    }
+    channel min_branch_root_open_angle1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../min_branch_root_open_angle1\") }
+    }
+    channel max_branch_root_open_angle1 {
+      lefttype = extend
+      righttype = extend
+      default = 180
+      flags = 0
+      segment { length = 0 value = 180 180 expr = ch(\"../max_branch_root_open_angle1\") }
+    }
+    channel branch_root_open_angle_exp1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_root_open_angle_exp1\") }
+    }
+    channel min_branch_step1 {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../min_branch_step1\") }
+    }
+    channel max_branch_step1 {
+      lefttype = extend
+      righttype = extend
+      default = 20
+      flags = 0
+      segment { length = 0 value = 20 20 expr = ch(\"../max_branch_step1\") }
+    }
+    channel step_ramp1 {
       lefttype = extend
       righttype = extend
       default = 2
       flags = 0
-      segment { length = 0 value = 2 2 expr = ch(\"../branch_along_step\") }
+      segment { length = 0 value = 2 2 expr = ch(\"../step_ramp1\") }
     }
-    channel branch_root_bias_angle {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_root_bias_angle\") }
-    }
-    channel angle_decrease_by_branch_step {
-      lefttype = extend
-      righttype = extend
-      default = 0.52600000000000002
-      flags = 0
-      segment { length = 0 value = 0.52600000000000002 0.52600000000000002 expr = ch(\"../angle_decrease_by_branch_step\") }
-    }
-    channel branch_extend_by_branch_step {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../branch_extend_by_branch_step\") }
-    }
-    channel age_exp {
+    channel age_exp1 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../extend_step_exp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../age_exp1\") }
     }
-    channel angle_exp {
+    channel bias1 {
+      lefttype = extend
+      righttype = extend
+      default = 6
+      flags = 0
+      segment { length = 0 value = 6 6 expr = ch(\"../bias1\") }
+    }
+    channel freq1x {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq1_2x\") }
+    }
+    channel freq1y {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq1_2y\") }
+    }
+    channel freq1z {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq1_2z\") }
+    }
+    channel offset1x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset1_2x\") }
+    }
+    channel offset1y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset1_2y\") }
+    }
+    channel offset1z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset1_2z\") }
+    }
+    channel rough1 {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../rough1\") }
+    }
+    channel atten1 {
       lefttype = extend
       righttype = extend
       default = 1
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../angle_exp\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../atten1\") }
+    }
+    channel turb1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../turb1\") }
+    }
+    channel angle_exp1 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../angle_exp1\") }
+    }
+    channel branch_dir1x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir1x\") }
+    }
+    channel branch_dir1y {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir1y\") }
+    }
+    channel branch_dir1z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir1z\") }
+    }
+    channel branch_dir_ramp1 {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../branch_dir_ramp1\") }
     }
   }
 
@@ -3705,28 +3742,18 @@ vector start_pos = vector(point(1, 'P', 0));
 vector dir = normalize(end_pos - start_pos);
 float step = prim(1, 'restlength', 0) / float(pt_num);
 
-f@step_distance = step; // detail attribute
+f@step_distance = step; // detail attribute 
 
 addpoint(0, start_pos); // first point
 
 // get parameters 
 
-float bias = radians(abs(chf('bias')));
-float bias2 = chf('branch');
-int min_branch_step = chi('min_branch_step');
-int max_branch_step = chi('max_branch_step');
-float branch_root_bias_angle = abs(chf('branch_root_bias_angle'));
-int branch_limited = chi('branch_limited');
-float angle_decrease_by_branch_step = chf('angle_decrease_by_branch_step');
-float branch_extend_by_branch_step = chf('branch_extend_by_branch_step');
-float age_exp = chf('age_exp');
-float angle_exp = chf('angle_exp');
-float seed = chf('seed') + 1;
+int branch_limited = int(ch('branch_limited'));
 
 //initial
 
 vector pos[], dirs[];
-int step_ages[], ids[], branch_step[];
+int step_ages[], ids[], branch_step[], step_life[];
 int mnt = 0; 
 int branch = 0;
 
@@ -3735,6 +3762,7 @@ append(dirs, dir);
 append(step_ages, pt_num);
 append(ids ,mnt);
 append(branch_step, 0);
+append(step_life, pt_num);
 
 // set attributes
 
@@ -3749,28 +3777,33 @@ vector exp_vec(vector v; float e){
     s.z = (v.z > 0)?1:-1;
     v = pow(abs(v), e) * s;
     return v; 
-
 }
 
 // here we go
  
 for(int i = 1; i < pt_num; i++){
     int k = len(pos);
+
     for(int j = 0; j < k; j++){
     
         vector alt_dir = {0,0,0}; // initial alt_dir
+
+        float bias = radians(abs(chf('bias' + itoa(branch_step[j]))));        
+        float angle_exp = chf('angle_exp' + itoa(branch_step[j]));
+        vector branch_dir = chv('branch_dir' + itoa(branch_step[j]));
         
         // get new angle
         
         if(j == 0){
             alt_dir = qrotate(point(1, 'orient', i), point(1, 'tangentu', i));     
         }else{
-            vector noise_p = pos[j] * chv('freq') + chv('offset');
-            vector temp_v = fit(vector(snoise(noise_p, chi('turb'), chf('rough'), chf('atten'))), vector(-.5), vector(.5), vector(-1), vector(1));
+            vector noise_p = pos[j] * chv('freq' + itoa(branch_step[j])) + chv('offset' + itoa(branch_step[j]));
+            vector temp_v = fit(vector(snoise(noise_p, chi('turb' + itoa(branch_step[j])), chf('rough' + itoa(branch_step[j])), chf('atten' + itoa(branch_step[j])))), vector(-.5), vector(.5), vector(-1), vector(1));
             temp_v = exp_vec(temp_v, angle_exp);
             temp_v = fit(temp_v, vector(-1), vector(1), vector(-bias), vector(bias));            
             vector4 temp_q = eulertoquaternion(temp_v, 0);
-            alt_dir = qrotate(temp_q, dirs[j]);
+            vector tmp_branch_dir = lerp(dirs[j], branch_dir, float(chramp('branch_dir_ramp'  + itoa(branch_step[j]), 1 - float(step_ages[j]) / step_life[j])));
+            alt_dir = qrotate(temp_q, tmp_branch_dir);
         }
         
         pos[j] += alt_dir * step; // move on
@@ -3782,59 +3815,99 @@ for(int i = 1; i < pt_num; i++){
         setpointattrib(0, 'id', pt, ids[j], 'set');
         setpointattrib(0, 'step', pt, i, 'set');
         setpointattrib(0, 'branch_step', pt, branch_step[j], 'set');   
-        
-        // push away abgle
-        
-        if(chi('angle_sum')==1)
-            dirs[j] = alt_dir;
+
+        float step_phase = 1 - (float(step_ages[j]) / step_life[j]);
+
+        float bias2 = chf('branch' + itoa(branch_step[j] + 1));
                         
         // Branch 
+
+        vector seed = vector(chf('seed' + itoa(branch_step[j] + 1)) + 2);
         
-        if( (float(rand(pos[j] * (chf('seed') + 1) )) < bias2) && (step_ages[j] > 2) && (branch_step[j] < branch_limited)){
-            mnt++;
-            int newpt = addpoint(0, pos[j]);
-            setpointattrib(0, 'id', newpt, mnt, 'set'); 
-            setpointattrib(0, 'step', newpt, i, 'set');
-            setpointattrib(0, 'branch_step', newpt, branch_step[j]+1, 'set');
-            append(pos, pos[j]);
+        if((float(rand(pos[j] + seed) ) < bias2) && (step_ages[j] > 2)){
             
-            // get new direction
-            matrix3 mmm = ident();
-            rotate(mmm, radians(180), dirs[j]);
-            if(chi('push_away') == 1){
-                append(dirs, alt_dir * mmm);
-            }else{            
-                float angle = branch_root_bias_angle;                
-                if(angle_decrease_by_branch_step  > 0){
-                    angle = fit01(angle_decrease_by_branch_step , angle, angle *= (1 - float(branch_step[j]) / (branch_limited)));
+            if(step_phase > chf('start_at' + itoa(branch_step[j] + 1))){
+
+                mnt++;
+                int newpt = addpoint(0, pos[j]);
+                setpointattrib(0, 'id', newpt, mnt, 'set'); 
+                setpointattrib(0, 'step', newpt, i, 'set');
+                setpointattrib(0, 'branch_step', newpt, branch_step[j]+1, 'set');
+                append(pos, pos[j]);
+
+                //get parameter
+
+                float min_branch_root_bias_angle = abs(chf('min_branch_root_bias_angle' + itoa(branch_step[j] + 1)));
+                float max_branch_root_bias_angle = abs(chf('max_branch_root_bias_angle' + itoa(branch_step[j] + 1)));
+                float branch_root_bias_angle_exp = abs(chf('branch_root_bias_angle_exp' + itoa(branch_step[j] + 1)));
+
+                int min_branch_step = chi('min_branch_step' + itoa(branch_step[j] + 1));
+                int max_branch_step = chi('max_branch_step' + itoa(branch_step[j] + 1));
+
+                float max_branch_root_open_angle = chf('max_branch_root_open_angle' + itoa(branch_step[j] + 1));
+                float min_branch_root_open_angle = chf('min_branch_root_open_angle' + itoa(branch_step[j] + 1));
+                float branch_root_open_angle_exp = chf('branch_root_open_angle_exp' + itoa(branch_step[j] + 1));
+
+                float age_exp = chf('age_exp' + itoa(branch_step[j] + 1));
+
+                // get new direction
+
+                matrix3 mmm = ident();
+
+                float angle = max_branch_root_bias_angle;
+                        
+                float randx = float(rand(pos[j] + seed));
+                float tmp_randx = (randx - 0.5) * 2;
+                tmp_randx = fit01(pow(abs(tmp_randx), branch_root_bias_angle_exp), min_branch_root_bias_angle/180, max_branch_root_bias_angle/180) ;
+                randx = (randx > .5 )?tmp_randx:tmp_randx * -1;
+                randx = randx / 2 + .5;
+
+                float randy = float(rand((pos[j] + seed)* -1));
+                float tmp_randy = (randy - 0.5) * 2;
+                tmp_randy = fit01(pow(abs(tmp_randy), branch_root_open_angle_exp), min_branch_root_open_angle/180, max_branch_root_open_angle/180);
+                randy = (randy > .5)?tmp_randy:tmp_randy * -1;
+                randy = randy / 2 + .5;
+
+                vector dir_parent = dirs[j];
+                dir_parent = (max(abs(dir_parent.x), abs(dir_parent.z)) == 0)?{0, 0, 1}:normalize(set(dir_parent.x, 0, dir_parent.z));
+                vector rotation;
+
+                if(dir_parent == {0, 0, 1}){
+                    rotation = fit01(set(randx, randy, 0), set(-180, -180, 0), set(180, 180, 0));
+                    mmm = maketransform(0, rotation);
+                    append(dirs, {0, 1, 0} * mmm); 
+                }else{ 
+                    matrix3 tmp_matrix;
+                    if(randx > 0.5){
+                        tmp_matrix = lookat(dir_parent, {0,0,0}, {0,1,0});
+                    }else{
+                        tmp_matrix = lookat(-(dir_parent), {0,0,0}, {0,1,0});
+                    }
+                    rotation = fit01(set(randx, randy, 0), set(-180, -180, 0), set(180, 180, 0 ));
+                    mmm = maketransform(0, rotation);
+                    mmm *= tmp_matrix;
+                    append(dirs, {0,1,0} * mmm);
                 }
-                vector rotation = fit01(rand(pos[j] * seed * -1), vector(-angle), vector(angle));
-                mmm = maketransform(0, rotation);
-                append(dirs,  alt_dir * mmm);
+
+                // get new branch step age
+
+                int age = int(fit01(pow(rand(pos[j]), age_exp), min_branch_step, max_branch_step));
+                age = int(lerp( min_branch_step, max_branch_step, pow(chramp('step_ramp' + itoa(branch_step[j] + 1) , step_phase), age_exp)));
+
+                // append attribute array
+                
+                append(step_ages, age);
+                append(step_life, age);
+                append(ids, mnt);
+                append(branch_step, branch_step[j]+1);
             }
-            
-            // get new branch step age 
-            int age = 0;
-            if(chi('branch_step_extend_along_step') == 1){
-                age = int(fit01(pow(chramp('branch_along_step',  float(i)/pt_num), age_exp), min_branch_step, max_branch_step));
-            }else{
-                age = int(fit01(pow(rand(pos[j] * seed), age_exp), min_branch_step, max_branch_step));
-            }
-            
-            age = int(lerp(age, fit01((branch_step[j]+1 / branch_limited), age, min_branch_step), branch_extend_by_branch_step));
-            
-            append(step_ages, age);
-            
-            append(ids, mnt);
-            append(branch_step, branch_step[j]+1);
         }
         
         step_ages[j] -= 1;
         
-        // stop grow
-
-        
     }
+
+    // stop growth
 
     k = len(pos);
     for(int j = 0; j < k; j++){
@@ -3845,6 +3918,7 @@ for(int i = 1; i < pt_num; i++){
             removeindex(step_ages, j);
             removeindex(ids, j);
             removeindex(branch_step, j);
+            removeindex(step_life, j);
             j--;
             k--;
         }
@@ -3852,7 +3926,7 @@ for(int i = 1; i < pt_num; i++){
     }
 }
 
- "	)
+  "	)
 exportlist	[ 0	locks=0 ]	(	*	)
 vex_strict	[ 0	locks=0 ]	(	"off"	)
 autobind	[ 0	locks=0 ]	(	"on"	)
@@ -3867,32 +3941,47 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-angle_sum	[ 0	locks=0 ]	(	[ angle_sum	0 ] 	)
-bias	[ 8	locks=0 ]	(	[ bias	40 ] 	)
-seed	[ 8	locks=0 ]	(	[ seed	0.45000000000000001 ] 	)
-min_branch_step	[ 0	locks=0 ]	(	[ min_branch_step	5 ] 	)
-max_branch_step	[ 0	locks=0 ]	(	[ max_branch_step	10 ] 	)
-freq	[ 0	locks=0 ]	(	[ freqx	20 ] 	[ freqy	20 ] 	[ freqz	20 ] 	)
-offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
-atten	[ 0	locks=0 ]	(	[ atten	1 ] 	)
-turb	[ 0	locks=0 ]	(	[ turb	5 ] 	)
-branch	[ 0	locks=0 ]	(	[ branch	0.26600000000000001 ] 	)
-push_away	[ 0	locks=0 ]	(	[ push_away	0 ] 	)
-branch_limited	[ 0	locks=0 ]	(	[ branch_limited	3 ] 	)
-branch_along_step	[ 0	locks=0 ]	(	[ branch_along_step	2 ] 	)
-branch_along_step1pos	[ 0	locks=0 ]	(	[ branch_along_step1pos	0 ] 	)
-branch_along_step1value	[ 0	locks=0 ]	(	[ branch_along_step1value	1 ] 	)
-branch_along_step1interp	[ 0	locks=0 ]	(	[ branch_along_step1interp	1 ] 	)
-branch_step_extend_along_step	[ 0	locks=0 ]	(	[ branch_step_extend_along_step	0 ] 	)
-branch_root_bias_angle	[ 0	locks=0 ]	(	[ branch_root_bias_angle	30 ] 	)
-angle_decrease_by_branch_step	[ 0	locks=0 ]	(	[ angle_decrease_by_branch_step	0.5 ] 	)
-branch_extend_by_branch_step	[ 0	locks=0 ]	(	[ branch_extend_by_branch_step	0 ] 	)
-age_exp	[ 0	locks=0 ]	(	[ age_exp	1 ] 	)
-angle_exp	[ 0	locks=0 ]	(	[ angle_exp	1 ] 	)
-branch_along_step2pos	[ 0	locks=0 ]	(	[ branch_along_step2pos	1 ] 	)
-branch_along_step2value	[ 0	locks=0 ]	(	[ branch_along_step2value	0 ] 	)
-branch_along_step2interp	[ 0	locks=0 ]	(	[ branch_along_step2interp	1 ] 	)
+branch_limited	[ 0	locks=0 ]	(	[ branch_limited	1 ] 	)
+start_at1	[ 0	locks=0 ]	(	[ start_at1	0 ] 	)
+branch1	[ 0	locks=0 ]	(	[ branch1	0 ] 	)
+seed1	[ 0	locks=0 ]	(	[ seed1	0 ] 	)
+root_angle_1	[ 0	locks=0 ]	(	0	)
+folder2_1_2	[ 0	locks=0 ]	(	0	)
+min_branch_root_bias_angle1	[ 0	locks=0 ]	(	[ min_branch_root_bias_angle1	0 ] 	)
+max_branch_root_bias_angle1	[ 0	locks=0 ]	(	[ max_branch_root_bias_angle1	90 ] 	)
+branch_root_bias_angle_exp1	[ 0	locks=0 ]	(	[ branch_root_bias_angle_exp1	1 ] 	)
+folder2_1	[ 0	locks=0 ]	(	0	)
+min_branch_root_open_angle1	[ 0	locks=0 ]	(	[ min_branch_root_open_angle1	0 ] 	)
+max_branch_root_open_angle1	[ 0	locks=0 ]	(	[ max_branch_root_open_angle1	180 ] 	)
+branch_root_open_angle_exp1	[ 0	locks=0 ]	(	[ branch_root_open_angle_exp1	1 ] 	)
+step1	[ 0	locks=0 ]	(	0	)
+min_branch_step1	[ 0	locks=0 ]	(	[ min_branch_step1	10 ] 	)
+max_branch_step1	[ 0	locks=0 ]	(	[ max_branch_step1	20 ] 	)
+step_ramp1	[ 0	locks=0 ]	(	[ step_ramp1	2 ] 	)
+age_exp1	[ 0	locks=0 ]	(	[ age_exp1	1 ] 	)
+noise1	[ 0	locks=0 ]	(	0	)
+bias1	[ 0	locks=0 ]	(	[ bias1	6 ] 	)
+freq1	[ 0	locks=0 ]	(	[ freq1x	10 ] 	[ freq1y	10 ] 	[ freq1z	10 ] 	)
+offset1	[ 0	locks=0 ]	(	[ offset1x	0 ] 	[ offset1y	0 ] 	[ offset1z	0 ] 	)
+rough1	[ 0	locks=0 ]	(	[ rough1	0.5 ] 	)
+atten1	[ 0	locks=0 ]	(	[ atten1	1 ] 	)
+turb1	[ 0	locks=0 ]	(	[ turb1	1 ] 	)
+angle_exp1	[ 0	locks=0 ]	(	[ angle_exp1	1 ] 	)
+foward_dir1	[ 0	locks=0 ]	(	0	)
+branch_dir1	[ 0	locks=0 ]	(	[ branch_dir1x	0 ] 	[ branch_dir1y	1 ] 	[ branch_dir1z	0 ] 	)
+branch_dir_ramp1	[ 0	locks=0 ]	(	[ branch_dir_ramp1	2 ] 	)
+step_ramp1_1pos	[ 0	locks=0 ]	(	[ step_ramp1_1pos	0 ] 	)
+step_ramp1_1value	[ 0	locks=0 ]	(	[ step_ramp1_1value	0 ] 	)
+step_ramp1_1interp	[ 0	locks=0 ]	(	[ step_ramp1_1interp	1 ] 	)
+step_ramp1_2pos	[ 0	locks=0 ]	(	[ step_ramp1_2pos	1 ] 	)
+step_ramp1_2value	[ 0	locks=0 ]	(	[ step_ramp1_2value	1 ] 	)
+step_ramp1_2interp	[ 0	locks=0 ]	(	[ step_ramp1_2interp	1 ] 	)
+branch_dir_ramp1_1pos	[ 0	locks=0 ]	(	[ branch_dir_ramp1_1pos	0 ] 	)
+branch_dir_ramp1_1value	[ 0	locks=0 ]	(	[ branch_dir_ramp1_1value	0 ] 	)
+branch_dir_ramp1_1interp	[ 0	locks=0 ]	(	[ branch_dir_ramp1_1interp	1 ] 	)
+branch_dir_ramp1_2pos	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2pos	1 ] 	)
+branch_dir_ramp1_2value	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2value	0.10000000000000001 ] 	)
+branch_dir_ramp1_2interp	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3907,40 +3996,38 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle4.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.init"
 Content-Type: text/plain
 
-type = attribwrangle
-matchesdef = 1
+type = attribvop
+matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle4.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.74272 -6.22992
-connectornextid 3
+position -0.00345 2.61445
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+1 "output1"
 }
 inputsNamed3
 {
-0 	pointvop1 1 1 "input1"
-1 	blast1 1 1 "input2"
+0 	measure3 1 1 "input1"
 }
 inputs
 {
-0 	pointvop1 0 1
-1 	blast1 0 1
+0 	measure3 0 1
 }
 stat
 {
-  create 1579088927
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
+  create 1580460915
+  modify 1581392300
+  author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -3949,43 +4036,653 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle4.parm"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.multiparm"
+Content-Type: text/plain
+
+3
+ramp#pos ../ramp2_#pos
+ramp#value ../ramp2_#value
+ramp#interp ../ramp2_#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "bindgroup"
+        baseparm
+        label   "Group"
+        export  none
+        bindselector uvselect "Modify Points"
+            "Select the points to affect and press Enter to complete."
+            0 1 0xffffffff 0 bindgrouptype 0
+    }
+    parm {
+        name    "bindgrouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "bindclass"
+        baseparm
+        label   "Run Over"
+        export  none
+    }
+    parm {
+        name    "vex_numcount"
+        baseparm
+        label   "Number Count"
+        export  none
+    }
+    parm {
+        name    "vex_threadjobsize"
+        baseparm
+        label   "Thread Job Size"
+        export  none
+    }
+    group {
+        name    "stdswitcher3"
+        label   "Vex Setup"
+
+        parm {
+            name    "vexsrc"
+            baseparm
+            label   "Vex Source"
+            export  all
+        }
+        parm {
+            name    "shoppath"
+            baseparm
+            label   "Shop Path"
+            export  all
+        }
+        parm {
+            name    "script"
+            baseparm
+            label   "Script"
+            export  all
+        }
+        parm {
+            name    "clear"
+            baseparm
+            label   "Re-load VEX Functions"
+            export  all
+        }
+        parm {
+            name    "vop_compiler"
+            baseparm
+            label   "Compiler"
+            export  none
+        }
+        parm {
+            name    "vop_forcecompile"
+            baseparm
+            label   "Force Compile"
+            export  none
+        }
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_multithread"
+            baseparm
+            label   "Enable Multithreading"
+            export  none
+        }
+    }
+
+    group {
+        name    "stdswitcher3_1"
+        label   "Attribute Bindings"
+
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "ptnum"
+        label   "Point Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "vtxnum"
+        label   "Vertex Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "primnum"
+        label   "Primitive Number"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "id"
+        label   "Id"
+        type    integer
+        invisible
+        default { "-1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numpt"
+        label   "Number of Points"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numvtx"
+        label   "Number of Vertices"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "numprim"
+        label   "Number of Prims"
+        type    integer
+        invisible
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Time"
+        label   "Time"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "TimeInc"
+        label   "Time Inc"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Frame"
+        label   "Frame"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "life"
+        label   "Life"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "age"
+        label   "Age"
+        type    float
+        invisible
+        default { "0" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput2"
+        label   "Second Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput3"
+        label   "Third Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput4"
+        label   "Fourth Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "OpInput1"
+        label   "First Input"
+        type    string
+        invisible
+        default { "" }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "uv"
+        label   "UV"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "P"
+        label   "P"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "v"
+        label   "Velocity"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "force"
+        label   "Force"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "Cd"
+        label   "Cd"
+        type    float
+        invisible
+        size    3
+        default { "1" "1" "1" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "N"
+        label   "N"
+        type    float
+        invisible
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "ramp"
+        label   "ramp"
+        type    ramp_flt
+        default { "2" }
+        range   { 1! 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "rampbasis_var" "ramp_the_basis_strings" }
+        parmtag { "rampbasisdefault" "linear" }
+        parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+        parmtag { "rampkeys_var" "ramp_the_key_positions" }
+        parmtag { "rampshowcontrolsdefault" "1" }
+        parmtag { "rampvalues_var" "ramp_the_key_values" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "dir"
+        label   "dir"
+        type    float
+        size    3
+        default { "0" "1" "0" }
+        range   { 0 10 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2.chn"
+Content-Type: text/plain
+
+{
+    channel ramp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp2_1pos\") }
+    }
+    channel ramp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp2_1value\") }
+    }
+    channel ramp1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ramp2_1interp\") }
+    }
+    channel ramp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp2_2pos\") }
+    }
+    channel ramp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ramp2_2value\") }
+    }
+    channel ramp2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../ramp2_2interp\") }
+    }
+    channel dir1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../dir1\") }
+    }
+    channel dir2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../dir2\") }
+    }
+    channel dir3 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../dir3\") }
+    }
+    channel ramp {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../ramp2\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"detail"	)
+bindgroup	[ 0	locks=0 ]	(	""	)
+bindgrouptype	[ 0	locks=0 ]	(	"guess"	)
+bindclass	[ 0	locks=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector a = point(0, 'P', npoints(0)-1) - point(0, 'P', 0);
-vector b = point(1, 'P', npoints(1)-1) - point(1, 'P', 0);
-
-float scale = length(a)/length(b);
-matrix3 mmm = dihedral(b, a);
-
-f@scale = scale;
-3@mmm = mmm;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+vexsrc	[ 0	locks=0 ]	(	"myself"	)
+shoppath	[ 0	locks=0 ]	(	""	)
+script	[ 0	locks=0 ]	(	null	)
+clear	[ 0	locks=0 ]	(	0	)
+vop_compiler	[ 0	locks=0 ]	(	"vcc -q $VOP_INCLUDEPATH -o $VOP_OBJECTFILE -e $VOP_ERRORFILE $VOP_SOURCEFILE"	)
+vop_forcecompile	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	""	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_multithread	[ 0	locks=0 ]	(	"on"	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
 autobind	[ 0	locks=0 ]	(	"on"	)
 bindings	[ 0	locks=0 ]	(	0	)
 groupautobind	[ 0	locks=0 ]	(	"on"	)
 groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
 vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
 vex_matchattrib	[ 0	locks=0 ]	(	id	)
 vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
+stdswitcher3	[ 0	locks=0 ]	(	0	0	)
+ptnum	[ 0	locks=0 ]	(	0	)
+vtxnum	[ 0	locks=0 ]	(	0	)
+primnum	[ 0	locks=0 ]	(	0	)
+id	[ 0	locks=0 ]	(	-1	)
+numpt	[ 0	locks=0 ]	(	0	)
+numvtx	[ 0	locks=0 ]	(	0	)
+numprim	[ 0	locks=0 ]	(	0	)
+Time	[ 0	locks=0 ]	(	0	)
+TimeInc	[ 0	locks=0 ]	(	0	)
+Frame	[ 0	locks=0 ]	(	0	)
+life	[ 0	locks=0 ]	(	0	)
+age	[ 0	locks=0 ]	(	0	)
+OpInput2	[ 0	locks=0 ]	(	""	)
+OpInput3	[ 0	locks=0 ]	(	""	)
+OpInput4	[ 0	locks=0 ]	(	""	)
+OpInput1	[ 0	locks=0 ]	(	""	)
+uv	[ 0	locks=0 ]	(	0	0	0	)
+P	[ 0	locks=0 ]	(	0	0	0	)
+v	[ 0	locks=0 ]	(	0	0	0	)
+force	[ 0	locks=0 ]	(	0	0	0	)
+Cd	[ 0	locks=0 ]	(	1	1	1	)
+N	[ 0	locks=0 ]	(	0	0	0	)
+ramp	[ 0	locks=0 ]	(	[ ramp	2 ] 	)
+ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
+ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0 ] 	)
+ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	1 ] 	)
+ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	1 ] 	)
+ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
+ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
+dir	[ 0	locks=0 ]	(	[ dir1	0 ] 	[ dir2	1 ] 	[ dir3	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle4.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopglobal1.init"
+Content-Type: text/plain
+
+type = geometryvopglobal::2.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopglobal1.def"
+Content-Type: text/plain
+
+comment ""
+position -8.52709 -2.79698
+connectornextid 13
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "P"
+1 "v"
+2 "force"
+3 "age"
+4 "life"
+5 "id"
+6 "Cd"
+7 "uv"
+8 "N"
+9 "Time"
+10 "TimeInc"
+11 "Frame"
+12 "ptnum"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1580460915
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopglobal1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopglobal1.userdata"
 Content-Type: text/plain
 
 {
@@ -3996,40 +4693,44 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle2.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopoutput1.init"
 Content-Type: text/plain
 
-type = attribwrangle
+type = geometryvopoutput
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle2.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopoutput1.def"
 Content-Type: text/plain
 
-sopflags sopflags = 
 comment ""
-position 3.6381 -9.2535
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 23.0502 -2.13991
+connectornextid 5
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-2 "output1"
 }
 inputsNamed3
 {
-0 	add3 1 1 "input1"
-1 	attribwrangle4 2 1 "input2"
+0 	"" "" 1 "P"
+1 	"" "" 1 "v"
+2 	"" "" 1 "force"
+3 	"" "" 1 "Cd"
+4 	"" "" 1 "N"
 }
 inputs
 {
-0 	add3 0 1
-1 	attribwrangle4 0 1
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	"" 0 1
 }
 stat
 {
-  create 1579089279
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
+  create 1580460915
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -4038,42 +4739,15 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle2.parm"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopoutput1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector orig = point(0, 'P', 0);
-
-matrix3 mmm = detail(1, 'mmm');
-float scale = detail(1, 'scale');
-v@P -= orig;
-v@P *= mmm;
-v@P *= scale;
-v@P += orig;"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle2.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/geometryvopoutput1.userdata"
 Content-Type: text/plain
 
 {
@@ -4084,40 +4758,146 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle6.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind1.init"
 Content-Type: text/plain
 
-type = attribwrangle
-matchesdef = 1
+type = bind
+matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle6.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind1.def"
 Content-Type: text/plain
 
-sopflags sopflags = 
 comment ""
-position 6.88318 4.8844
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 7.59449 3.01962
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-2 "output1"
+0 "tangentu"
+1 "bound_tangentu"
 }
 inputsNamed3
 {
-0 	null1 1 1 "input1"
-1 	(1) "" 1 "input2"
 }
 inputs
 {
-0 	null1 0 1
-1 	(1) 0 1
 }
 stat
 {
-  create 1579088927
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
+  create 1580460938
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmname	[ 0	locks=0 ]	(	tangentu	)
+parmtype	[ 0	locks=0 ]	(	"vector"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+overridetype	[ 0	locks=0 ]	(	"off"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/add1.init"
+Content-Type: text/plain
+
+type = add
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/add1.def"
+Content-Type: text/plain
+
+comment ""
+position 13.357 1.82738
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "sum"
+}
+inputsNamed3
+{
+0 	bind1 0 1 "input1"
+1 	pow1 2 1 "input2"
+}
+inputs
+{
+0 	bind1 0 1
+1 	pow1 0 1
+}
+stat
+{
+  create 1580460952
+  modify 1581390696
+  author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -4126,45 +4906,189 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle6.parm"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/add1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"detail"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector a = point(0, 'P', npoints(0)-1) - point(0, 'P', 0);
-vector b = point(1, 'P', npoints(1)-1) - point(1, 'P', 0);
-vector t = point(1, 'P', 0) - point(0, 'P', 0);
-
-float scale = length(b)/length(a);
-matrix3 mmm = dihedral(a, b);
-
-f@scale = scale;
-3@mmm = mmm;
-v@trans = t;
-"	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribwrangle6.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/add1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/const1.init"
+Content-Type: text/plain
+
+type = constant
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/const1.def"
+Content-Type: text/plain
+
+comment ""
+position 4.95966 -5.21988
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "Value"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1580460956
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/const1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+consttype	[ 0	locks=0 ]	(	"vector"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	1	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+constname	[ 0	locks=0 ]	(	Value	)
+constlabel	[ 0	locks=0 ]	(	Constant	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/const1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/pow1.init"
+Content-Type: text/plain
+
+type = pow
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/pow1.def"
+Content-Type: text/plain
+
+comment ""
+position 10.762 -5.06988
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "pow"
+}
+inputsNamed3
+{
+0 	normalize2 1 1 "val"
+1 	"" "" 1 "exp"
+}
+inputs
+{
+0 	normalize2 0 1
+1 	"" 0 1
+}
+stat
+{
+  create 1580460979
+  modify 1581390695
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/pow1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	v	)
+val	[ 0	locks=0 ]	(	1	)
+val_v	[ 0	locks=0 ]	(	1	1	1	)
+val_u	[ 0	locks=0 ]	(	1	1	)
+val_p	[ 0	locks=0 ]	(	1	1	1	)
+val_n	[ 0	locks=0 ]	(	1	1	1	)
+val_c	[ 0	locks=0 ]	(	1	1	1	)
+val_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+val_uf	[ 0	locks=0 ]	(	1	)
+val_uv	[ 0	locks=0 ]	(	1	1	1	)
+val_up	[ 0	locks=0 ]	(	1	1	1	)
+val_un	[ 0	locks=0 ]	(	1	1	1	)
+val_uc	[ 0	locks=0 ]	(	1	1	1	)
+exp	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/pow1.userdata"
 Content-Type: text/plain
 
 {
@@ -4175,40 +5099,37 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle3.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize1.init"
 Content-Type: text/plain
 
-type = attribwrangle
-matchesdef = 1
+type = normalize
+matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle3.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize1.def"
 Content-Type: text/plain
 
-sopflags sopflags = 
 comment ""
-position 6.7459 -12.0802
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 16.88 2.3607
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
-2 "output1"
+1 "nvec"
 }
 inputsNamed3
 {
-0 	switch1 1 1 "input1"
-1 	attribwrangle6 2 1 "input2"
+0 	mix1 3 1 "vec"
 }
 inputs
 {
-0 	switch1 0 1
-1 	attribwrangle6 0 1
+0 	mix1 0 1
 }
 stat
 {
-  create 1579089279
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
+  create 1580461025
+  modify 1581390695
+  author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -4217,45 +5138,611 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle3.parm"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-folder0	[ 0	locks=0 ]	(	0	0	)
-group	[ 0	locks=0 ]	(	""	)
-grouptype	[ 0	locks=0 ]	(	"guess"	)
-class	[ 0	locks=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"vector orig = point(0, 'P', 0);
-
-matrix3 mmm = detail(1, 'mmm');
-float scale = detail(1, 'scale');
-vector trans = detail(1, 'trans', 0);
-
-v@P -= orig;
-v@P *= mmm;
-v@P *= scale;
-v@P += orig;
-v@P += trans; "	)
-exportlist	[ 0	locks=0 ]	(	*	)
-vex_strict	[ 0	locks=0 ]	(	"off"	)
-autobind	[ 0	locks=0 ]	(	"on"	)
-bindings	[ 0	locks=0 ]	(	0	)
-groupautobind	[ 0	locks=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0 ]	(	id	)
-vex_inplace	[ 0	locks=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0 ]	(	""	)
-vex_precision	[ 0	locks=0 ]	(	auto	)
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	1	0	0	)
+vec_u	[ 0	locks=0 ]	(	1	0	)
+vec_p	[ 0	locks=0 ]	(	1	0	0	)
+vec_v	[ 0	locks=0 ]	(	1	0	0	)
+vec_v4	[ 0	locks=0 ]	(	0	0	0	1	)
+vec_un	[ 0	locks=0 ]	(	1	0	0	)
+vec_up	[ 0	locks=0 ]	(	1	0	0	)
+vec_uv	[ 0	locks=0 ]	(	1	0	0	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle3.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/mix1.init"
+Content-Type: text/plain
+
+type = mix
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/mix1.def"
+Content-Type: text/plain
+
+comment ""
+position 10.2938 -0.598558
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+3 "blend"
+}
+inputsNamed3
+{
+0 	bind1 0 1 "input1"
+1 	normalize2 1 1 "input2"
+2 	ramp1 1 1 "bias"
+}
+inputs
+{
+0 	bind1 0 1
+1 	normalize2 0 1
+2 	ramp1 0 1
+}
+stat
+{
+  create 1580461080
+  modify 1581390695
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/mix1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	v	)
+bias	[ 0	locks=0 ]	(	0.5	)
+input1	[ 0	locks=0 ]	(	0	)
+input2	[ 0	locks=0 ]	(	1	)
+input1_u	[ 0	locks=0 ]	(	0	0	)
+input2_u	[ 0	locks=0 ]	(	1	1	)
+input1_v	[ 0	locks=0 ]	(	0	0	0	)
+input2_v	[ 0	locks=0 ]	(	1	1	1	)
+input1_p	[ 0	locks=0 ]	(	0	0	0	)
+input2_p	[ 0	locks=0 ]	(	1	1	1	)
+input1_n	[ 0	locks=0 ]	(	0	0	0	)
+input2_n	[ 0	locks=0 ]	(	1	1	1	)
+input1_c	[ 0	locks=0 ]	(	0	0	0	)
+input2_c	[ 0	locks=0 ]	(	1	1	1	)
+input1_v4	[ 0	locks=0 ]	(	0	0	0	0	)
+input2_v4	[ 0	locks=0 ]	(	1	1	1	1	)
+input1_uf	[ 0	locks=0 ]	(	0	)
+input2_uf	[ 0	locks=0 ]	(	1	)
+input1_uv	[ 0	locks=0 ]	(	0	0	0	)
+input2_uv	[ 0	locks=0 ]	(	1	1	1	)
+input1_up	[ 0	locks=0 ]	(	0	0	0	)
+input2_up	[ 0	locks=0 ]	(	1	1	1	)
+input1_un	[ 0	locks=0 ]	(	0	0	0	)
+input2_un	[ 0	locks=0 ]	(	1	1	1	)
+input1_uc	[ 0	locks=0 ]	(	0	0	0	)
+input2_uc	[ 0	locks=0 ]	(	1	1	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/mix1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind2.init"
+Content-Type: text/plain
+
+type = bind
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind2.def"
+Content-Type: text/plain
+
+comment ""
+position -3.67681 -0.914523
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "curveu"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1580461090
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmname	[ 0	locks=0 ]	(	curveu	)
+parmtype	[ 0	locks=0 ]	(	"float"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+overridetype	[ 0	locks=0 ]	(	"off"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind3.init"
+Content-Type: text/plain
+
+type = bind
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind3.def"
+Content-Type: text/plain
+
+comment ""
+position 20.2381 2.18962
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	normalize1 1 1 "input"
+}
+inputs
+{
+0 	normalize1 0 1
+}
+stat
+{
+  create 1580461110
+  modify 1581390695
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.6 0.6 1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind3.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmname	[ 0	locks=0 ]	(	tangentu	)
+parmtype	[ 0	locks=0 ]	(	"vector"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+overridetype	[ 0	locks=0 ]	(	"on"	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	0	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+useasparmdefiner	[ 0	locks=0 ]	(	"on"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+exportparm	[ 0	locks=0 ]	(	"whenconnected"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/bind3.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/ramp1.init"
+Content-Type: text/plain
+
+type = rampparm
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/ramp1.def"
+Content-Type: text/plain
+
+comment ""
+position 0.737481 -0.914523
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "ramp"
+}
+inputsNamed3
+{
+0 	bind2 0 1 "input"
+}
+inputs
+{
+0 	bind2 0 1
+}
+stat
+{
+  create 1580461191
+  modify 1580461233
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/ramp1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	ramp	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+ramptype	[ 0	locks=0 ]	(	"flt"	)
+rampcolortype	[ 0	locks=0 ]	(	rgb	)
+rampbasisdefault	[ 0	locks=0 ]	(	linear	)
+rampcolordefault	[ 0	locks=0 ]	(	2	)
+rampfloatdefault	[ 0	locks=0 ]	(	2	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+separator2	[ 0	locks=0 ]	(	)
+rampshowcontrolsdefault	[ 0	locks=0 ]	(	"on"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+rampcolordefault1pos	[ 0	locks=0 ]	(	0	)
+rampcolordefault1c	[ 0	locks=0 ]	(	0	0	0	)
+rampcolordefault1interp	[ 0	locks=0 ]	(	"linear"	)
+rampcolordefault2pos	[ 0	locks=0 ]	(	1	)
+rampcolordefault2c	[ 0	locks=0 ]	(	1	1	1	)
+rampcolordefault2interp	[ 0	locks=0 ]	(	"linear"	)
+rampfloatdefault1pos	[ 0	locks=0 ]	(	0	)
+rampfloatdefault1value	[ 0	locks=0 ]	(	0	)
+rampfloatdefault1interp	[ 0	locks=0 ]	(	"linear"	)
+rampfloatdefault2pos	[ 0	locks=0 ]	(	1	)
+rampfloatdefault2value	[ 0	locks=0 ]	(	1	)
+rampfloatdefault2interp	[ 0	locks=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/ramp1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/parm1.init"
+Content-Type: text/plain
+
+type = parameter
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/parm1.def"
+Content-Type: text/plain
+
+comment ""
+position 2.52465 -4.02495
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+0 "dir"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create 1581390665
+  modify 1581390698
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 1 1 0.4 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/parm1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parmscope	[ 0	locks=0 ]	(	shaderparm	)
+parmaccess	[ 0	locks=0 ]	(	""	)
+parmname	[ 0	locks=0 ]	(	dir	)
+parmprefix	[ 0	locks=0 ]	(	""	)
+parmpostfix	[ 0	locks=0 ]	(	""	)
+parmlabel	[ 0	locks=0 ]	(	""	)
+showlabel	[ 0	locks=0 ]	(	"on"	)
+parmtype	[ 0	locks=0 ]	(	"vector"	)
+parmtypename	[ 0	locks=0 ]	(	""	)
+floatdef	[ 0	locks=0 ]	(	0	)
+intdef	[ 0	locks=0 ]	(	0	)
+toggledef	[ 0	locks=0 ]	(	"off"	)
+angledef	[ 0	locks=0 ]	(	0	)
+logfloatdef	[ 0	locks=0 ]	(	0	)
+float2def	[ 0	locks=0 ]	(	0	0	)
+float3def	[ 0	locks=0 ]	(	0	0	0	)
+vectordef	[ 0	locks=0 ]	(	0	1	0	)
+normaldef	[ 0	locks=0 ]	(	0	0	0	)
+pointdef	[ 0	locks=0 ]	(	0	0	0	)
+directiondef	[ 0	locks=0 ]	(	1	0	0	)
+float4def	[ 0	locks=0 ]	(	0	0	0	0	)
+floatm2def	[ 0	locks=0 ]	(	1	0	0	1	)
+float9def	[ 0	locks=0 ]	(	1	0	0	0	1	0	0	0	1	)
+float16def	[ 0	locks=0 ]	(	1	0	0	0	0	1	0	0	0	0	1	0	0	0	0	1	)
+stringdef	[ 0	locks=0 ]	(	""	)
+filedef	[ 0	locks=0 ]	(	""	)
+imagedef	[ 0	locks=0 ]	(	""	)
+geometrydef	[ 0	locks=0 ]	(	""	)
+colordef	[ 0	locks=0 ]	(	0	0	0	)
+color4def	[ 0	locks=0 ]	(	0	0	0	0	)
+bsdfdef	[ 0	locks=0 ]	(	""	)
+coshaderdef	[ 0	locks=0 ]	(	""	)
+surfacedef	[ 0	locks=0 ]	(	""	)
+displacementdef	[ 0	locks=0 ]	(	""	)
+atmospheredef	[ 0	locks=0 ]	(	""	)
+floatadef	[ 0	locks=0 ]	(	)
+intadef	[ 0	locks=0 ]	(	)
+vector2adef	[ 0	locks=0 ]	(	)
+vectoradef	[ 0	locks=0 ]	(	)
+pointadef	[ 0	locks=0 ]	(	)
+normaladef	[ 0	locks=0 ]	(	)
+coloradef	[ 0	locks=0 ]	(	)
+floatm2adef	[ 0	locks=0 ]	(	)
+float4adef	[ 0	locks=0 ]	(	)
+float9adef	[ 0	locks=0 ]	(	)
+float16adef	[ 0	locks=0 ]	(	)
+stringadef	[ 0	locks=0 ]	(	)
+coshaderadef	[ 0	locks=0 ]	(	""	)
+structdef	[ 0	locks=0 ]	(	""	)
+rangeflt	[ 0	locks=0 ]	(	0	1	)
+rangeint	[ 0	locks=0 ]	(	0	10	)
+stringtype	[ 0	locks=0 ]	(	off	)
+opfilter	[ 0	locks=0 ]	(	!!OBJ/LIGHT!!	)
+parmcomment	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+useasparmdefiner	[ 0	locks=0 ]	(	"off"	)
+useownexportcontext	[ 0	locks=0 ]	(	"off"	)
+parmuniform	[ 0	locks=0 ]	(	"on"	)
+usebound	[ 0	locks=0 ]	(	"off"	)
+hasconnector	[ 0	locks=0 ]	(	"on"	)
+exportparm	[ 0	locks=0 ]	(	"off"	)
+exportcontext	[ 0	locks=0 ]	(	cvex	)
+providemenu	[ 0	locks=0 ]	(	"off"	)
+menuchoices	[ 0	locks=0 ]	(	""	)
+menuscript	[ 0	locks=0 ]	(	""	)
+menuscriptlanguage	[ 0	locks=0 ]	(	"hscript"	)
+separator2	[ 0	locks=0 ]	(	)
+invisible	[ 0	locks=0 ]	(	"off"	)
+joinnext	[ 0	locks=0 ]	(	"off"	)
+disablewhen	[ 0	locks=0 ]	(	""	)
+hidewhen	[ 0	locks=0 ]	(	""	)
+callback	[ 0	locks=0 ]	(	""	)
+tags	[ 0	locks=0 ]	(	""	)
+help	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/parm1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"18.0.348"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize2.init"
+Content-Type: text/plain
+
+type = normalize
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize2.def"
+Content-Type: text/plain
+
+comment ""
+position 5.52465 -4.02495
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+1 "nvec"
+}
+inputsNamed3
+{
+0 	parm1 0 1 "vec"
+}
+inputs
+{
+0 	parm1 0 1
+}
+stat
+{
+  create 1581390694
+  modify 1581390698
+  author Chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+signature	[ 0	locks=0 ]	(	default	)
+vec	[ 0	locks=0 ]	(	1	0	0	)
+vec_u	[ 0	locks=0 ]	(	1	0	)
+vec_p	[ 0	locks=0 ]	(	1	0	0	)
+vec_v	[ 0	locks=0 ]	(	1	0	0	)
+vec_v4	[ 0	locks=0 ]	(	0	0	0	1	)
+vec_un	[ 0	locks=0 ]	(	1	0	0	)
+vec_up	[ 0	locks=0 ]	(	1	0	0	)
+vec_uv	[ 0	locks=0 ]	(	1	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pointvop2/normalize2.userdata"
 Content-Type: text/plain
 
 {
@@ -4278,7 +5765,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.93933 -42.6067
+position 1.8205 -30.391
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4288,17 +5775,17 @@ outputsNamed3
 inputsNamed3
 {
 0 	split1 1 1 "input1"
-2 	null2 1 1 "input2"
+2 	null5 1 1 "input2"
 }
 inputs
 {
 0 	split1 0 1
-1 	null2 0 1
+1 	null5 0 1
 }
 stat
 {
   create 1579162462
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4370,7 +5857,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.93933 -43.6845
+position 1.8205 -31.4688
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4388,7 +5875,7 @@ inputs
 stat
 {
   create 1579162759
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4451,9 +5938,9 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.16635 -21.0869
+position 4.0476 -8.87117
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 1 "output1"
@@ -4471,11 +5958,11 @@ inputs
 stat
 {
   create 1579594610
-  modify 1579601612
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
-color UT_Color RGB 0.8 0.8 0.8 
+color UT_Color RGB 1 0.529 0.624 
 delscript ""
 exprlanguage hscript
 end
@@ -4724,7 +6211,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.16635 -24.2422
+position 4.0476 -12.0265
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4742,7 +6229,7 @@ inputs
 stat
 {
   create 1579595047
-  modify 1579601612
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -4804,7 +6291,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0388068 -53.0121
+position -1.28825 -40.9265
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -4822,7 +6309,7 @@ inputs
 stat
 {
   create 1579595741
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5019,14 +6506,16 @@ Content-Type: text/plain
     channel breakpt {
       lefttype = extend
       righttype = extend
+      default = 0.32600000000000001
       flags = 0
-      segment { length = 0 expr = ch(\"../attribwrangle7/breakpt\") }
+      segment { length = 0 value = 0.32600000000000001 0.32600000000000001 expr = ch(\"../attribwrangle7/breakpt\") }
     }
     channel max_step {
       lefttype = extend
       righttype = extend
+      default = 100
       flags = 0
-      segment { length = 0 expr = ch(\"../resample4/segs\") }
+      segment { length = 0 value = 100 100 expr = ch(\"../resample4/segs\") }
     }
   }
 
@@ -5061,7 +6550,7 @@ vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 breakpt	[ 0	locks=0 ]	(	[ breakpt	1 ] 	)
-max_step	[ 0	locks=0 ]	(	[ max_step	100 ] 	)
+max_step	[ 0	locks=0 ]	(	[ max_step	40 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -5088,7 +6577,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91493 -21.5143
+position 1.7961 -9.29857
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5106,7 +6595,7 @@ inputs
 stat
 {
   create 1579676161
-  modify 1579676226
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5158,7 +6647,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.16935 -26.4531
+position 4.0506 -14.2374
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5176,7 +6665,7 @@ inputs
 stat
 {
   create 1579676161
-  modify 1579676563
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5216,19 +6705,19 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle1.init"
+Content-Disposition: attachment; filename="hdaroot/pointwrangle5.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle1.def"
+Content-Disposition: attachment; filename="hdaroot/pointwrangle5.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.16635 -27.4824
+position 4.0476 -15.2667
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5246,7 +6735,7 @@ inputs
 stat
 {
   create 1579676453
-  modify 1580372380
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5256,7 +6745,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle1.parm"
+Content-Disposition: attachment; filename="hdaroot/pointwrangle5.parm"
 Content-Type: text/plain
 
 {
@@ -5288,7 +6777,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/pointwrangle1.userdata"
+Content-Disposition: attachment; filename="hdaroot/pointwrangle5.userdata"
 Content-Type: text/plain
 
 {
@@ -5302,7 +6791,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot/pointvop1.order"
 Content-Type: text/plain
 
-25
+24
 geometryvopglobal1
 geometryvopoutput1
 unifiednoise_static1
@@ -5320,7 +6809,6 @@ matxtoquat1
 bind3
 multiply1
 ramp1
-turbnoise1
 m4tom3
 rough
 freq
@@ -5336,82 +6824,29 @@ Content-Type: text/plain
 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add3.init"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.order"
 Content-Type: text/plain
 
-type = add
-matchesdef = 0
+13
+geometryvopglobal1
+geometryvopoutput1
+bind1
+add1
+const1
+pow1
+normalize1
+mix1
+bind2
+bind3
+ramp1
+parm1
+normalize2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add3.def"
+Content-Disposition: attachment; filename="hdaroot/pointvop2.net"
 Content-Type: text/plain
 
-sopflags sopflags = 
-comment ""
-position -0.205731 -7.74829
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	attribwrangle0 2 1 "input1"
-}
-inputs
-{
-0 	attribwrangle0 0 1
-}
-stat
-{
-  create 1579075805
-  modify 1581321395
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add3.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
-keep	[ 0	locks=0 ]	(	"off"	)
-points	[ 0	locks=0 ]	(	1	)
-remove	[ 0	locks=0 ]	(	"off"	)
-switcher	[ 0	locks=0 ]	(	1	1	)
-prims	[ 0	locks=0 ]	(	1	)
-group	[ 0	locks=0 ]	(	""	)
-add	[ 0	locks=0 ]	(	"attribute"	)
-inc	[ 0	locks=0 ]	(	2	)
-attrname	[ 0	locks=0 ]	(	id	)
-closedall	[ 0	locks=0 ]	(	"off"	)
-addparticlesystem	[ 0	locks=0 ]	(	"off"	)
-particlegroup	[ 0	locks=0 ]	(	""	)
-appendunusedtoparticlesystem	[ 0	locks=0 ]	(	"off"	)
-usept0	[ 0	locks=0 ]	(	"off"	)
-pt0	[ 0	locks=0 ]	(	0	0	0	)
-weight0	[ 0	locks=0 ]	(	1	)
-prim0	[ 0	locks=0 ]	(	""	)
-closed0	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/add3.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
-	}
-}
+1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/measure3.init"
@@ -5426,7 +6861,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.58474e-16 2.78924
+position 0 3.61445
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5444,7 +6879,7 @@ inputs
 stat
 {
   create 1579072247
-  modify 1579600189
+  modify 1581333443
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5533,7 +6968,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.58474e-16 4.8854
+position 0 4.61445
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5542,16 +6977,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	null1 1 1 "input1"
+0 	(0) "" 1 "input1"
 }
 inputs
 {
-0 	null1 0 1
+0 	(0) 0 1
 }
 stat
 {
   create 1579071957
-  modify 1579600185
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5568,9 +7003,9 @@ Content-Type: text/plain
     channel segs {
       lefttype = extend
       righttype = extend
-      default = 200
+      default = 100
       flags = 0
-      segment { length = 0 value = 200 200 expr = ch(\"../segs\") }
+      segment { length = 0 value = 100 100 expr = ch(\"../segs\") }
     }
   }
 
@@ -5588,7 +7023,7 @@ measure	[ 0	locks=0 ]	(	"arc"	)
 dolength	[ 0	locks=0 ]	(	"off"	)
 length	[ 0	locks=0 ]	(	0.10000000000000001	)
 dosegs	[ 0	locks=0 ]	(	"on"	)
-segs	[ 8	locks=0 ]	(	[ segs	100 ] 	)
+segs	[ 8	locks=0 ]	(	[ segs	40 ] 	)
 useattribs	[ 0	locks=0 ]	(	"on"	)
 allequal	[ 0	locks=0 ]	(	"on"	)
 last	[ 0	locks=0 ]	(	"off"	)
@@ -5618,95 +7053,19 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Disposition: attachment; filename="hdaroot/add1.init"
 Content-Type: text/plain
 
-type = switch
+type = add
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Disposition: attachment; filename="hdaroot/add1.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.118782 -10.4081
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	add3 1 1 "input1"
-2 	pointwrangle2 2 1 "input2"
-}
-inputs
-{
-0 	add3 0 1
-1 	pointwrangle2 0 1
-}
-stat
-{
-  create 1579089462
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../input\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 0	locks=0 ]	(	[ input	1 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null1.init"
-Content-Type: text/plain
-
-type = null
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 2.86229e-16 6.92324
+position 0 -0.46335
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5715,36 +7074,53 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
+0 	attribwrangle0 2 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
+0 	attribwrangle0 0 1
 }
 stat
 {
-  create 1579089958
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
+  create 1580725261
+  modify 1581390514
+  author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
-color UT_Color RGB 0.6 0.7 0.77 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null1.parm"
+Content-Disposition: attachment; filename="hdaroot/add1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
-copyinput	[ 0	locks=0 ]	(	"on"	)
-cacheinput	[ 0	locks=0 ]	(	"off"	)
+stdswitcher	[ 0	locks=0 ]	(	1	1	1	)
+keep	[ 0	locks=0 ]	(	"off"	)
+points	[ 0	locks=0 ]	(	1	)
+remove	[ 0	locks=0 ]	(	"off"	)
+switcher	[ 0	locks=0 ]	(	1	1	)
+prims	[ 0	locks=0 ]	(	1	)
+group	[ 0	locks=0 ]	(	""	)
+add	[ 0	locks=0 ]	(	"attribute"	)
+inc	[ 0	locks=0 ]	(	2	)
+attrname	[ 0	locks=0 ]	(	id	)
+closedall	[ 0	locks=0 ]	(	"off"	)
+addparticlesystem	[ 0	locks=0 ]	(	"off"	)
+particlegroup	[ 0	locks=0 ]	(	""	)
+appendunusedtoparticlesystem	[ 0	locks=0 ]	(	"off"	)
+usept0	[ 0	locks=0 ]	(	"off"	)
+pt0	[ 0	locks=0 ]	(	0	0	0	)
+weight0	[ 0	locks=0 ]	(	1	)
+prim0	[ 0	locks=0 ]	(	""	)
+closed0	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null1.userdata"
+Content-Disposition: attachment; filename="hdaroot/add1.userdata"
 Content-Type: text/plain
 
 {
@@ -5767,7 +7143,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0358068 -54.05
+position -1.28525 -41.9165
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -5784,7 +7160,7 @@ inputs
 stat
 {
   create 1579090339
-  modify 1581321380
+  modify 1581333350
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5814,214 +7190,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch2.init"
-Content-Type: text/plain
-
-type = switch
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch2.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position -0.88376 -13.3261
-connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-2 "output1"
-}
-inputsNamed3
-{
-0 	switch1 1 1 "input1"
-1 	pointwrangle3 2 1 "input2"
-}
-inputs
-{
-0 	switch1 0 1
-1 	pointwrangle3 0 1
-}
-stat
-{
-  create 1579090365
-  modify 1581321397
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 1 0.7 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch2.chn"
-Content-Type: text/plain
-
-{
-    channel input {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../input2\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch2.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/blast1.init"
-Content-Type: text/plain
-
-type = blast
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/blast1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 5.02241 -3.92898
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	attribwrangle0 2 1 "input1"
-}
-inputs
-{
-0 	attribwrangle0 0 1
-}
-stat
-{
-  create 1579143933
-  modify 1579600029
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/blast1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-group	[ 0	locks=0 ]	(	@id==0	)
-grouptype	[ 0	locks=0 ]	(	"points"	)
-computenorms	[ 0	locks=0 ]	(	"off"	)
-negate	[ 0	locks=0 ]	(	"on"	)
-fillhole	[ 0	locks=0 ]	(	"off"	)
-removegrp	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/blast1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote1.init"
-Content-Type: text/plain
-
-type = attribpromote
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote1.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 0.115332 -14.8559
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	switch2 2 1 "input1"
-}
-inputs
-{
-0 	switch2 0 1
-}
-stat
-{
-  create 1579147841
-  modify 1580375186
-  author chordee.lin@MoonShineExp40.moonshine.ad
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote1.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-inname	[ 0	locks=0 ]	(	branch_step	)
-inclass	[ 0	locks=0 ]	(	"point"	)
-outclass	[ 0	locks=0 ]	(	"primitive"	)
-usepieceattrib	[ 0	locks=0 ]	(	"off"	)
-pieceattrib	[ 0	locks=0 ]	(	name	)
-method	[ 0	locks=0 ]	(	"mean"	)
-useoutname	[ 0	locks=0 ]	(	"off"	)
-outname	[ 0	locks=0 ]	(	""	)
-deletein	[ 0	locks=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/attribpromote1.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"18.0.348"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/foreach_end1.init"
 Content-Type: text/plain
 
@@ -6034,7 +7202,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94393 -45.7688
+position 1.8251 -33.5531
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6052,7 +7220,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6202,7 +7370,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	14 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	1 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
@@ -6244,7 +7412,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94393 -38.2715
+position 1.8251 -26.0558
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6262,7 +7430,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6308,7 +7476,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.87591 -36.4257
+position 5.75713 -24.21
 connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6323,7 +7491,7 @@ inputs
 stat
 {
   create 1579162287
-  modify 1579602008
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6369,7 +7537,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94233 -39.3115
+position 1.8235 -27.0958
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6388,7 +7556,7 @@ inputs
 stat
 {
   create 1579162291
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6463,19 +7631,19 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null2.init"
+Content-Disposition: attachment; filename="hdaroot/null5.init"
 Content-Type: text/plain
 
 type = null
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null2.def"
+Content-Disposition: attachment; filename="hdaroot/null5.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.45409 -40.9011
+position 4.3353 -28.6854
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6493,7 +7661,7 @@ inputs
 stat
 {
   create 1579162373
-  modify 1579676453
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6503,7 +7671,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null2.parm"
+Content-Disposition: attachment; filename="hdaroot/null5.parm"
 Content-Type: text/plain
 
 {
@@ -6513,7 +7681,7 @@ cacheinput	[ 0	locks=0 ]	(	"off"	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/null2.userdata"
+Content-Disposition: attachment; filename="hdaroot/null5.userdata"
 Content-Type: text/plain
 
 {
@@ -6536,7 +7704,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94393 -46.8545
+position 1.429 -34.5728
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6554,7 +7722,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579676453
+  modify 1581332841
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6600,7 +7768,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94393 -35.4087
+position 1.8251 -23.193
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6618,7 +7786,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6663,7 +7831,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.93888 -44.7224
+position 1.8201 -32.5067
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6681,7 +7849,7 @@ inputs
 stat
 {
   create 1579163373
-  modify 1579676453
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6727,7 +7895,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94233 -37.1331
+position 1.8235 -24.9174
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6745,7 +7913,7 @@ inputs
 stat
 {
   create 1579170408
-  modify 1579676453
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6788,7 +7956,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94393 -30.9471
+position 1.161 -18.798
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6806,7 +7974,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579676453
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6864,7 +8032,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.91653 -18.9076
+position 1.7977 -6.69187
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -6882,7 +8050,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579676209
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6928,7 +8096,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.1659 -22.1298
+position 4.0471 -9.91407
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -6946,7 +8114,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579601612
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6996,7 +8164,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.1659 -23.2645
+position 4.0471 -11.0488
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7014,7 +8182,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579601612
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7064,7 +8232,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.29779 -18.9134
+position -1.4166 -6.69767
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7082,7 +8250,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1579601612
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7128,7 +8296,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.30284 -19.9105
+position -1.4216 -7.69477
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7146,7 +8314,7 @@ inputs
 stat
 {
   create 1579594550
-  modify 1579601612
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7196,7 +8364,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.94233 -28.5909
+position 1.8235 -16.3752
 connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7207,18 +8375,18 @@ inputsNamed3
 {
 2 	null4 0 1 "input1"
 0 	groupexpression1 1 1 "input2"
-3 	pointwrangle1 1 1 "input3"
+3 	pointwrangle5 1 1 "input3"
 }
 inputs
 {
 0 	null4 0 1
 1 	groupexpression1 0 1
-2 	pointwrangle1 0 1
+2 	pointwrangle5 0 1
 }
 stat
 {
   create 1579594968
-  modify 1579676454
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7302,7 +8470,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.646277 -22.6245
+position 0.5275 -10.4088
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7318,7 +8486,7 @@ inputs
 stat
 {
   create 1579594975
-  modify 1579601612
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7361,7 +8529,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.16935 -25.4672
+position 4.0506 -13.2515
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7379,7 +8547,7 @@ inputs
 stat
 {
   create 1579595276
-  modify 1579601612
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7604,7 +8772,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.67413 -32.9023
+position 1.161 -20.5552
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7622,7 +8790,7 @@ inputs
 stat
 {
   create 1579595636
-  modify 1580375190
+  modify 1581321658
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7668,7 +8836,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.120382 -17.6163
+position 0.0016 -5.40057
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -7677,16 +8845,16 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	attribpromote1 1 1 "input1"
+1 	add1 1 1 "input1"
 }
 inputs
 {
-0 	attribpromote1 0 1
+0 	add1 0 1
 }
 stat
 {
   create 1579595636
-  modify 1579601612
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7731,7 +8899,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.0392568 -51.9722
+position -1.28865 -39.8866
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7749,7 +8917,7 @@ inputs
 stat
 {
   create 1579595978
-  modify 1579676453
+  modify 1581333350
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7795,7 +8963,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.25613 -49.7388
+position -1.2852 -37.4872
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -7815,7 +8983,7 @@ inputs
 stat
 {
   create 1579601755
-  modify 1580375192
+  modify 1581391074
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7861,29 +9029,27 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-45
+37
 pointvop1
 attribwrangle0
-attribwrangle4
-pointwrangle2
-attribwrangle6
-pointwrangle3
-add3
-measure3
-resample4
-switch1
-null1
-output0
-switch2
-blast1
-attribpromote1
+pointvop2
 attribwrangle1
 pointwrangle4
+attribwrangle7
+attribwrangle8
+attribwrangle9
+groupexpression1
+groupexpression2
+pointwrangle5
+measure3
+resample4
+add1
+output0
 foreach_end1
 foreach_begin1
 foreach_begin1_metadata1
 split1
-null2
+null5
 compile_end1
 compile_begin1
 attribdelete1
@@ -7892,21 +9058,15 @@ foreach_end2
 foreach_begin2
 attribpromote2
 attribpromote3
-attribwrangle7
 foreach_begin3
 attribpromote4
 switch3
 null4
-attribwrangle8
 carve1
 compile_end3
 compile_begin3
-attribwrangle9
 attribdelete2
 switch4
-groupexpression1
-groupexpression2
-pointwrangle1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

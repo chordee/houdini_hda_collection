@@ -1,0 +1,14 @@
+Operator:     tree_builder
+Label:        Tree builder
+Path:         oplib:/Sop/tree_builder?Sop/tree_builder
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Feb 11 11:18:02 2020
+
