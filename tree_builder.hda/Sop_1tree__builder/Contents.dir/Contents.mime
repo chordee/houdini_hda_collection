@@ -49,8 +49,8 @@ inputs
 }
 stat
 {
-  create 1581391074
-  modify 1581391245
+  create 1581406235
+  modify 1581406500
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -108,7 +108,7 @@ inputs
 stat
 {
   create 1579071983
-  modify 1581391106
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -777,18 +777,18 @@ v	[ 0	locks=0 ]	(	0	0	0	)
 force	[ 0	locks=0 ]	(	0	0	0	)
 Cd	[ 0	locks=0 ]	(	1	1	1	)
 N	[ 0	locks=0 ]	(	0	0	0	)
-val	[ 0	locks=0 ]	(	[ val	131.69999999999999 ] 	)
+val	[ 0	locks=0 ]	(	[ val	0 ] 	)
 ramp	[ 0	locks=0 ]	(	[ ramp	2 ] 	)
 ramp1pos	[ 0	locks=0 ]	(	[ ramp1pos	0 ] 	)
-ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0.5 ] 	)
+ramp1value	[ 0	locks=0 ]	(	[ ramp1value	0.48799999999999999 ] 	)
 ramp1interp	[ 0	locks=0 ]	(	[ ramp1interp	3 ] 	)
 ramp2pos	[ 0	locks=0 ]	(	[ ramp2pos	1 ] 	)
 ramp2value	[ 0	locks=0 ]	(	[ ramp2value	1 ] 	)
 ramp2interp	[ 0	locks=0 ]	(	[ ramp2interp	1 ] 	)
-rough	[ 0	locks=0 ]	(	[ rough	1 ] 	)
-freq	[ 0	locks=0 ]	(	[ freq1	-5 ] 	[ freq2	-5 ] 	[ freq3	-5 ] 	[ freq4	0 ] 	)
+rough	[ 0	locks=0 ]	(	[ rough	0.5 ] 	)
+freq	[ 0	locks=0 ]	(	[ freq1	5 ] 	[ freq2	5 ] 	[ freq3	5 ] 	[ freq4	25 ] 	)
 offset	[ 8	locks=0 ]	(	[ offset1	0 ] 	[ offset2	0 ] 	[ offset3	0 ] 	[ offset4	0 ] 	)
-exp	[ 0	locks=0 ]	(	[ exp	1 ] 	)
+exp	[ 0	locks=0 ]	(	[ exp	0.5 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1007,7 +1007,7 @@ inputs
 stat
 {
   create 1579072005
-  modify 1581391074
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1126,7 +1126,7 @@ inputs
 stat
 {
   create 1579072034
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1632,7 +1632,7 @@ inputs
 stat
 {
   create 1579072145
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1702,7 +1702,7 @@ inputs
 stat
 {
   create 1579072151
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1809,7 +1809,7 @@ inputs
 stat
 {
   create 1579073861
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1931,7 +1931,7 @@ inputs
 stat
 {
   create 1579073876
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -1997,7 +1997,7 @@ inputs
 stat
 {
   create 1579073887
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2163,7 +2163,7 @@ inputs
 stat
 {
   create 1579077218
-  modify 1581390998
+  modify 1581406272
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2310,7 +2310,7 @@ inputs
 stat
 {
   create 1579085164
-  modify 1581390996
+  modify 1581406271
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -2822,7 +2822,7 @@ inputs
 stat
 {
   create 1580372279
-  modify 1581390996
+  modify 1581406271
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3027,7 +3027,7 @@ inputs
 stat
 {
   create 1579072461
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -3040,7 +3040,8 @@ end
 Content-Disposition: attachment; filename="hdaroot/attribwrangle0.multiparm"
 Content-Type: text/plain
 
-34
+35
+bi_branch# ../bi_branch#
 start_at# ../start_at#
 branch# ../branch#
 seed# ../seed#
@@ -3245,6 +3246,14 @@ Content-Type: text/plain
         name    "branch_limited"
         label    "Branch Limited"
 
+        parm {
+            name    "bi_branch#"
+            label   "Bi Branch"
+            type    integer
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
         parm {
             name    "start_at#"
             label   "Start at"
@@ -3455,9 +3464,9 @@ Content-Type: text/plain
     channel branch_limited {
       lefttype = extend
       righttype = extend
-      default = 3
+      default = 1
       flags = 0
-      segment { length = 0 value = 3 3 expr = ch(\"../branch_limited\") }
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_limited\") }
     }
     channel step_ramp1_1pos {
       lefttype = extend
@@ -3534,6 +3543,12 @@ Content-Type: text/plain
       default = 1
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../branch_dir_ramp1_2interp\") }
+    }
+    channel bi_branch1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../bi_branch1\") }
     }
     channel start_at1 {
       lefttype = extend
@@ -3722,6 +3737,281 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 2 2 expr = ch(\"../branch_dir_ramp1\") }
     }
+    channel step_ramp2_1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp2_1pos\") }
+    }
+    channel step_ramp2_1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp2_1value\") }
+    }
+    channel step_ramp2_1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../step_ramp2_1interp\") }
+    }
+    channel step_ramp2_2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp2_2pos\") }
+    }
+    channel step_ramp2_2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../step_ramp2_2value\") }
+    }
+    channel step_ramp2_2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../step_ramp2_2interp\") }
+    }
+    channel branch_dir_ramp2_1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp2_1pos\") }
+    }
+    channel branch_dir_ramp2_1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp2_1value\") }
+    }
+    channel branch_dir_ramp2_1interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir_ramp2_1interp\") }
+    }
+    channel branch_dir_ramp2_2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir_ramp2_2pos\") }
+    }
+    channel branch_dir_ramp2_2value {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { options = {	 autoslope  ao }
+
+	 length = 1.7916666666666667 value = 0 0.10000000000000001 accel = 0 0.59722222222222221 expr = ch(\"../branch_dir_ramp2_2value\") }
+      segment { options = {	 autoslope  ai }
+
+	 length = 0 value = 0.10000000000000001 0 accel = 0.33333333333333331 0 expr = ch(\"../branch_dir_ramp2_2value\") }
+    }
+    channel branch_dir_ramp2_2interp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir_ramp2_2interp\") }
+    }
+    channel bi_branch2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../bi_branch2\") }
+    }
+    channel start_at2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../start_at2\") }
+    }
+    channel branch2 {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../branch2\") }
+    }
+    channel seed2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../seed2\") }
+    }
+    channel min_branch_root_bias_angle2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../min_branch_root_bias_angle2\") }
+    }
+    channel max_branch_root_bias_angle2 {
+      lefttype = extend
+      righttype = extend
+      default = 90
+      flags = 0
+      segment { length = 0 value = 90 90 expr = ch(\"../max_branch_root_bias_angle2\") }
+    }
+    channel branch_root_bias_angle_exp2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_root_bias_angle_exp2\") }
+    }
+    channel min_branch_root_open_angle2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../min_branch_root_open_angle2\") }
+    }
+    channel max_branch_root_open_angle2 {
+      lefttype = extend
+      righttype = extend
+      default = 180
+      flags = 0
+      segment { length = 0 value = 180 180 expr = ch(\"../max_branch_root_open_angle2\") }
+    }
+    channel branch_root_open_angle_exp2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_root_open_angle_exp2\") }
+    }
+    channel min_branch_step2 {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../min_branch_step2\") }
+    }
+    channel max_branch_step2 {
+      lefttype = extend
+      righttype = extend
+      default = 20
+      flags = 0
+      segment { length = 0 value = 20 20 expr = ch(\"../max_branch_step2\") }
+    }
+    channel step_ramp2 {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../step_ramp2\") }
+    }
+    channel age_exp2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../age_exp2\") }
+    }
+    channel bias2 {
+      lefttype = extend
+      righttype = extend
+      default = 6
+      flags = 0
+      segment { length = 0 value = 6 6 expr = ch(\"../bias2\") }
+    }
+    channel freq2x {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq2_2x\") }
+    }
+    channel freq2y {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq2_2y\") }
+    }
+    channel freq2z {
+      lefttype = extend
+      righttype = extend
+      default = 10
+      flags = 0
+      segment { length = 0 value = 10 10 expr = ch(\"../freq2_2z\") }
+    }
+    channel offset2x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset2_2x\") }
+    }
+    channel offset2y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset2_2y\") }
+    }
+    channel offset2z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset2_2z\") }
+    }
+    channel rough2 {
+      lefttype = extend
+      righttype = extend
+      default = 0.5
+      flags = 0
+      segment { length = 0 value = 0.5 0.5 expr = ch(\"../rough2\") }
+    }
+    channel atten2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../atten2\") }
+    }
+    channel turb2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../turb2\") }
+    }
+    channel angle_exp2 {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../angle_exp2\") }
+    }
+    channel branch_dir2x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir2x\") }
+    }
+    channel branch_dir2y {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../branch_dir2y\") }
+    }
+    channel branch_dir2z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../branch_dir2z\") }
+    }
+    channel branch_dir_ramp2 {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../branch_dir_ramp2\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3837,6 +4127,8 @@ for(int i = 1; i < pt_num; i++){
 
                 //get parameter
 
+                int bi_branch = chi('bi_branch' + itoa(branch_step[j] + 1));
+
                 float min_branch_root_bias_angle = abs(chf('min_branch_root_bias_angle' + itoa(branch_step[j] + 1)));
                 float max_branch_root_bias_angle = abs(chf('max_branch_root_bias_angle' + itoa(branch_step[j] + 1)));
                 float branch_root_bias_angle_exp = abs(chf('branch_root_bias_angle_exp' + itoa(branch_step[j] + 1)));
@@ -3871,13 +4163,17 @@ for(int i = 1; i < pt_num; i++){
                 vector dir_parent = dirs[j];
                 dir_parent = (max(abs(dir_parent.x), abs(dir_parent.z)) == 0)?{0, 0, 1}:normalize(set(dir_parent.x, 0, dir_parent.z));
                 vector rotation;
+                vector new_dir;
+                vector bi_dir;
 
                 if(dir_parent == {0, 0, 1}){
                     rotation = fit01(set(randx, randy, 0), set(-180, -180, 0), set(180, 180, 0));
                     mmm = maketransform(0, rotation);
-                    append(dirs, {0, 1, 0} * mmm); 
+                    new_dir = {0, 1, 0} * mmm;
+                    mmm = maketransform(0, rotation * {1, -1, 1}); 
+                    bi_dir = {0,1,0} * mmm; 
                 }else{ 
-                    matrix3 tmp_matrix;
+                    matrix3 tmp_matrix; 
                     if(randx > 0.5){
                         tmp_matrix = lookat(dir_parent, {0,0,0}, {0,1,0});
                     }else{
@@ -3886,11 +4182,17 @@ for(int i = 1; i < pt_num; i++){
                     rotation = fit01(set(randx, randy, 0), set(-180, -180, 0), set(180, 180, 0 ));
                     mmm = maketransform(0, rotation);
                     mmm *= tmp_matrix;
-                    append(dirs, {0,1,0} * mmm);
-                }
+                    new_dir = {0,1,0} * mmm;
+                    mmm = maketransform(0, rotation * {1, -1, 1});
+                    mmm *= tmp_matrix;
+                    bi_dir = {0,1,0} * mmm;
+                }               
+                append(dirs,  new_dir);
+
+
 
                 // get new branch step age
-
+ 
                 int age = int(fit01(pow(rand(pos[j]), age_exp), min_branch_step, max_branch_step));
                 age = int(lerp( min_branch_step, max_branch_step, pow(chramp('step_ramp' + itoa(branch_step[j] + 1) , step_phase), age_exp)));
 
@@ -3900,6 +4202,21 @@ for(int i = 1; i < pt_num; i++){
                 append(step_life, age);
                 append(ids, mnt);
                 append(branch_step, branch_step[j]+1);
+
+                if(bi_branch == 1){
+                    mnt++;
+                    newpt = addpoint(0, pos[j]);
+                    setpointattrib(0, 'id', newpt, mnt, 'set'); 
+                    setpointattrib(0, 'step', newpt, i, 'set');
+                    setpointattrib(0, 'branch_step', newpt, branch_step[j]+1, 'set');
+                    append(pos, pos[j]);
+                    append(dirs, bi_dir);
+                    append(step_ages, age);
+                    append(step_life, age);
+                    append(ids, mnt);
+                    append(branch_step, branch_step[j]+1);
+                }
+                
             }
         }
         
@@ -3941,13 +4258,14 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-branch_limited	[ 0	locks=0 ]	(	[ branch_limited	1 ] 	)
-start_at1	[ 0	locks=0 ]	(	[ start_at1	0 ] 	)
-branch1	[ 0	locks=0 ]	(	[ branch1	0 ] 	)
+branch_limited	[ 0	locks=0 ]	(	[ branch_limited	2 ] 	)
+bi_branch1	[ 0	locks=0 ]	(	[ bi_branch1	0 ] 	)
+start_at1	[ 0	locks=0 ]	(	[ start_at1	0.14499999999999999 ] 	)
+branch1	[ 0	locks=0 ]	(	[ branch1	0.90900000000000003 ] 	)
 seed1	[ 0	locks=0 ]	(	[ seed1	0 ] 	)
 root_angle_1	[ 0	locks=0 ]	(	0	)
 folder2_1_2	[ 0	locks=0 ]	(	0	)
-min_branch_root_bias_angle1	[ 0	locks=0 ]	(	[ min_branch_root_bias_angle1	0 ] 	)
+min_branch_root_bias_angle1	[ 0	locks=0 ]	(	[ min_branch_root_bias_angle1	55.799999999999997 ] 	)
 max_branch_root_bias_angle1	[ 0	locks=0 ]	(	[ max_branch_root_bias_angle1	90 ] 	)
 branch_root_bias_angle_exp1	[ 0	locks=0 ]	(	[ branch_root_bias_angle_exp1	1 ] 	)
 folder2_1	[ 0	locks=0 ]	(	0	)
@@ -3982,6 +4300,47 @@ branch_dir_ramp1_1interp	[ 0	locks=0 ]	(	[ branch_dir_ramp1_1interp	1 ] 	)
 branch_dir_ramp1_2pos	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2pos	1 ] 	)
 branch_dir_ramp1_2value	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2value	0.10000000000000001 ] 	)
 branch_dir_ramp1_2interp	[ 0	locks=0 ]	(	[ branch_dir_ramp1_2interp	1 ] 	)
+bi_branch2	[ 0	locks=0 ]	(	[ bi_branch2	1 ] 	)
+start_at2	[ 0	locks=0 ]	(	[ start_at2	0 ] 	)
+branch2	[ 0	locks=0 ]	(	[ branch2	0.85199999999999998 ] 	)
+seed2	[ 0	locks=0 ]	(	[ seed2	0 ] 	)
+root_angle_2	[ 0	locks=0 ]	(	0	)
+folder2_2_2	[ 0	locks=0 ]	(	0	)
+min_branch_root_bias_angle2	[ 0	locks=0 ]	(	[ min_branch_root_bias_angle2	57 ] 	)
+max_branch_root_bias_angle2	[ 0	locks=0 ]	(	[ max_branch_root_bias_angle2	90 ] 	)
+branch_root_bias_angle_exp2	[ 0	locks=0 ]	(	[ branch_root_bias_angle_exp2	1 ] 	)
+folder2_2	[ 0	locks=0 ]	(	0	)
+min_branch_root_open_angle2	[ 0	locks=0 ]	(	[ min_branch_root_open_angle2	66.700000000000003 ] 	)
+max_branch_root_open_angle2	[ 0	locks=0 ]	(	[ max_branch_root_open_angle2	83.599999999999994 ] 	)
+branch_root_open_angle_exp2	[ 0	locks=0 ]	(	[ branch_root_open_angle_exp2	1 ] 	)
+step2	[ 0	locks=0 ]	(	0	)
+min_branch_step2	[ 0	locks=0 ]	(	[ min_branch_step2	3 ] 	)
+max_branch_step2	[ 0	locks=0 ]	(	[ max_branch_step2	10 ] 	)
+step_ramp2	[ 0	locks=0 ]	(	[ step_ramp2	2 ] 	)
+age_exp2	[ 0	locks=0 ]	(	[ age_exp2	1 ] 	)
+noise2	[ 0	locks=0 ]	(	0	)
+bias2	[ 0	locks=0 ]	(	[ bias2	6 ] 	)
+freq2	[ 0	locks=0 ]	(	[ freq2x	10 ] 	[ freq2y	10 ] 	[ freq2z	10 ] 	)
+offset2	[ 0	locks=0 ]	(	[ offset2x	0 ] 	[ offset2y	0 ] 	[ offset2z	0 ] 	)
+rough2	[ 0	locks=0 ]	(	[ rough2	0.5 ] 	)
+atten2	[ 0	locks=0 ]	(	[ atten2	1 ] 	)
+turb2	[ 0	locks=0 ]	(	[ turb2	1 ] 	)
+angle_exp2	[ 0	locks=0 ]	(	[ angle_exp2	1 ] 	)
+foward_dir2	[ 0	locks=0 ]	(	0	)
+branch_dir2	[ 0	locks=0 ]	(	[ branch_dir2x	0 ] 	[ branch_dir2y	-1 ] 	[ branch_dir2z	0 ] 	)
+branch_dir_ramp2	[ 0	locks=0 ]	(	[ branch_dir_ramp2	2 ] 	)
+step_ramp2_1pos	[ 0	locks=0 ]	(	[ step_ramp2_1pos	0 ] 	)
+step_ramp2_1value	[ 0	locks=0 ]	(	[ step_ramp2_1value	1 ] 	)
+step_ramp2_1interp	[ 0	locks=0 ]	(	[ step_ramp2_1interp	1 ] 	)
+step_ramp2_2pos	[ 0	locks=0 ]	(	[ step_ramp2_2pos	1 ] 	)
+step_ramp2_2value	[ 0	locks=0 ]	(	[ step_ramp2_2value	0 ] 	)
+step_ramp2_2interp	[ 0	locks=0 ]	(	[ step_ramp2_2interp	1 ] 	)
+branch_dir_ramp2_1pos	[ 0	locks=0 ]	(	[ branch_dir_ramp2_1pos	0 ] 	)
+branch_dir_ramp2_1value	[ 0	locks=0 ]	(	[ branch_dir_ramp2_1value	0 ] 	)
+branch_dir_ramp2_1interp	[ 0	locks=0 ]	(	[ branch_dir_ramp2_1interp	1 ] 	)
+branch_dir_ramp2_2pos	[ 0	locks=0 ]	(	[ branch_dir_ramp2_2pos	1 ] 	)
+branch_dir_ramp2_2value	[ 0	locks=0 ]	(	[ branch_dir_ramp2_2value	0.52000000000000002 ] 	)
+branch_dir_ramp2_2interp	[ 0	locks=0 ]	(	[ branch_dir_ramp2_2interp	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4026,7 +4385,7 @@ inputs
 stat
 {
   create 1580460915
-  modify 1581392300
+  modify 1581406268
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5583,7 +5942,7 @@ inputs
 stat
 {
   create 1581390665
-  modify 1581390698
+  modify 1581390687
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5715,7 +6074,7 @@ inputs
 stat
 {
   create 1581390694
-  modify 1581390698
+  modify 1581390697
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5785,7 +6144,7 @@ inputs
 stat
 {
   create 1579162462
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5875,7 +6234,7 @@ inputs
 stat
 {
   create 1579162759
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -5958,7 +6317,7 @@ inputs
 stat
 {
   create 1579594610
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6229,7 +6588,7 @@ inputs
 stat
 {
   create 1579595047
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6309,7 +6668,7 @@ inputs
 stat
 {
   create 1579595741
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6595,7 +6954,7 @@ inputs
 stat
 {
   create 1579676161
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6665,7 +7024,7 @@ inputs
 stat
 {
   create 1579676161
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6735,7 +7094,7 @@ inputs
 stat
 {
   create 1579676453
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -6986,7 +7345,7 @@ inputs
 stat
 {
   create 1579071957
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7220,7 +7579,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7370,7 +7729,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 8	locks=0 ]	(	[ iterations	1 ] 	)
+iterations	[ 8	locks=0 ]	(	[ iterations	452 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"primitive"	)
@@ -7430,7 +7789,7 @@ inputs
 stat
 {
   create 1579162211
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7491,7 +7850,7 @@ inputs
 stat
 {
   create 1579162287
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7556,7 +7915,7 @@ inputs
 stat
 {
   create 1579162291
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7786,7 +8145,7 @@ inputs
 stat
 {
   create 1579163325
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -7974,7 +8333,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8050,7 +8409,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8250,7 +8609,7 @@ inputs
 stat
 {
   create 1579594484
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8386,7 +8745,7 @@ inputs
 stat
 {
   create 1579594968
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8547,7 +8906,7 @@ inputs
 stat
 {
   create 1579595276
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8854,7 +9213,7 @@ inputs
 stat
 {
   create 1579595636
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -8983,7 +9342,7 @@ inputs
 stat
 {
   create 1579601755
-  modify 1581391074
+  modify 1581406236
   author chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }
@@ -9011,7 +9370,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY

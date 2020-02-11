@@ -9,7 +9,7 @@
 	""
     }
 
-    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	1	"Single Main Primitive"
     inputlabel	2	"Sub-Network Input #2"
     inputlabel	3	"Sub-Network Input #3"
     inputlabel	4	"Sub-Network Input #4"
@@ -80,7 +80,7 @@
         }
         parm {
             name    "ramp"
-            label   "Noise Ramp"
+            label   "ramp"
             type    ramp_flt
             default { "2" }
             range   { 1! 10 }
@@ -88,7 +88,7 @@
             parmtag { "parmvop" "1" }
             parmtag { "rampbasis_var" "ramp_the_basis_strings" }
             parmtag { "rampbasisdefault" "linear" }
-            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0.5 ) 1interp ( monotonecubic ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( monotonecubic ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
             parmtag { "rampkeys_var" "ramp_the_key_positions" }
             parmtag { "rampshowcontrolsdefault" "1" }
             parmtag { "rampvalues_var" "ramp_the_key_values" }
@@ -170,7 +170,7 @@
         }
         parm {
             name    "ramp2"
-            label   "Direction Ramp"
+            label   "Forward Ramp"
             type    ramp_flt
             default { "2" }
             range   { 1! 10 }
@@ -196,6 +196,14 @@
             default 1
             parmtag { "autoscope" "0000000000000000" }
 
+            parm {
+                name    "bi_branch#"
+                label   "Bi Branch"
+                type    toggle
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
             parm {
                 name    "start_at#"
                 label   "Start at"
