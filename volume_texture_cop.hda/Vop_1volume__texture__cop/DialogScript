@@ -1,0 +1,111 @@
+# Dialog script for volume_texture_cop automatically generated
+
+{
+    name	volume_texture_cop
+    script	volume_texture_cop
+    label	"Volume texture cop"
+
+    input	string	file	File
+    input	string	group	"Point Group"
+    input	int	from_file	"From File"
+    input	vector	min_bound	"Min Bound"
+    input	vector	max_bound	"Max Bound"
+    input	int	tile_number	"Tile Number"
+    input	float	X	"Pixel Horzontal Position (0-1)"
+    input	float	Y	"Pixel Vertical Position (0-1)"
+    input	float	TIME	"Current Time"
+    input	float	TINC	"Time Increment Between Frames"
+    output	vector	shift	"Shifted Value"
+    inputflags	file	0
+    inputflags	group	0
+    inputflags	from_file	0
+    inputflags	min_bound	0
+    inputflags	max_bound	0
+    inputflags	tile_number	0
+    inputflags	X	0
+    inputflags	Y	0
+    inputflags	TIME	0
+    inputflags	TINC	0
+    signature	"Default Inputs"	default	{ string string int vector vector int float float float float vector }
+
+    outputoverrides	default
+    {
+	___begin	auto
+			(0,0,0)
+    }
+
+    help {
+	""
+    }
+
+    parm {
+        name    "file"
+        label   "File"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "group"
+        label   "Point Group"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "from_file"
+        label   "From File"
+        type    integer
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "min_bound"
+        label   "Min Bound"
+        type    float
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "max_bound"
+        label   "Max Bound"
+        type    float
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "tile_number"
+        label   "Tile Number"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "X"
+        label   "Pixel Horzontal Position (0-1)"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "Y"
+        label   "Pixel Vertical Position (0-1)"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "TIME"
+        label   "Current Time"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "TINC"
+        label   "Time Increment Between Frames"
+        type    float
+        default { "0" }
+        range   { 0 10 }
+    }
+}

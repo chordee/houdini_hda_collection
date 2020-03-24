@@ -1,0 +1,15 @@
+Operator:     volume_texture_cop
+Label:        Volume texture cop
+Path:         oplib:/Vop/volume_texture_cop?Vop/volume_texture_cop
+Icon:         VOP_volume_texture_cop
+Table:        Vop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 10
+Outputs:      2048
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Mar 18 18:55:46 2020
+

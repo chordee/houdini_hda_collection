@@ -1,0 +1,10 @@
+Vop/fit C:/PROGRA~1/SideFX/HOUDIN~1.391/houdini/otls/OPlibScripted.hda
+Vop/fit otls/OPlibScripted.hda
+Vop/floattovec C:/PROGRA~1/SideFX/HOUDIN~1.391/houdini/otls/OPlibScripted.hda
+Vop/floattovec otls/OPlibScripted.hda
+Vop/pointbbox C:/PROGRA~1/SideFX/HOUDIN~1.391/houdini/otls/OPlibScripted.hda
+Vop/pointbbox otls/OPlibScripted.hda
+Vop/setattrib C:/PROGRA~1/SideFX/HOUDIN~1.391/houdini/otls/OPlibScripted.hda
+Vop/setattrib otls/OPlibScripted.hda
+Vop/subconst C:/PROGRA~1/SideFX/HOUDIN~1.391/houdini/otls/OPlibScripted.hda
+Vop/subconst otls/OPlibScripted.hda
