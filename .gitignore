@@ -1,1 +1,3 @@
 backup/
+*_msvfx.hda
+.gitignore

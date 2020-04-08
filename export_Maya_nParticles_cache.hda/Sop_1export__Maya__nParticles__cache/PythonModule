@@ -57,7 +57,7 @@ def cache():
             hou.setFrame(i)
             data_array = []
             
-            id_array = np.fromstring(geo.pointFloatAttribValuesAsString('id', float_type = hou.numericData.Float64), dtype = np.float64)
+            id_array = np.fromstring(geo.pointIntAttribValuesAsString('id', int_type = hou.numericData.Int64), dtype = np.int64)
             data_array.append(id_array)
             
             count_array = np.array([len(geo.points())])
