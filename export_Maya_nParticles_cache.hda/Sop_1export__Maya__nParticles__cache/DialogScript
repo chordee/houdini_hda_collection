@@ -18,6 +18,7 @@
         name    "start_frame"
         label   "Start Frame"
         type    integer
+        joinnext
         default { "0" }
         range   { 0 10 }
     }
@@ -46,6 +47,20 @@
         type    button
         default { "0" }
         parmtag { "script_callback" "hou.pwd().hdaModule().cache()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "module_path"
+        label   "Python Module Path"
+        type    file
+        default { "Q:/Resource/python_modules/mayaGeoCache/nCache.py" }
+        help    "https://github.com/chordee/mayaGeoCache"
         parmtag { "script_callback_language" "python" }
     }
 }
