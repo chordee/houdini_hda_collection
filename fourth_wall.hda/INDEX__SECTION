@@ -1,0 +1,15 @@
+Operator:     fourth_wall
+Label:        Fourth Wall
+Path:         oplib:/Vop/fourth_wall?Vop/fourth_wall
+Icon:         VOP_sixth_wall
+Table:        Vop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 4
+Outputs:      2048
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Apr 14 10:55:15 2020
+

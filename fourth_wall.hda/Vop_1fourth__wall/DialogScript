@@ -1,0 +1,175 @@
+# Dialog script for sixth_wall automatically generated
+
+{
+    name	sixth_wall
+    script	sixth_wall
+    label	"Sixth Wall"
+
+    input	vector	uv	"Chosen Value"
+    input	vector	N	"Surface Normal"
+    input	vector	tangentu	"tangentu: 0, 0, 1"
+    input	vector	tangentv	"tangentv: 0, 1, 0"
+    output	vector	clr	clr
+    output	int	prim	prim
+    output	vector	tex_uv	uv
+    output	vector	xyz	xyz
+    output	vector	ray_dir	ray_dir
+    output	float	alpha	alpha
+    inputflags	uv	0
+    inputflags	N	0
+    inputflags	tangentu	0
+    inputflags	tangentv	0
+    signature	"Default Inputs"	default	{ vector vector vector vector vector int vector vector vector float }
+
+    outputoverrides	default
+    {
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0)
+    }
+
+    help {
+	""
+    }
+
+    group {
+        name    "standardfolder"
+        label   "Standard"
+        invisibletab
+
+        parm {
+            name    "uv"
+            label   "Chosen Value"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "N"
+            label   "Surface Normal"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "tangentu"
+            label   "tangentu: 0, 0, 1"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "tangentv"
+            label   "tangentv: 0, 1, 0"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+        }
+    }
+
+    parm {
+        name    "depth"
+        label   "Depth"
+        type    float
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "top_map"
+        label   "Top Texture Map"
+        type    image
+        default { "Mandril.pic" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "floor_map"
+        label   "Floor Texture Map"
+        type    image
+        default { "Mandril.pic" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "left_map"
+        label   "Left Texture Map"
+        type    image
+        default { "Mandril.pic" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "right_map"
+        label   "Right Texture Map"
+        type    image
+        default { "Mandril.pic" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "oppo_map"
+        label   "Oppo Texture Map"
+        type    image
+        default { "Mandril.pic" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "tangentu_attr"
+        label   "TangentU Attr Name"
+        type    string
+        default { "tangentu" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "tangentv_attr"
+        label   "TangentV Attr Name"
+        type    string
+        default { "tangentv" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "custom_tangent"
+        label   "Use Input Tangent"
+        type    toggle
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "oppo_only"
+        label   "Oppo Texture Only"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+}
