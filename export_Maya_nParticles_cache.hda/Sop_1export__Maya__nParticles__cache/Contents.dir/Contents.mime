@@ -20,24 +20,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -5.82272e-17 -3.30133
+position -2.65611 -1.67647
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	pointwrangle1 1 1 "input1"
+0 	scatter1 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle1 0 1
+0 	scatter1 0 1
 }
 stat
 {
-  create 1586777750
-  modify 1586777981
+  create 1586834717
+  modify 1586835048
   author Chordee.lin@MoonShineExp40.moonshine.ad
   access 0777
 }

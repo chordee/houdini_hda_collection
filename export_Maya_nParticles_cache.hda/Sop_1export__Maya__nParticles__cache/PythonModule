@@ -51,6 +51,11 @@ def cache():
             hou.setFrame(i)
             data_array = []
             
+            check_id_attr = geo.findPointAttrib('id')
+            if check_id_attr == None:
+                hou.ui.displayMessage('Point id attribute not found')
+                break
+                return
             id_array = np.fromstring(geo.pointIntAttribValuesAsString('id', int_type = hou.numericData.Int64), dtype = np.int64)
             data_array.append(id_array)
             
