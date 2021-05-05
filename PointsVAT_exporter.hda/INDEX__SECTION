@@ -1,0 +1,15 @@
+Operator:     PointsVAT_exporter
+Label:        PointsVAT Exporter
+Path:         oplib:/Sop/PointsVAT_exporter?Sop/PointsVAT_exporter
+Icon:         SOP_subnet
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Outputs:      0
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed May  5 18:40:13 2021
+
