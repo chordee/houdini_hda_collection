@@ -23,7 +23,7 @@ Sop
 Content-Disposition: attachment; filename="hdaroot.init"
 Content-Type: text/plain
 
-type = PoitnsVAT_exporter
+type = PointsVAT_exporter
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -32,19 +32,17 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.720242 -2.64809
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position -2.8556 -2.28364
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	attribcreate2 1 1 "input1"
 }
 inputs
 {
-0 	attribcreate2 0 1
 }
 stat
 {

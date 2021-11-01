@@ -20,25 +20,25 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.65611 -1.67647
+position -3.2409 -1.29803
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	scatter1 1 1 "input1"
+0 	circling 1 1 "input1"
 }
 inputs
 {
-0 	scatter1 0 1
+0 	circling 0 1
 }
 stat
 {
-  create 1586834717
-  modify 1586835048
-  author Chordee.lin@MoonShineExp40.moonshine.ad
+  create -1
+  modify -1
+  author davidlatwe.lai@MoonShineExp27.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -93,8 +93,8 @@ inputs
 }
 stat
 {
-  create 1501570361
-  modify 1501575914
+  create -1
+  modify -1
   author Chordee@MoonShineExp16
   access 0777
 }
@@ -120,7 +120,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"___EXTERNAL___"
 	}
 }
 
@@ -154,8 +154,8 @@ inputs
 }
 stat
 {
-  create 1501575913
-  modify 1501576855
+  create -1
+  modify -1
   author Chordee@MoonShineExp16
   access 0777
 }
@@ -198,7 +198,7 @@ Content-Type: text/plain
 {
 	"___Version___":{
 		"type":"string",
-		"value":"18.0.416"
+		"value":"___EXTERNAL___"
 	}
 }
 

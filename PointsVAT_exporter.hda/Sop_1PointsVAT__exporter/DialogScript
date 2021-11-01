@@ -3,7 +3,7 @@
 {
     name	PointsVAT_exporter
     script	PointsVAT_exporter
-    label	"PointVAT Exporter"
+    label	"PointsVAT Exporter"
 
     help {
 	""

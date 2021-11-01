@@ -30,6 +30,14 @@
         range   { 0 10 }
     }
     parm {
+        name    "eval_rate"
+        label   "Evaluation Rate"
+        type    float
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "xml"
         label   "XML"
         type    file
