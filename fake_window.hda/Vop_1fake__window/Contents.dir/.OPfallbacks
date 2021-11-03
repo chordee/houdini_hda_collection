@@ -4,6 +4,8 @@ Vop/ifconnected C:/PROGRA~1/SIDEEF~1/HOUDIN~1.672/houdini/otls/OPlibScripted.hda
 Vop/ifconnected otls/OPlibScripted.hda
 Vop/isconnected C:/PROGRA~1/SIDEEF~1/HOUDIN~1.672/houdini/otls/OPlibScripted.hda
 Vop/isconnected otls/OPlibScripted.hda
+Vop/makeinstancexform C:/PROGRA~1/SIDEEF~1/HOUDIN~1.672/houdini/otls/OPlibScripted.hda
+Vop/makeinstancexform otls/OPlibScripted.hda
 Vop/normalize C:/PROGRA~1/SIDEEF~1/HOUDIN~1.672/houdini/otls/OPlibScripted.hda
 Vop/normalize otls/OPlibScripted.hda
 Vop/qrotate C:/PROGRA~1/SIDEEF~1/HOUDIN~1.672/houdini/otls/OPlibScripted.hda

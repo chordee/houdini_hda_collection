@@ -31,14 +31,16 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -1.4471 -12.8982
-connectornextid 3
+position -3.3121 -12.7723
+connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
 0 "clr"
 1 "outUV"
 2 "id"
+3 "outNor"
+4 "inDepth"
 }
 inputsNamed3
 {
@@ -74,10 +76,13 @@ Content-Disposition: attachment; filename="hdaroot.outputinfos"
 Content-Type: application/octet-stream
 Content-Transfer-Encoding: base64
 
-TnVtSW5mb3MgMwpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBjbHIKRGVidWdDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCkJ5cGFzc0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KTm9ybWFsTW9kZSAwCkI=
+TnVtSW5mb3MgNQpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSBjbHIKRGVidWdDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCkJ5cGFzc0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KTm9ybWFsTW9kZSAwCkI=
 eXBhc3NNb2RlIDIKVXNlRGVmYXVsdFZhbHVlIDEKRW5kSW5mbwoAAAAAAAAAAEJlZ2luSW5mbwpPdXRwdXROYW1lIGlkCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXU=
-bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAyClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBvdXRVVgpEZWJ1Z0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KQnlwYXM=
-c0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KTm9ybWFsTW9kZSAwCkJ5cGFzc01vZGUgMgpVc2VEZWZhdWx0VmFsdWUgMQpFbmRJbmZvCgAAAAAAAAAA
+bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAyClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBpbkRlcHRoCkRlYnVnQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpCeXA=
+YXNzQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAyClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAAAAAAAAABCZWdpbkluZm8KT3V0cHV0TmFtZSBvdXROb3IKRGVidWdDb3JySW4=
+cHV0TmFtZSBfX2RlZmF1bHRfXwpCeXBhc3NDb3JySW5wdXROYW1lIF9fZGVmYXVsdF9fCk5vcm1hbE1vZGUgMApCeXBhc3NNb2RlIDIKVXNlRGVmYXVsdFZhbHVlIDEKRW5kSW5mbwoAAAAAAAAAAEJlZ2luSW5mbwpPdXRwdXQ=
+TmFtZSBvdXRVVgpEZWJ1Z0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KQnlwYXNzQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnlwYXNzTW9kZSAyClVzZURlZmF1bHRWYWx1ZSAxCkVuZEluZm8KAAA=
+AAAAAAAA
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/global2.init"
@@ -489,14 +494,14 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/inline1.init"
+Content-Disposition: attachment; filename="hdaroot/inline9.init"
 Content-Type: text/plain
 
 type = inline
 matchesdef = 0
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/inline1.def"
+Content-Disposition: attachment; filename="hdaroot/inline9.def"
 Content-Type: text/plain
 
 comment ""
@@ -534,7 +539,7 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/inline1.parm"
+Content-Disposition: attachment; filename="hdaroot/inline9.parm"
 Content-Type: text/plain
 
 {
@@ -773,7 +778,7 @@ outlabel32	[ 0	locks=0 ]	(	""	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/inline1.userdata"
+Content-Disposition: attachment; filename="hdaroot/inline9.userdata"
 Content-Type: text/plain
 
 {
@@ -795,24 +800,25 @@ Content-Disposition: attachment; filename="hdaroot/inline2.def"
 Content-Type: text/plain
 
 comment ""
-position 10.6234 -14.7918
-connectornextid 1
+position 10.6943 -13.5588
+connectornextid 7
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
 3 "id"
 4 "outUV"
-6 "undefined"
+6 "outNor"
+1 "inDepth"
 }
 inputsNamed3
 {
-0 	inline1 4 1 "outRay"
+0 	inline9 4 1 "outRay"
 2 	uvcoords3 1 1 "uv"
 5 	const1 0 1 "depth"
 }
 inputs
 {
-0 	inline1 0 1
+0 	inline9 0 1
 1 	uvcoords3 0 1
 2 	const1 0 1
 }
@@ -842,6 +848,8 @@ float x_dot = dot(ray, {1,0,0});
 float y_dot = dot(ray, {0,1,0});
 
 int plane_id = 0;
+$inDepth = $depth;
+$outNor = {0,0,-1};
 
 if(end_ray.x > 1 || end_ray.x < 0 || end_ray.y > 1 || end_ray.y < 0){
     plane_id = 1;
@@ -855,12 +863,16 @@ if(plane_id == 1){
         float u_offset = (0.5 - uv_cor.x);
         hor_ray = ray * (u_offset / ray.x) + uv_cor;
         hor_ray = efit(hor_ray, set(0, -0.5, -$depth), set(0, 0.5, 0), vector(0), vector(1));
+        $outNor = {-1,0,0};
+        $inDepth = (1 - hor_ray[2]) * $depth;
         
     }else{
         plane_id = 1;
         float u_offset = (-0.5 - uv_cor.x);
         hor_ray = ray * (u_offset / ray.x) + uv_cor;
         hor_ray = efit(hor_ray, set(0, -0.5, 0), set(0, 0.5, -$depth), vector(0), vector(1));
+        $outNor = {1,0,0};
+        $inDepth = hor_ray[2] * $depth;
     }
     end_ray = set(hor_ray[2], hor_ray[1], 0);
     if(end_ray[1] > 1){
@@ -869,12 +881,16 @@ if(plane_id == 1){
         ver_ray = ray * (v_offset / ray.y) + uv_cor;
         ver_ray = efit(ver_ray, set(-0.5, 0, -$depth), set(0.5, 0, 1), vector(0), vector(1));
         end_ray = set(ver_ray[0], ver_ray[2], 0);
+        $outNor = {0,-1,0};
+        $inDepth = (1 - end_ray[1]) * $depth;
     }else if(end_ray[1] < 0){
         plane_id = 4;
         float v_offset = (-0.5 - uv_cor.y);
         ver_ray = ray * (v_offset / ray.y) + uv_cor;
         ver_ray = efit(ver_ray, set(-0.5, 0, 0), set(0.5, 0, -$depth), vector(0), vector(1));
         end_ray = set(ver_ray[0], ver_ray[2], 0);
+        $outNor = {0,1,0};
+        $inDepth = end_ray[1]* $depth;
     }
 }
 
@@ -1022,11 +1038,11 @@ outlabel1	[ 0	locks=0 ]	(	""	)
 outtype2	[ 0	locks=0 ]	(	vector	)
 outname2	[ 0	locks=0 ]	(	outUV	)
 outlabel2	[ 0	locks=0 ]	(	""	)
-outtype3	[ 0	locks=0 ]	(	undef	)
-outname3	[ 0	locks=0 ]	(	""	)
+outtype3	[ 0	locks=0 ]	(	vector	)
+outname3	[ 0	locks=0 ]	(	outNor	)
 outlabel3	[ 0	locks=0 ]	(	""	)
-outtype4	[ 0	locks=0 ]	(	undef	)
-outname4	[ 0	locks=0 ]	(	""	)
+outtype4	[ 0	locks=0 ]	(	float	)
+outname4	[ 0	locks=0 ]	(	inDepth	)
 outlabel4	[ 0	locks=0 ]	(	""	)
 outtype5	[ 0	locks=0 ]	(	undef	)
 outname5	[ 0	locks=0 ]	(	""	)
@@ -1137,7 +1153,7 @@ Content-Disposition: attachment; filename="hdaroot/uvcoords3.def"
 Content-Type: text/plain
 
 comment ""
-position 5.27305 -19.879
+position 2.90654 -21.1921
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1205,7 +1221,7 @@ Content-Disposition: attachment; filename="hdaroot/const1.def"
 Content-Type: text/plain
 
 comment ""
-position 5.27305 -15.5188
+position 6.51332 -14.6888
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1251,7 +1267,7 @@ Content-Type: text/plain
 {
 version 0.8
 consttype	[ 0	locks=0 ]	(	"float"	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	4.0999999999999996 ] 	)
+floatdef	[ 8	locks=0 ]	(	[ floatdef	2 ] 	)
 intdef	[ 0	locks=0 ]	(	0	)
 toggledef	[ 0	locks=0 ]	(	"off"	)
 angledef	[ 0	locks=0 ]	(	0	)
@@ -1321,7 +1337,7 @@ Content-Disposition: attachment; filename="hdaroot/suboutput1.def"
 Content-Type: text/plain
 
 comment ""
-position 25.4842 -18.2363
+position 27.979 -16.9042
 connectornextid 19
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
@@ -1340,14 +1356,14 @@ inputsNamed3
 8 	texture1 17 1 "clr"
 9 	inline2 4 1 "outUV"
 10 	inline2 3 1 "id"
-11 	"" "" 1 "next"
-12 	"" "" 1 "next_2"
-13 	"" "" 1 "next_3"
-14 	"" "" 1 "next_4"
-15 	"" "" 1 "next_5"
-16 	"" "" 1 "next_6"
-17 	"" "" 1 "next_7"
-18 	"" "" 1 "next_8"
+11 	transform5 3 1 "outNor"
+12 	inline2 1 1 "inDepth"
+13 	"" "" 1 "next"
+14 	"" "" 1 "next_2"
+15 	"" "" 1 "next_3"
+16 	"" "" 1 "next_4"
+17 	"" "" 1 "next_5"
+18 	"" "" 1 "next_6"
 }
 inputs
 {
@@ -1362,8 +1378,8 @@ inputs
 8 	texture1 0 1
 9 	inline2 1 1
 10 	inline2 0 1
-11 	"" 0 1
-12 	"" 0 1
+11 	transform5 0 1
+12 	inline2 3 1
 13 	"" 0 1
 14 	"" 0 1
 15 	"" 0 1
@@ -1395,7 +1411,7 @@ name2	[ 0	locks=0 ]	(	""	)
 label2	[ 0	locks=0 ]	(	""	)
 name3	[ 0	locks=0 ]	(	""	)
 label3	[ 0	locks=0 ]	(	""	)
-name4	[ 0	locks=0 ]	(	""	)
+name4	[ 0	locks=0 ]	(	outNor	)
 label4	[ 0	locks=0 ]	(	""	)
 name5	[ 0	locks=0 ]	(	""	)
 label5	[ 0	locks=0 ]	(	""	)
@@ -1683,32 +1699,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../srccolorspace\") }
     }
-    channel filter {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"box\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../filter\") }
-    }
-    channel width {
-      lefttype = extend
-      righttype = extend
-      default = 1
-      flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../width\") }
-    }
-    channel blur {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../blur\") }
-    }
-    channel pixelblur {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = ch(\"../pixelblur\") }
-    }
     channel borderr {
       lefttype = extend
       righttype = extend
@@ -1791,10 +1781,10 @@ map	[ 0	locks=0 ]	(	Mandril.pic	)
 udim	[ 0	locks=0 ]	(	"off"	)
 srccolorspace	[ 0	locks=0 ]	(	[ srccolorspace	auto ] 	)
 wrap	[ 0	locks=0 ]	(	repeat	)
-filter	[ 0	locks=0 ]	(	[ filter	box ] 	)
-width	[ 0	locks=0 ]	(	[ width	1 ] 	)
-blur	[ 0	locks=0 ]	(	[ blur	0 ] 	)
-pixelblur	[ 0	locks=0 ]	(	[ pixelblur	0 ] 	)
+filter	[ 0	locks=0 ]	(	box	)
+width	[ 0	locks=0 ]	(	0	)
+blur	[ 0	locks=0 ]	(	0	)
+pixelblur	[ 0	locks=0 ]	(	0	)
 border	[ 0	locks=0 ]	(	[ borderr	0 ] 	[ borderg	0 ] 	[ borderb	0 ] 	[ bordera	1 ] 	)
 extrapol	[ 0	locks=0 ]	(	[ extrapol	1 ] 	)
 interp	[ 0	locks=0 ]	(	[ interp	0 ] 	)
@@ -2334,17 +2324,252 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform5.init"
+Content-Type: text/plain
+
+type = transform
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform5.def"
+Content-Type: text/plain
+
+comment ""
+position 18.2469 -20.4647
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+3 "to"
+}
+inputsNamed3
+{
+0 	multiply1 2 1 "from"
+1 	"" "" 1 "fromspace"
+2 	"" "" 1 "tospace"
+}
+inputs
+{
+0 	multiply1 0 1
+1 	"" 0 1
+2 	"" 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform5.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+from	[ 0	locks=0 ]	(	0	0	0	)
+function	[ 0	locks=0 ]	(	ntransform	)
+fromspace	[ 0	locks=0 ]	(	space:world	)
+tospace	[ 0	locks=0 ]	(	space:camera	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/transform5.outputinfos"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+
+TnVtSW5mb3MgMQpWYWx1ZXNCaW5hcnkgMQpCZWdpbkluZm8KT3V0cHV0TmFtZSB0bwpEZWJ1Z0NvcnJJbnB1dE5hbWUgX19kZWZhdWx0X18KQnlwYXNzQ29ycklucHV0TmFtZSBfX2RlZmF1bHRfXwpOb3JtYWxNb2RlIDAKQnk=
+cGFzc01vZGUgMQpVc2VEZWZhdWx0VmFsdWUgMQpFbmRJbmZvCgAAAAAAAAAA
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/makeinstancexform1.init"
+Content-Type: text/plain
+
+type = makeinstancexform
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/makeinstancexform1.def"
+Content-Type: text/plain
+
+comment ""
+position 11.2761 -21.0607
+connectornextid 16
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+15 "xform"
+}
+inputsNamed3
+{
+0 	"" "" 1 "P"
+1 	"" "" 1 "trans"
+2 	"" "" 1 "orient"
+3 	"" "" 1 "useorient"
+4 	transform2 3 1 "N"
+5 	"" "" 1 "useN"
+6 	"" "" 1 "v"
+7 	"" "" 1 "usev"
+8 	transform4 3 1 "up"
+9 	"" "" 1 "useup"
+10 	"" "" 1 "rot"
+11 	"" "" 1 "userot"
+12 	"" "" 1 "scale"
+13 	"" "" 1 "pscale"
+14 	"" "" 1 "pivot"
+}
+inputs
+{
+0 	"" 0 1
+1 	"" 0 1
+2 	"" 0 1
+3 	"" 0 1
+4 	transform2 0 1
+5 	"" 0 1
+6 	"" 0 1
+7 	"" 0 1
+8 	transform4 0 1
+9 	"" 0 1
+10 	"" 0 1
+11 	"" 0 1
+12 	"" 0 1
+13 	"" 0 1
+14 	"" 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/makeinstancexform1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+P	[ 0	locks=0 ]	(	0	0	0	)
+trans	[ 0	locks=0 ]	(	0	0	0	)
+orient	[ 0	locks=0 ]	(	0	0	0	1	)
+useorient	[ 0	locks=0 ]	(	"off"	)
+N	[ 0	locks=0 ]	(	0	0	0	)
+useN	[ 0	locks=0 ]	(	"on"	)
+v	[ 0	locks=0 ]	(	0	0	0	)
+usev	[ 0	locks=0 ]	(	"off"	)
+up	[ 0	locks=0 ]	(	0	0	0	)
+useup	[ 0	locks=0 ]	(	"on"	)
+rot	[ 0	locks=0 ]	(	0	0	0	1	)
+userot	[ 0	locks=0 ]	(	"off"	)
+scale	[ 0	locks=0 ]	(	1	1	1	)
+pscale	[ 0	locks=0 ]	(	1	)
+pivot	[ 0	locks=0 ]	(	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/makeinstancexform1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/multiply1.init"
+Content-Type: text/plain
+
+type = multiply
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/multiply1.def"
+Content-Type: text/plain
+
+comment ""
+position 15.0064 -20.4647
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
+outputsNamed3
+{
+2 "product"
+}
+inputsNamed3
+{
+0 	inline2 6 1 "input1"
+1 	makeinstancexform1 15 1 "input2"
+}
+inputs
+{
+0 	inline2 2 1
+1 	makeinstancexform1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineExp40.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/multiply1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/multiply1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-18
+21
 global2
 transform1
 transform2
 computetan1
 transform3
 transform4
-inline1
+inline9
 inline2
 uvcoords3
 const1
@@ -2356,6 +2581,9 @@ left_side_map
 right_side_map
 top_map
 bottom_map
+transform5
+makeinstancexform1
+multiply1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

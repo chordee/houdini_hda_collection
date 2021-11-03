@@ -16,6 +16,8 @@
     output	vector	clr	"Texture Map Color"
     output	vector	outUV	"Output 2"
     output	int	id	"Output 1"
+    output	vector	outNor	"Transformed 3D Entity"
+    output	float	inDepth	"Output 4"
     inputflags	opposite_map	0
     inputflags	left_side_map	0
     inputflags	right_side_map	0
@@ -24,12 +26,16 @@
     inputflags	srccolorspace	0
     inputflags	defclr	0
     inputflags	depth	0
-    signature	"Default Inputs"	default	{ string string string string string string vector4 float vector vector int }
+    signature	"Default Inputs"	default	{ string string string string string string vector4 float vector vector int vector float }
 
     outputoverrides	default
     {
 	___begin	auto
 			(0,0,0)
+	___begin	auto
+			(0,0,0)
+	___begin	auto
+			(0)
 	___begin	auto
 			(0,0,0)
 	___begin	auto
@@ -85,56 +91,6 @@
             "linear"    "Linear"
         }
         range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "filter"
-        label   "Filter Type"
-        type    string
-        default { "box" }
-        menu {
-            "box"               "Box"
-            "gauss"             "VEX: Gaussian"
-            "bartlett"          "VEX: Bartlett/Triangular"
-            "sinc"              "VEX: Sinc Sharpening"
-            "hanning"           "VEX: Hanning"
-            "blackman"          "VEX: Blackman"
-            "catrom"            "VEX: Catmull-Rom"
-            "mitchell"          "VEX: Mitchell"
-            "point"             "VEX: Point (no filter)"
-            "gaussian"          "RSL: Gaussian"
-            "disk"              "RSL: Poisson Disk"
-            "radial-bspline"    "RSL: Radial B-Spline"
-        }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "width"
-        label   "Filter Width"
-        type    float
-        default { "1" }
-        range   { 1 10 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "blur"
-        label   "Texture Blur"
-        type    float
-        default { "0" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "pixelblur"
-        label   "Pixel Blur"
-        type    float
-        default { "0" }
-        range   { 0 10 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_callback_language" "python" }
     }
