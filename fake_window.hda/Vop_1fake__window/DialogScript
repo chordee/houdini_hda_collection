@@ -11,7 +11,6 @@
     input	string	top_map2	"Top Map"
     input	string	bottom_map	"Bottom Map"
     input	string	srccolorspace	"Source Color Space"
-    input	vector4	defclr	"Default Color"
     input	float	depth	Depth
     output	vector	clr	"Texture Map Color"
     output	vector	outUV	"Output 2"
@@ -24,9 +23,8 @@
     inputflags	top_map2	0
     inputflags	bottom_map	0
     inputflags	srccolorspace	0
-    inputflags	defclr	0
     inputflags	depth	0
-    signature	"Default Inputs"	default	{ string string string string string string vector4 float vector vector int vector float }
+    signature	"Default Inputs"	default	{ string string string string string string float vector vector int vector float }
 
     outputoverrides	default
     {
@@ -82,6 +80,17 @@
         parmtag { "script_callback_language" "python" }
     }
     parm {
+        name    "signature"
+        label   "Signature"
+        type    string
+        default { "default" }
+        menu {
+            [ "opmenu -l -a texture1 signature" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "srccolorspace"
         label   "Source Color Space"
         type    string
@@ -101,24 +110,6 @@
         size    4
         default { "0" "0" "0" "1" }
         range   { 0 10 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "extrapol"
-        label   "Extrapolate Derivatives"
-        type    toggle
-        default { "on" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "interp"
-        label   "Interpolate MIP Levels"
-        type    toggle
-        default { "off" }
-        range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
         parmtag { "script_callback_language" "python" }
     }

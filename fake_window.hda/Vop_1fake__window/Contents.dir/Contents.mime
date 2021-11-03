@@ -1267,7 +1267,7 @@ Content-Type: text/plain
 {
 version 0.8
 consttype	[ 0	locks=0 ]	(	"float"	)
-floatdef	[ 8	locks=0 ]	(	[ floatdef	2 ] 	)
+floatdef	[ 8	locks=0 ]	(	[ floatdef	1 ] 	)
 intdef	[ 0	locks=0 ]	(	0	)
 toggledef	[ 0	locks=0 ]	(	"off"	)
 angledef	[ 0	locks=0 ]	(	0	)
@@ -1351,19 +1351,19 @@ inputsNamed3
 3 	"" "" 1 "_top_map2"
 4 	"" "" 1 "_bottom_map"
 5 	"" "" 1 "_srccolorspace"
-6 	"" "" 1 "_defclr"
-7 	"" "" 1 "_depth"
-8 	texture1 17 1 "clr"
-9 	inline2 4 1 "outUV"
-10 	inline2 3 1 "id"
-11 	transform5 3 1 "outNor"
-12 	inline2 1 1 "inDepth"
-13 	"" "" 1 "next"
-14 	"" "" 1 "next_2"
-15 	"" "" 1 "next_3"
-16 	"" "" 1 "next_4"
-17 	"" "" 1 "next_5"
-18 	"" "" 1 "next_6"
+6 	"" "" 1 "_depth"
+7 	texture1 17 1 "clr"
+8 	inline2 4 1 "outUV"
+9 	inline2 3 1 "id"
+10 	transform5 3 1 "outNor"
+11 	inline2 1 1 "inDepth"
+12 	"" "" 1 "next"
+13 	"" "" 1 "next_2"
+14 	"" "" 1 "next_3"
+15 	"" "" 1 "next_4"
+16 	"" "" 1 "next_5"
+17 	"" "" 1 "next_6"
+18 	"" "" 1 "next_7"
 }
 inputs
 {
@@ -1374,12 +1374,12 @@ inputs
 4 	"" 0 1
 5 	"" 0 1
 6 	"" 0 1
-7 	"" 0 1
-8 	texture1 0 1
-9 	inline2 1 1
-10 	inline2 0 1
-11 	transform5 0 1
-12 	inline2 3 1
+7 	texture1 0 1
+8 	inline2 1 1
+9 	inline2 0 1
+10 	transform5 0 1
+11 	inline2 3 1
+12 	"" 0 1
 13 	"" 0 1
 14 	"" 0 1
 15 	"" 0 1
@@ -1724,18 +1724,19 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 value = 1 1 expr = ch(\"../bordera\") }
     }
-    channel extrapol {
+    channel channel {
       lefttype = extend
       righttype = extend
-      default = 1
+      defaultString = \"\"
       flags = 0
-      segment { length = 0 value = 1 1 expr = ch(\"../extrapol\") }
+      segment { length = 0 expr = chs(\"../channel\") }
     }
-    channel interp {
+    channel signature {
       lefttype = extend
       righttype = extend
+      defaultString = \"default\"
       flags = 0
-      segment { length = 0 expr = ch(\"../interp\") }
+      segment { length = 0 expr = chs(\"../signature\") }
     }
     channel defclrr {
       lefttype = extend
@@ -1761,13 +1762,6 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../defclra\") }
     }
-    channel channel {
-      lefttype = extend
-      righttype = extend
-      defaultString = \"\"
-      flags = 0
-      segment { length = 0 expr = chs(\"../channel\") }
-    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1776,7 +1770,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-signature	[ 0	locks=0 ]	(	default	)
+signature	[ 0	locks=0 ]	(	[ signature	default ] 	)
 map	[ 0	locks=0 ]	(	Mandril.pic	)
 udim	[ 0	locks=0 ]	(	"off"	)
 srccolorspace	[ 0	locks=0 ]	(	[ srccolorspace	auto ] 	)
@@ -1786,8 +1780,8 @@ width	[ 0	locks=0 ]	(	0	)
 blur	[ 0	locks=0 ]	(	0	)
 pixelblur	[ 0	locks=0 ]	(	0	)
 border	[ 0	locks=0 ]	(	[ borderr	0 ] 	[ borderg	0 ] 	[ borderb	0 ] 	[ bordera	1 ] 	)
-extrapol	[ 0	locks=0 ]	(	[ extrapol	1 ] 	)
-interp	[ 0	locks=0 ]	(	[ interp	0 ] 	)
+extrapol	[ 0	locks=0 ]	(	"on"	)
+interp	[ 0	locks=0 ]	(	"off"	)
 defclr	[ 0	locks=0 ]	(	[ defclrr	0 ] 	[ defclrg	0 ] 	[ defclrb	0 ] 	[ defclra	0 ] 	)
 channel	[ 0	locks=0 ]	(	[ channel	"" ] 	)
 ptexface	[ 0	locks=0 ]	(	0	)

@@ -6,10 +6,10 @@ Table:        Vop
 License:      
 Extra:        
 User:         
-Inputs:       0 to 8
+Inputs:       0 to 7
 Outputs:      2048
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Wed Nov  3 19:50:52 2021
+Modified:     Wed Nov  3 20:01:38 2021
 
