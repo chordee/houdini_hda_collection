@@ -1,0 +1,15 @@
+Operator:     fake_window
+Label:        Fake Window
+Path:         oplib:/Vop/fake_window?Vop/fake_window
+Icon:         VOP_fake_window
+Table:        Vop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 8
+Outputs:      2048
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Nov  3 15:57:51 2021
+
