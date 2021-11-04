@@ -104,39 +104,10 @@
         parmtag { "script_callback_language" "python" }
     }
     parm {
-        name    "border"
-        label   "Border Color"
-        type    color4
-        size    4
-        default { "0" "0" "0" "1" }
-        range   { 0 10 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "defclr"
-        label   "Default Color"
-        type    color4
-        size    4
-        default { "0" "0" "0" "0" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "channel"
-        label   "Texture Channel"
-        type    string
-        default { "" }
-        range   { 0 1 }
-        parmtag { "autoscope" "0000000000000000" }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
         name    "depth"
         label   "Depth"
         type    float
-        default { "0" }
+        default { "1" }
         range   { 0 10 }
         parmtag { "script_callback_language" "python" }
     }
