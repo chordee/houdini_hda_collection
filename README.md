@@ -2,7 +2,7 @@
 Houdni Digital Assets Collection
 
 ---
-## fake_window (VOP)
+## fake_window (VOP: Fake Window)
 Something like Fake Window shader in Unity. Output simple color from perspective camera.
 |<img src="imgs/fake_window_node.png" alt="fake window node" height="160"/>|<img src="imgs/fake_window_setting.png" alt="fake window example" height="160"/>|
 |:---:|:---:|
@@ -27,7 +27,7 @@ Something like Fake Window shader in Unity. Output simple color from perspective
   | Half Ratio: 0.5 | Half Ratio: 1 |
 * Min Size: Limit the size of smallest piece.
 ---
-## line_creacker (SOP)
+## line_creacker (SOP: Line Cracker)
 Fracture base on polyline projection. (X/Z plane)  
 |<img src="imgs/line_cracker_node.png" alt="line creacker node" height="160"/>|<img src="imgs/line_cracker_45.png" alt="line crack example" height="160"/>|
 |---|---|
@@ -40,6 +40,29 @@ Fracture base on polyline projection. (X/Z plane)
 |Close Line|Open Line|
 * Iterations: Increase to match the input line. (Maybe can not be perfect match.)
 * Iteration Threshold: Avoid really small piece.
+---
+## export_Maya_nParticles_cache (SOP: Export Maya nParticle cache)  
+#####REQUIREMENT:  
+1. unique id attribute. 
+2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
+
+> Attribute Mapping:  
+> + v@v -> velocity
+> + f@age -> age
+> + f@life -> lifespanPP
+> + f@pscale -> radiusPP
+> + v@Cd -> rgbPP
+> + f@Alpha -> opacityPP
+> + v@rotation -> rotationPP.
+
+<img src="imgs/export_maya_nparicle_cache_node.png" alt="close line example" height="160"/>  
+
+* Start Frame
+* End Frame
+* Evaluation Rate
+* XML: xml file path to be written.
+* Particle Name: Particle Shape name in Maya.
+* Python Module Path: nCache.py filepath.
 ---
 ## Mandelbrot3D (VOP)
 
