@@ -55,7 +55,7 @@ REQUIREMENT:
 > + f@Alpha -> opacityPP
 > + v@rotation -> rotationPP.
 
-<img src="imgs/export_maya_nparicle_cache_node.png" alt="export Maya nParticle cache node" height="160"/>  
+<img src="imgs/export_maya_nparicle_cache_node.png" alt="export Maya nParticle cache node" height="240"/>  
 
 * Start Frame
 * End Frame
