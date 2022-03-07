@@ -1,10 +1,18 @@
 # houdini_hda_collection
 Houdni Digital Assets Collection
 
-
-### fake_window (VOP)
 ---
-### grid_cutter (SOP: Grid Cutter)
+## fake_window (VOP)
+Something like Fake Window shader in Unity. Output simple color from perspective camera.
+|<img src="imgs/fake_window_node.png" alt="drawing" height="160"/>|<img src="imgs/fake_window_setting.png" alt="drawing" height="160"/>|
+|:---:|:---:|
+|Vop in MatNetwork|pre-setting: UV and Normal|
+
+|<img src="imgs/wall_outUV.png" alt="drawing" height="160"/>|<img src="imgs/wall_id.png" alt="drawing" height="160"/>|<img src="imgs/out_nor.png" alt="drawing" height="160"/>|<img src="imgs/in_depth.png" alt="drawing" height="160"/>|
+|:---:|:---:|:---:|:---:|
+|outUV|id|outNor|inDepth|
+---
+## grid_cutter (SOP: Grid Cutter)
 |<img src="imgs/grid_cutter_node.png" alt="drawing" height="160"/>|<img src="imgs/grid_cutter.png" alt="drawing" height="160"/>|
 |---|---|
 * Auto Align: Align the face to X/Z before cutting. 
@@ -17,7 +25,6 @@ Houdni Digital Assets Collection
   |:----:|:----:|
   | Half Ratio: 0.5 | Half Ratio: 0.5 |
 * Min Size: Limit the size of smallest piece.
-  
 ---
 ### line_creacker (SOP)
 
