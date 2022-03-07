@@ -27,7 +27,7 @@ Something like Fake Window shader in Unity. Output simple color from perspective
   | Half Ratio: 0.5 | Half Ratio: 1 |
 * Min Size: Limit the size of smallest piece.
 ---
-## line_creacker (SOP: Line Cracker)
+## line_cracker (SOP: Line Cracker)
 Fracture base on polyline projection. (X/Z plane)  
 |<img src="imgs/line_cracker_node.png" alt="line creacker node" height="160"/>|<img src="imgs/line_cracker_45.png" alt="line crack example" height="160"/>|
 |---|---|
@@ -65,4 +65,7 @@ REQUIREMENT:
 * Python Module Path: nCache.py filepath.
 ---
 ## Mandelbrot3D (VOP)
-
+[Entagma - VEX in Houdini: Mandelbrot and Mandelbulb](https://vimeo.com/176911687)
+[Zeus VFX - 3D Fractal in Houdini Tutorial](https://youtu.be/-qgtQ91oItQ)  
+<img src="imgs/mandelbrot3d.png" alt="Mandelbrot3D" height="240"/>  
+---
