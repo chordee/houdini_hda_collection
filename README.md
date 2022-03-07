@@ -27,7 +27,7 @@ Something like Fake Window shader in Unity. Output simple color from perspective
   | Half Ratio: 0.5 | Half Ratio: 1 |
 * Min Size: Limit the size of smallest piece.
 ---
-### line_creacker (SOP)
+## line_creacker (SOP)
 Fracture base on polyline projection. (X/Z plane)  
 |<img src="imgs/line_cracker_node.png" alt="line creacker node" height="160"/>|<img src="imgs/line_cracker_45.png" alt="line crack example" height="160"/>|
 |---|---|
@@ -41,5 +41,5 @@ Fracture base on polyline projection. (X/Z plane)
 * Iterations: Increase to match the input line. (Maybe can not be perfect match.)
 * Iteration Threshold: Avoid really small piece.
 ---
-### Mandelbrot3D (VOP)
+## Mandelbrot3D (VOP)
 
