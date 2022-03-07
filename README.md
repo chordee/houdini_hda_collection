@@ -31,7 +31,7 @@ Something like Fake Window shader in Unity. Output simple color from perspective
 Fracture base on polyline projection. (X/Z plane)  
 |<img src="imgs/line_cracker_node.png" alt="line creacker node" height="160"/>|<img src="imgs/line_cracker_45.png" alt="line crack example" height="160"/>|
 |---|---|
-> Input 1: polyline.
+> Input 1: polyline.  
 > Input 2: Ground plane (Don't need to be flatten)  
 > Output: Fractured poly with attributes.
 
