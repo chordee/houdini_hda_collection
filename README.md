@@ -42,7 +42,7 @@ Fracture base on polyline projection. (X/Z plane)
 * Iteration Threshold: Avoid really small piece.
 ---
 ## export_Maya_nParticles_cache (SOP: Export Maya nParticle cache)  
-#####REQUIREMENT:  
+REQUIREMENT:  
 1. unique id attribute. 
 2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
 
@@ -55,7 +55,7 @@ Fracture base on polyline projection. (X/Z plane)
 > + f@Alpha -> opacityPP
 > + v@rotation -> rotationPP.
 
-<img src="imgs/export_maya_nparicle_cache_node.png" alt="close line example" height="160"/>  
+<img src="imgs/export_maya_nparicle_cache_node.png" alt="export Maya nParticle cache node" height="160"/>  
 
 * Start Frame
 * End Frame
