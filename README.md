@@ -67,5 +67,6 @@ REQUIREMENT:
 ## Mandelbrot3D (VOP)
 [Entagma - VEX in Houdini: Mandelbrot and Mandelbulb](https://vimeo.com/176911687)
 [Zeus VFX - 3D Fractal in Houdini Tutorial](https://youtu.be/-qgtQ91oItQ)  
+  
 <img src="imgs/mandelbrot3d.png" alt="Mandelbrot3D" height="240"/>  
 ---
