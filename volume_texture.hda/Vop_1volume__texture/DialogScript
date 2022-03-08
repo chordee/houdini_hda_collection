@@ -3,7 +3,7 @@
 {
     name	volume_texture
     script	volume_texture
-    label	"Volume Textture"
+    label	"Volume Texture"
 
     input	string	volume_texture	"Volume Texture"
     input	vector	BB	BB_pos
