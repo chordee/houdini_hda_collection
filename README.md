@@ -39,21 +39,23 @@ Fracture base on polyline projection. (X/Z plane)
 |:---:|:---:|
 |Close Line|Open Line|
 * Iterations: Increase to match the input line. (Maybe can not be perfect match.)
-* Iteration Threshold: Avoid really small piece.
+* Iteration Threshold: Avoid extreme small piece.
 ---
 ## export_Maya_nParticles_cache (SOP: Export Maya nParticle cache)  
 REQUIREMENT:  
 1. unique id attribute. 
 2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
 
-> Attribute Mapping:  
-> + v@v -> velocity
-> + f@age -> age
-> + f@life -> lifespanPP
-> + f@pscale -> radiusPP
-> + v@Cd -> rgbPP
-> + f@Alpha -> opacityPP
-> + v@rotation -> rotationPP.
+Attribute Mapping:  
+```
+v@v -> velocity
+f@age -> age
+f@life -> lifespanPP
+f@pscale -> radiusPP
+v@Cd -> rgbPP
+f@Alpha -> opacityPP
+v@rotation -> rotationPP
+```
 
 <img src="imgs/export_maya_nparicle_cache_node.png" alt="export Maya nParticle cache node" height="240"/>  
 
@@ -62,7 +64,7 @@ REQUIREMENT:
 * Evaluation Rate
 * XML: xml file path to be written.
 * Particle Name: Particle Shape name in Maya.
-* Python Module Path: nCache.py filepath.
+* Python Module Path: [nCache.py](https://github.com/chordee/mayaGeoCache/blob/master/nCache.py) filepath.
 ---
 ## Mandelbrot3D (VOP)
 [Entagma - VEX in Houdini: Mandelbrot and Mandelbulb](https://vimeo.com/176911687)  
@@ -70,4 +72,16 @@ REQUIREMENT:
 [Zeus VFX - 3D Fractal in Houdini Tutorial](https://youtu.be/-qgtQ91oItQ)  
   
 <img src="imgs/mandelbrot3d.png" alt="Mandelbrot3D" height="240"/>  
+
+---  
+## volume_texture (VOP: Volume Texture)  
+Reuse the volume texture which was exported from Labs Volume Texture Export in Houdini.  
+<img src="imgs/volume_texture_node.png" alt="Volume Texture Node" height="160"/> 
+* Volume Texture: Texture filepath.
+* BB_pos: bbox position.
+* U_Tile
+* V_Tile
+* outClr: RGB color from volume texture.  
+
 ---
+## thunder_builder (SOP: Thunder Builder)
