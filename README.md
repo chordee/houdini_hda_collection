@@ -42,6 +42,8 @@ Fracture base on polyline projection. (X/Z plane)
 * Iteration Threshold: Avoid extreme small piece.
 ---
 ## export_Maya_nParticles_cache (SOP: Export Maya nParticle cache)  
+*Export Maya nParticle cache from Houdini directly.*  
+
 REQUIREMENT:  
 1. unique id attribute. 
 2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
@@ -65,6 +67,22 @@ v@rotation -> rotationPP
 * XML: xml file path to be written.
 * Particle Name: Particle Shape name in Maya.
 * Python Module Path: [nCache.py](https://github.com/chordee/mayaGeoCache/blob/master/nCache.py) filepath.
+
+---
+## export_Maya_geoCache (SOP: Export Maya geoCache)  
+*Export Maya geometry point cache from Houdini directly.*  
+
+REQUIREMENT:  
+1. Primitive attribute: path. 
+2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
+
+<img src="imgs/export_maya_geo_cache_node.png" alt="export Maya Geo cache node" height="240"/> 
+
+* XML: xml file path to be written.
+* Start Frame
+* End Frame
+* Python Module Path: [nCache.py](https://github.com/chordee/mayaGeoCache/blob/master/nCache.py) 
+
 ---
 ## Mandelbrot3D (VOP)
 [Entagma - VEX in Houdini: Mandelbrot and Mandelbulb](https://vimeo.com/176911687)  
