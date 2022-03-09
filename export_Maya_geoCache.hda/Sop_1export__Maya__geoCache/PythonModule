@@ -1,17 +1,19 @@
 # This code is called when instances of this SOP cook.
-node = hou.pwd()
+
 
 # Add code to modify the contents of geo.
 
 import numpy as np
 import sys, threading
-python_modules_path = 'Q:/Resource/python_modules'
-if python_modules_path not in sys.path:
-    sys.path.append('Q:/Resource/python_modules')
-from mayaGeoCache import nCache as nc
+
+
+import imp
+import hou
+    
 
 def cache():
     node = hou.pwd()
+    nc = imp.load_source('', node.parm('module_path').eval())
     alt_node = hou.pwd().path() + '/WRITE_OUT'
     geo = hou.node(alt_node).geometry()
     fps = hou.fps()
