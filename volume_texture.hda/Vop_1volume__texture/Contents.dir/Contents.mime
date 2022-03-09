@@ -19,23 +19,24 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 7.04598 -0.291295
-connectornextid 4
+position -5.27785 -3.00017
+connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on lowdetail off mediumdetail off highdetail on material off
 outputsNamed3
 {
+4 "outClr"
 }
 inputsNamed3
 {
-0 	"" "" 1 "volume_texture"
-1 	"" "" 1 "BB"
+0 	volume_texture 0 1 "volume_texture"
+1 	relbbox1 3 1 "BB"
 2 	"" "" 1 "U_Tile"
 3 	"" "" 1 "V_Tile"
 }
 inputs
 {
-0 	"" 0 1
-1 	"" 0 1
+0 	volume_texture 0 1
+1 	relbbox1 0 1
 2 	"" 0 1
 3 	"" 0 1
 }
@@ -139,7 +140,7 @@ code	[ 0	locks=0 ]	(	"function vector step2uv(int _step, ut, vt){
 }
 
 function vector pre_colormap(string filepath; vector uv){
-    vector sample_color = colormap(filepath, uv[0], uv[1], 'width', 0, 'wrap', 'clamp');
+    vector sample_color = colormap(filepath, uv[0], uv[1], 'wrap', 'clamp');
     return sample_color;
 }   
 
