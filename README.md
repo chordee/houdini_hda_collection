@@ -70,11 +70,13 @@ v@rotation -> rotationPP
 
 ---
 ## export_Maya_geoCache (SOP: Export Maya geoCache)  
-*Export Maya geometry point cache from Houdini directly.*  
+*Export Maya geometry point cache from Houdini directly. (Multiple objects is ok)*  
 
 REQUIREMENT:  
 1. Primitive attribute: path. 
 2. [source code: nCache.py](https://github.com/chordee/mayaGeoCache)  
+
+> path attribute is used to define the target in Maya. Therefore, the best way is using the alembic which was exported from Maya, and keep the path attribute so that can be used to export back.
 
 <img src="imgs/export_maya_geo_cache_node.png" alt="export Maya Geo cache node" height="240"/> 
 
