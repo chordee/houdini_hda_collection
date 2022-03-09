@@ -75,7 +75,7 @@ v@rotation -> rotationPP
 
 ---  
 ## volume_texture (VOP: Volume Texture)  
-Reuse the volume texture which was exported from Labs Volume Texture Export in Houdini.  
+Reuse the volume texture which was exported from **Labs Volume Texture Export** in Houdini.  
 <img src="imgs/volume_texture_node.png" alt="Volume Texture Node" height="160"/> 
 * Volume Texture: Texture filepath.
 * BB_pos: bbox position.
