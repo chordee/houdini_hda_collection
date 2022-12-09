@@ -1,0 +1,474 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Lop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = repose_turntable_camera::1.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+comment ""
+position -2.92392 -43.9865
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	merge1 2 1 "input1"
+}
+inputs
+{
+0 	merge1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 0 6.8941999999999997 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.def"
+Content-Type: text/plain
+
+comment ""
+position -0.00300001 5.72356
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "primpattern"
+        baseparm
+        label   "Primitives"
+        export  none
+    }
+    parm {
+        name    "allowinstanceproxies"
+        baseparm
+        label   "Allow Instance Proxy Primitives"
+        export  none
+    }
+    parm {
+        name    "runonarrays"
+        baseparm
+        label   "Run on Elements of Array Attributes"
+        export  none
+    }
+    parm {
+        name    "lengthhint"
+        baseparm
+        label   "Array Length"
+        export  none
+    }
+    parm {
+        name    "lengthattrib"
+        baseparm
+        label   "Attribute Name"
+        export  none
+    }
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  none
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindattrib#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindattribtype#"
+                baseparm
+                label   "Attribute Type"
+                nolabel
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+    }
+
+    parm {
+        name    "prim_path"
+        label   "Prim Path"
+        type    string
+        default { "" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "screen_width"
+        label   "Screen Width"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "screen_height"
+        label   "Screen Height"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "camera_angle"
+        label   "Camera Angle"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+    parm {
+        name    "duration_frames"
+        label   "Duration Frames"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "dist_amp"
+        label   "Dist Amp"
+        type    float
+        default { "0" }
+        range   { 0 1 }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.chn"
+Content-Type: text/plain
+
+{
+    channel primpattern {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"/cameras\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../primpattern\") }
+    }
+    channel prim_path {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"/master_piece\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../prim_path\") }
+    }
+    channel screen_width {
+      lefttype = extend
+      righttype = extend
+      default = 1920
+      flags = 0
+      segment { length = 0 value = 1920 1920 expr = ch(\"../screen_width\") }
+    }
+    channel screen_height {
+      lefttype = extend
+      righttype = extend
+      default = 1080
+      flags = 0
+      segment { length = 0 value = 1080 1080 expr = ch(\"../screen_height\") }
+    }
+    channel camera_angle {
+      lefttype = extend
+      righttype = extend
+      default = 15
+      flags = 0
+      segment { length = 0 value = 15 15 expr = ch(\"../camera_angle\") }
+    }
+    channel duration_frames {
+      lefttype = extend
+      righttype = extend
+      default = 60
+      flags = 0
+      segment { length = 0 value = 60 60 expr = ch(\"../duration_frames\") }
+    }
+    channel dist_amp {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../dist_amp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+primpattern	[ 0	locks=0	autoscope=0 ]	(	[ primpattern	"`lopinputprim('.', 0)`" ] 	)
+allowinstanceproxies	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+runonarrays	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+lengthhint	[ 0	locks=0	autoscope=0 ]	(	"auto"	)
+lengthattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"string prim_path = chs('prim_path');
+int screen_width = chi('screen_width');
+int screen_height = chi('screen_height');
+int duration_frames = chi('duration_frames');
+float screen_ratio = float(screen_height) / screen_width;
+float ratio_angle = asin(screen_ratio);
+
+vector min = usd_getbbox_min(0, prim_path, 'default');
+vector max = usd_getbbox_max(0, prim_path, 'default');
+vector cen = usd_getbbox_center(0, prim_path, 'default');
+
+
+float focal = usd_attrib(0, @primpath, 'focalLength');
+float fov = 2 * atan(44.3/(2*focal*100));
+
+vector size = usd_getbbox_size(0, prim_path, 'default');
+
+float max_size = max(size[0], size[2]);
+max_size = max(max_size, size[1]);
+float max_width = max_size / sin(ratio_angle);
+float max_height = size[1] / cos(ratio_angle);
+float dist_by_w = max_width*2 / sin(fov);
+float dist_by_h = max_height*2 / cos(fov);
+float dist = max(dist_by_w, dist_by_h) * chf('dist_amp');
+float camera_angle = chf('camera_angle');
+
+v@pivot = cen;
+matrix offset = maketransform(0, 0, cen, vector(0));
+matrix offset2 = maketransform(0, 0, set(0, 0, dist), vector(0));
+
+matrix kk = maketransform(0, 0, vector(0), set(-camera_angle, 0, 0), set(1), cen);
+
+matrix round = maketransform(0, 0, vector(0), set(0,fit(@Frame, 1, duration_frames, 0, 360),0), set(1), cen * set(1, 0, 1));
+
+matrix f = offset * offset2 * kk * round;
+usd_addtransform(0, @primpath, 'round', f);"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+prim_path	[ 0	locks=0 ]	(	[ prim_path	"" ] 	)
+screen_width	[ 0	locks=0 ]	(	[ screen_width	0 ] 	)
+screen_height	[ 0	locks=0 ]	(	[ screen_height	0 ] 	)
+camera_angle	[ 0	locks=0 ]	(	[ camera_angle	0 ] 	)
+duration_frames	[ 0	locks=0 ]	(	[ duration_frames	0 ] 	)
+dist_amp	[ 0	locks=0 ]	(	[ dist_amp	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribwrangle5.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+comment ""
+position 0.003 3.99155
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	attribwrangle5 1 1 "input1"
+}
+inputs
+{
+0 	attribwrangle5 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+modifiedprims	[ 0	locks=0 ]	(	"`lopinputprims(\".\", 0)`"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+2
+attribwrangle5
+output0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--
