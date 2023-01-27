@@ -1,0 +1,14 @@
+Operator:     chordee::dev::convert_ai_to_mtlx::1.0
+Label:        Convert Ai To Mtlx
+Path:         oplib:/chordee::dev::Lop/convert_ai_to_mtlx::1.0?chordee::dev::Lop/convert_ai_to_mtlx::1.0
+Icon:         LOP_subnet
+Table:        Lop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Sat Jan 28 00:17:43 2023
+

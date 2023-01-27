@@ -1,0 +1,17 @@
+# Dialog script for chordee::dev::convert_ai_to_mtlx::1.0 automatically generated
+
+{
+    name	chordee::dev::convert_ai_to_mtlx::1.0
+    script	chordee::dev::convert_ai_to_mtlx::1.0
+    label	"Convert Ai To Mtlx"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Stage with Arnold Shaders"
+    inputlabel	2	"Input 2"
+    inputlabel	3	"Input 3"
+    inputlabel	4	"Input 4"
+
+}

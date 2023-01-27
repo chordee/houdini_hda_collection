@@ -1,0 +1,316 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Lop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = chordee::dev::convert_ai_to_mtlx::1.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+comment ""
+position -0.205255 -2.24373
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	sublayer2 1 1 "input1"
+}
+inputs
+{
+0 	sublayer2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chord@LAPTOP-ULJICLO8
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 0 6.8941999999999997 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript2.init"
+Content-Type: text/plain
+
+type = pythonscript
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript2.def"
+Content-Type: text/plain
+
+comment ""
+position 0 6.1118
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chord@LAPTOP-ULJICLO8
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"node = hou.pwd()
+stage = node.editableStage()
+
+from pxr import Usd, UsdShade, Sdf
+
+# Add code to modify the stage.
+# Use drop down menu to select examples.
+
+\"\"\"
+def extract_image_rgb(output, input):
+    output_prim_name = output.GetPrim().GetName()
+    input_prim_name = input.GetPrim().GetName()
+    output_shader = UsdShade.Shader.Define(stage, output.GetPrim().GetPath())
+    new_vector_output = output_shader.CreateOutput('out', Sdf.ValueTypeNames.Vector3f)
+    extract_name = output_prim_name + '_extract_to_' + input_prim_name
+    extract = UsdShade.Shader.Define(stage, str(output.GetPrim().GetParent().GetPath()) + '/' + extract_name)
+    extract.CreateIdAttr('ND_extract_color3')
+    extract_input = extract.CreateInput('in', Sdf.ValueTypeNames.Vector3f)
+    extract_output = extract.CreateOutput('out', Sdf.ValueTypeNames.Float)
+    extract_input.ConnectToSource(new_vector_output)
+    input.ConnectToSource(extract_output)
+\"\"\"
+
+def get_output_from_source(source):
+    prim = source[0].GetPrim()
+    shader = source[0]
+    name = source[1]
+    type = source[2]
+    attr = prim.GetAttribute('outputs:' + name)
+    output = shader.GetOutput(name)
+    return output
+
+def convert_material(material):
+    prim = material.GetPrim()
+    if prim.HasAttribute('outputs:arnold:surface'):
+        output = material.CreateOutput('mtlx:surface', Sdf.ValueTypeNames.Token)
+        orig_output = material.GetOutput('arnold:surface')
+        if orig_output.HasConnectedSource():
+            source = orig_output.GetConnectedSource()
+            if not source[0].GetPrim().HasAttribute('outpupts:out'):
+                out = source[0].CreateOutput('out', Sdf.ValueTypeNames.Token)
+            else:
+                out = source[0].GetOutput('out')
+            output.ConnectToSource(out)
+    if prim.HasAttribute('outputs:arnold:displacement'):
+        output = material.CreateOutput('mtlx:displacement', Sdf.ValueTypeNames.Token)
+        orig_output = material.GetOutput('arnold:displacement')
+        if orig_output.HasConnectedSource():
+            source = orig_output.GetConnectedSource()
+            if not source[0].GetPrim().HasAttribute('outpupts:out'):
+                out = source[0].CreateOutput('out', Sdf.ValueTypeNames.Token)
+            else:
+                out = source[0].GetOutput('out')
+            output.ConnectToSource(out)
+
+def convert_standard_surface(shader):
+    shader.GetIdAttr().Set('ND_standard_surface_surfaceshader')
+    prim = shader.GetPrim()
+    attrs = prim.GetAttributes()
+    inputs = shader.GetInputs()
+    input_names = [x.GetAttr().GetName() for x in inputs]
+    attr_names = [x.GetName() for x in attrs]
+
+
+def convert_image(shader):
+    shader.GetIdAttr().Set('ND_image_color3')
+    prim = shader.GetPrim()
+    attr = prim.CreateAttribute('inputs:file', Sdf.ValueTypeNames.Asset)
+    attr.Set(prim.GetAttribute('inputs:filename').Get())
+
+def convert_normalmap(shader):
+    shader.GetIdAttr().Set('ND_normalmap')
+    input = shader.CreateInput('in', Sdf.ValueTypeNames.Vector3f)
+    orig_input = shader.GetInput('input')
+    source = orig_input.GetConnectedSource()
+    input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+
+def convert_displacement(shader):
+    shader.GetIdAttr().Set('ND_displacement_float')
+    prim = shader.GetPrim()
+    orig_input = shader.GetInput('input')
+    if not prim.HasAttribute('inputs:displacement'):
+        input = shader.CreateInput('displacement', Sdf.ValueTypeNames.Float)
+        source = orig_input.GetConnectedSource()
+        source_output = get_output_from_source(source)
+        if source_output.GetTypeName() == 'float':
+            input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+        else:
+            input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+
+
+shader_ls = hou.LopSelectionRule('%type:Shader')
+material_ls = hou.LopSelectionRule('%type:Material')
+
+
+material_paths = material_ls.expandedPaths(stage = stage)
+shaser_paths = shader_ls.expandedPaths(stage = stage)
+
+for path in material_paths:
+    material = UsdShade.Material.Define(stage, path)
+    convert_material(material)
+
+for path in shaser_paths:
+    shader = UsdShade.Shader.Define(stage, path)
+
+    id = shader.GetIdAttr().Get()
+    if id == 'arnold:standard_surface':
+        convert_standard_surface(shader)
+    elif id == 'arnold:image':
+        convert_image(shader)
+    elif id == 'arnold:normal_map':
+        convert_normalmap(shader)
+    elif id == 'arnold:range':
+        convert_displacement(shader)
+    
+    
+"	)
+maintainstate	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+comment ""
+position 5.55112e-17 5.2176
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	pythonscript2 1 1 "input1"
+}
+inputs
+{
+0 	pythonscript2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chord@LAPTOP-ULJICLO8
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+modifiedprims	[ 0	locks=0 ]	(	"`lopinputprims(\".\", 0)`"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+2
+pythonscript2
+output0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--
