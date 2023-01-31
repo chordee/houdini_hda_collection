@@ -19,7 +19,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -0.855487 1.0463
+position -2.47836 1.0463
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
@@ -280,14 +280,12 @@ def convert_color_correct(shader):
         sub_shaders[key].append(sub)
         if key == 'liftsubtract':
             sub.CreateOutput('out', Sdf.ValueTypeNames.Float)
-            sub.CreateInput('in1', Sdf.ValueTypeNames.Float)
-            sub.GetPrim().GetAttribute('inputs:in1').Set(1.0)
+            sub.CreateInput('in1', Sdf.ValueTypeNames.Float).GetAttr().Set(1.0)
             sub.CreateInput('in2', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput(
                 'lift') if prim.HasAttribute('inputs:lift') else shader.CreateInput('lift', Sdf.ValueTypeNames.Float))
         elif key == 'exposurepwr':
             sub.CreateOutput('out', Sdf.ValueTypeNames.Float)
-            sub.CreateInput('in1', Sdf.ValueTypeNames.Float)
-            sub.GetPrim().GetAttribute('inputs:in1').Set(2.0)
+            sub.CreateInput('in1', Sdf.ValueTypeNames.Float).GetAttr().Set(2.0)
             sub.CreateInput('in2', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput('exposure') if prim.HasAttribute(
                 'inputs:exposure') else shader.CreateInput('exposure', Sdf.ValueTypeNames.Float))
         elif key == 'parm2hue':
@@ -351,6 +349,8 @@ def convert_color_correct(shader):
 
     sub_shaders['parm2hue'][1].CreateInput('in1', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput(
         'hue') if prim.HasAttribute('inputs:hue') else shader.CreateInput('hue', Sdf.ValueTypeNames.Float))
+    sub_shaders['parm2hue'][1].CreateInput('in2', Sdf.ValueTypeNames.Float).GetAttr().Set(1.0)
+    sub_shaders['parm2hue'][1].CreateInput('in3', Sdf.ValueTypeNames.Float).GetAttr().Set(1.0)
 
     source = shader.GetInput('input').GetConnectedSource()
     shader.CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
