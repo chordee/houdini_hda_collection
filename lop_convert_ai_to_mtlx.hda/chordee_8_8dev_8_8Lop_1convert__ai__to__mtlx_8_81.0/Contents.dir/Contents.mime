@@ -19,7 +19,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -1.78159 0.643736
+position -0.855487 1.0463
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
@@ -28,11 +28,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	sublayer1 1 1 "input1"
+0 	reference3 0 1 "input1"
 }
 inputs
 {
-0 	sublayer1 0 1
+0 	reference3 0 1
 }
 stat
 {
@@ -131,7 +131,12 @@ def check_inputs(shader):
                     source_type = Sdf.ValueTypeNames.Color3f
                 elif type_name == 'vector3f':
                     source_type = Sdf.ValueTypeNames.Vector3f
-                i.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim().HasAttribute('outputs:out') else source[0].CreateOutput('out', source_type))
+                elif type_name == 'token':
+                    source_type = Sdf.ValueTypeNames.Token
+                elif source_type == 'string':
+                    source_type = Sdf.ValueTypeNames.String
+                i.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim().HasAttribute(
+                    'outputs:out') else source[0].CreateOutput('out', source_type))
 
 
 def get_output_from_source(source):
@@ -175,7 +180,7 @@ def convert_standard_surface(shader):
     inputs = shader.GetInputs()
     input_names = [x.GetAttr().GetName() for x in inputs]
     attr_names = [x.GetName() for x in attrs]
-
+    check_inputs(shader)
 
 def convert_image(shader):
     shader.GetIdAttr().Set('ND_image_color3')
@@ -193,7 +198,34 @@ def convert_normalmap(shader):
     input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
 
 
-def convert_displacement(shader): 
+def convert_range(shader):
+    orig_input = shader.GetInput('input')
+    orig_input_names = [x.GetBaseName() for x in shader.GetInputs()]
+    outputs = shader.GetOutputs()
+    output_names = [x.GetBaseName() for x in outputs]
+    type_name = orig_input.GetTypeName()
+    if 'out' in output_names:
+        shader.GetIdAttr().Set('ND_range_vector3')
+        input_type = Sdf.ValueTypeNames.Vector3f
+    else:
+        shader.GetIdAttr().Set('ND_range_float')
+        input_type = Sdf.ValueTypeNames.Float
+    input = shader.CreateInput('in', input_type)
+    source = orig_input.GetConnectedSource()
+    input.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim().HasAttribute(
+        'outputs:out') else source[0].CreateOutput('out', input_type))
+    names_match = {\"input_max\" : 'inhigh', 'input_min' : 'inlow', 'output_max' : 'outhigh', 'output_min' : 'outlow'}
+    for orig_name in names_match.keys():
+        if orig_name in orig_input_names:
+            new_input = shader.CreateInput(names_match[orig_name], input_type)
+            orig_val = shader.GetInput(orig_name).GetAttr().Get()
+            orig_type_name = shader.GetInput(orig_name).GetTypeName()
+            if input_type == Sdf.ValueTypeNames.Vector3f and orig_type_name == 'float':
+                orig_val = (orig_val, orig_val, orig_val)
+                print(orig_val)
+            new_input.GetAttr().Set(orig_val)
+
+def convert_displacement(shader):
     shader.GetIdAttr().Set('ND_displacement_float')
     prim = shader.GetPrim()
     orig_input = shader.GetInput('input')
@@ -208,9 +240,10 @@ def convert_displacement(shader):
 
 
 def convert_clamp(shader):
+    out_type = shader.GetOutput('out').GetTypeName()
     orig_input = shader.GetInput('input')
-    source = orig_input = orig_input.GetConnectedSource()
-    if source[2] == float:
+    source = orig_input.GetConnectedSource()
+    if out_type == 'float':
         shader.GetIdAttr().Set('ND_clamp_float')
         input = shader.CreateInput('in', Sdf.ValueTypeNames.Float)
     else:
@@ -240,7 +273,7 @@ def convert_color_correct(shader):
     prim = shader.GetPrim()
     prim_path = str(prim.GetPath())
     sub_shaders = {'hsvadjust': ['ND_hsvadjust_color3'], 'saturation': ['ND_saturate_color3'], 'gamma': ['ND_range_color3FA'],
-                   'liftmult': ['ND_multiply_color3FA'], 'liftadd': ['ND_add_color3FA'], 'gain': ['ND_add_color3FA'], 'contrast': ['ND_contrast_color3FA'], 'exposure': ['ND_multiply_color3FA'], 'exposurepwr': ['ND_power_float'], 'liftsubtract': ['ND_subtract_float'], 'parm2hue': ['ND_combine3_vector3'], 'mtlxseparate3c1':['ND_separate3_color3']}
+                   'liftmult': ['ND_multiply_color3FA'], 'liftadd': ['ND_add_color3FA'], 'gain': ['ND_add_color3FA'], 'contrast': ['ND_contrast_color3FA'], 'exposure': ['ND_multiply_color3FA'], 'exposurepwr': ['ND_power_float'], 'liftsubtract': ['ND_subtract_float'], 'parm2hue': ['ND_combine3_vector3'], 'mtlxseparate3c1': ['ND_separate3_color3']}
     for key in sub_shaders.keys():
         sub = UsdShade.Shader.Define(stage, prim_path + '/' + key)
         sub.GetIdAttr().Set(sub_shaders[key][0])
@@ -263,7 +296,7 @@ def convert_color_correct(shader):
             sub.CreateOutput('out', Sdf.ValueTypeNames.Color3f)
 
     output = shader.CreateOutput('out', Sdf.ValueTypeNames.Color3f)
-    output.ConnectToSource(sub_shaders['exposure'][1].GetOutput('out'))
+    output.ConnectToSource(sub_shaders['exposure'][1].CreateOutput('out', Sdf.ValueTypeNames.Color3f))
 
     sub_shaders['exposure'][1].CreateInput('in1', Sdf.ValueTypeNames.Color3f).ConnectToSource(
         sub_shaders['contrast'][1].GetOutput('out'))
@@ -272,9 +305,12 @@ def convert_color_correct(shader):
 
     sub_shaders['mtlxseparate3c1'][1].CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(
         sub_shaders['exposure'][1].GetOutput('out'))
-    shader.CreateOutput('outr', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['mtlxseparate3c1'][1].CreateOutput('outr', Sdf.ValueTypeNames.Float))
-    shader.CreateOutput('outg', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['mtlxseparate3c1'][1].CreateOutput('outg', Sdf.ValueTypeNames.Float))
-    shader.CreateOutput('outb', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['mtlxseparate3c1'][1].CreateOutput('outb', Sdf.ValueTypeNames.Float))
+    shader.CreateOutput('outr', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['mtlxseparate3c1'][1].CreateOutput('outr', Sdf.ValueTypeNames.Float))
+    shader.CreateOutput('outg', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['mtlxseparate3c1'][1].CreateOutput('outg', Sdf.ValueTypeNames.Float))
+    shader.CreateOutput('outb', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['mtlxseparate3c1'][1].CreateOutput('outb', Sdf.ValueTypeNames.Float))
 
     sub_shaders['contrast'][1].CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(
         sub_shaders['gain'][1].GetOutput('out'))
@@ -300,7 +336,7 @@ def convert_color_correct(shader):
 
     sub_shaders['gamma'][1].CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(
         sub_shaders['saturation'][1].GetOutput('out'))
-    sub_shaders['gamma'][1].CreateInput('gamme', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput(
+    sub_shaders['gamma'][1].CreateInput('gamma', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput(
         'gamma') if prim.HasAttribute('inputs:gamma') else shader.CreateInput('gamma', Sdf.ValueTypeNames.Float))
 
     sub_shaders['saturation'][1].CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(
@@ -317,8 +353,9 @@ def convert_color_correct(shader):
         'hue') if prim.HasAttribute('inputs:hue') else shader.CreateInput('hue', Sdf.ValueTypeNames.Float))
 
     source = shader.GetInput('input').GetConnectedSource()
-    shader.GetInput('in').ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+    shader.CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
     shader.GetIdAttr().Set('')
+    UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
     if prim.HasAttribute('inputs:contrast_pivot'):
         prim.GetAttribute('inputs:contrastpivot').Set(prim.GetAttribute('inputs:contrast_pivot').Get())
     if prim.HasAttribute('inputs:multiply'):
@@ -326,13 +363,15 @@ def convert_color_correct(shader):
     if prim.HasAttribute('inputs:hue_shift'):
         prim.GetAttribute('inputs:hue').Set(prim.GetAttribute('inputs:hue_shift').Get())
 
+
 def convert_ramp_rgb(shader):
     prim = shader.GetPrim()
     prim_path = str(prim.GetPath())
     shader.CreateOutput('out', Sdf.ValueTypeNames.Color3f)
     if not prim.HasAttribute('inputs:input'):
         shader.CreateInput('input', Sdf.ValueTypeNames.Float)
-    sub_shaders = {'numkeys': ['ND_constant_float'], 'invlinear': ['ND_hinvlinear_float'], 'uniformramp': ['ND_huniformramp_color3']}
+    sub_shaders = {'numkeys': ['ND_constant_float'], 'invlinear': [
+        'ND_hinvlinear_float'], 'uniformramp': ['ND_huniformramp_color3']}
     for key in sub_shaders.keys():
         sub = UsdShade.Shader.Define(stage, prim_path + '/' + key)
         sub.GetIdAttr().Set(sub_shaders[key][0])
@@ -342,15 +381,21 @@ def convert_ramp_rgb(shader):
     colors = prim.GetAttribute('inputs:color').Get()
     sub_shaders['numkeys'][1].CreateInput('value', Sdf.ValueTypeNames.Float).GetAttr().Set(len(positions)+2)
     sub_shaders['numkeys'][1].CreateOutput('out', Sdf.ValueTypeNames.Float)
-    sub_shaders['invlinear'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['numkeys'][1].GetOutput('out'))
+    sub_shaders['invlinear'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['numkeys'][1].GetOutput('out'))
     sub_shaders['invlinear'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput('input'))
-    sub_shaders['uniformramp'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['numkeys'][1].GetOutput('out'))
-    sub_shaders['uniformramp'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['invlinear'][1].CreateOutput('out', Sdf.ValueTypeNames.Float))
+    sub_shaders['uniformramp'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['numkeys'][1].GetOutput('out'))
+    sub_shaders['uniformramp'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['invlinear'][1].CreateOutput('out', Sdf.ValueTypeNames.Float))
 
     for idx, i in enumerate(positions):
         sub_shaders['invlinear'][1].CreateInput('key' + str(idx+1), Sdf.ValueTypeNames.Float).GetAttr().Set(i)
-        sub_shaders['uniformramp'][1].CreateInput('value' + str(idx+1), Sdf.ValueTypeNames.Color3f).GetAttr().Set(colors[idx])
+        sub_shaders['uniformramp'][1].CreateInput(
+            'value' + str(idx+1), Sdf.ValueTypeNames.Color3f).GetAttr().Set(colors[idx])
     shader.GetIdAttr().Set('')
+    UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
+
 
 def convert_ramp_float(shader):
     prim = shader.GetPrim()
@@ -358,7 +403,8 @@ def convert_ramp_float(shader):
     shader.CreateOutput('out', Sdf.ValueTypeNames.Float)
     if not prim.HasAttribute('inputs:input'):
         shader.CreateInput('input', Sdf.ValueTypeNames.Float)
-    sub_shaders = {'numkeys': ['ND_constant_float'], 'invlinear': ['ND_hinvlinear_float'], 'uniformramp': ['ND_huniformramp_float']}
+    sub_shaders = {'numkeys': ['ND_constant_float'], 'invlinear': [
+        'ND_hinvlinear_float'], 'uniformramp': ['ND_huniformramp_float']}
     for key in sub_shaders.keys():
         sub = UsdShade.Shader.Define(stage, prim_path + '/' + key)
         sub.GetIdAttr().Set(sub_shaders[key][0])
@@ -368,16 +414,20 @@ def convert_ramp_float(shader):
     values = prim.GetAttribute('inputs:value').Get()
     sub_shaders['numkeys'][1].CreateInput('value', Sdf.ValueTypeNames.Float).GetAttr().Set(len(positions)+2)
     sub_shaders['numkeys'][1].CreateOutput('out', Sdf.ValueTypeNames.Float)
-    sub_shaders['invlinear'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['numkeys'][1].GetOutput('out'))
+    sub_shaders['invlinear'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['numkeys'][1].GetOutput('out'))
     sub_shaders['invlinear'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(shader.GetInput('input'))
-    sub_shaders['uniformramp'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['numkeys'][1].GetOutput('out'))
-    sub_shaders['uniformramp'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(sub_shaders['invlinear'][1].CreateOutput('out', Sdf.ValueTypeNames.Float))
+    sub_shaders['uniformramp'][1].CreateInput('num', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['numkeys'][1].GetOutput('out'))
+    sub_shaders['uniformramp'][1].CreateInput('ramp', Sdf.ValueTypeNames.Float).ConnectToSource(
+        sub_shaders['invlinear'][1].CreateOutput('out', Sdf.ValueTypeNames.Float))
 
     for idx, i in enumerate(positions):
         sub_shaders['invlinear'][1].CreateInput('key' + str(idx+1), Sdf.ValueTypeNames.Float).GetAttr().Set(i)
-        sub_shaders['uniformramp'][1].CreateInput('value' + str(idx+1), Sdf.ValueTypeNames.Float).GetAttr().Set(values[idx])
+        sub_shaders['uniformramp'][1].CreateInput(
+            'value' + str(idx+1), Sdf.ValueTypeNames.Float).GetAttr().Set(values[idx])
     shader.GetIdAttr().Set('')
-
+    UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
 
 def convert_ao(shader):
     shader.GetIdAttr().Set('ND_ambientocclusion_float')
@@ -409,7 +459,7 @@ for path in shaser_paths:
     elif id == 'arnold:normal_map':
         convert_normalmap(shader)
     elif id == 'arnold:range':
-        convert_displacement(shader)
+        convert_range(shader)
     elif id == 'arnold:clamp':
         convert_clamp(shader)
     elif id == 'arnold:layer_shader':
