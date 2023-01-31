@@ -21,7 +21,7 @@ Content-Type: text/plain
 comment ""
 position -2.5711 0.850661
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
 1 "output1"
@@ -223,7 +223,6 @@ def convert_range(shader):
             orig_type_name = shader.GetInput(orig_name).GetTypeName()
             if input_type == Sdf.ValueTypeNames.Vector3f and orig_type_name == 'float':
                 orig_val = (orig_val, orig_val, orig_val)
-                print(orig_val)
             new_input.GetAttr().Set(orig_val)
     check_inputs(shader)
 
