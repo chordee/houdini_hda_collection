@@ -19,7 +19,7 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.5711 0.850661
+position -12.3368 0.268051
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
@@ -28,11 +28,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	reference3 0 1 "input1"
+0 	reference4 0 1 "input1"
 }
 inputs
 {
-0 	reference3 0 1
+0 	reference4 0 1
 }
 stat
 {
@@ -345,6 +345,24 @@ def convert_layer(shader):
     check_inputs(divide)
     check_inputs(shader)
 
+def convert_mix_rgba(shader):
+    shader.GetIdAttr().Set('ND_mix_color4')
+    fg = shader.CreateInput('fg', Sdf.ValueTypeNames.Color4f)
+    bg = shader.CreateInput('bg', Sdf.ValueTypeNames.Color4f)
+    fg.GetAttr().Set((0,0,0,1))
+    bg.GetAttr().Set((0,0,0,1))
+    if shader.GetPrim().HasAttribute('inputs:input1'):
+        bg.GetAttr().Set(shader.GetInput('input1').GetAttr().Get())
+        if shader.GetInput('input1').GetConnectedSource() is not None:
+            source = shader.GetInput('input1').GetConnectedSource()
+            bg.ConnectToSource(source[0].GetOutput(source[1]))
+    if shader.GetPrim().HasAttribute('inputs:input2'):
+        fg.GetAttr().Set(shader.GetInput('input2').GetAttr().Get())
+        if shader.GetInput('input2').GetConnectedSource() is not None:
+            source = shader.GetInput('input2').GetConnectedSource()
+            fg.ConnectToSource(source[0].GetOutput(source[1]))
+    check_inputs(shader)
+    
 
 def convert_color_correct(shader):
     prim = shader.GetPrim()
@@ -571,6 +589,8 @@ for path in shaser_paths:
         convert_ramp_float(shader)
     elif id == 'arnold:noise':
         convert_noise(shader)
+    elif id == 'arnold:mix_rgba':
+        convert_mix_rgba(shader)
 "	)
 maintainstate	[ 0	locks=0 ]	(	"off"	)
 }
