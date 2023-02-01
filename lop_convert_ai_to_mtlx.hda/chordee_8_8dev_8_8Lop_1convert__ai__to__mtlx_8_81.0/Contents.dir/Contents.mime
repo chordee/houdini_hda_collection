@@ -21,7 +21,7 @@ Content-Type: text/plain
 comment ""
 position -2.5711 0.850661
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
 1 "output1"
@@ -139,16 +139,6 @@ def check_inputs(shader):
                     'outputs:out') else source[0].CreateOutput('out', source_type))
 
 
-def get_output_from_source(source):
-    prim = source[0].GetPrim()
-    shader = source[0]
-    name = source[1]
-    type = source[2]
-    attr = prim.GetAttribute('outputs:' + name)
-    output = shader.GetOutput(name)
-    return output
-
-
 def convert_material(material):
     prim = material.GetPrim()
     if prim.HasAttribute('outputs:arnold:surface'):
@@ -181,6 +171,7 @@ def convert_standard_surface(shader):
     input_names = [x.GetAttr().GetName() for x in inputs]
     attr_names = [x.GetName() for x in attrs]
     check_inputs(shader)
+
 
 def convert_image(shader):
     shader.GetIdAttr().Set('ND_image_color3')
@@ -215,7 +206,7 @@ def convert_range(shader):
     source = orig_input.GetConnectedSource()
     input.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim().HasAttribute(
         'outputs:out') else source[0].CreateOutput('out', input_type))
-    names_match = {\"input_max\" : 'inhigh', 'input_min' : 'inlow', 'output_max' : 'outhigh', 'output_min' : 'outlow'}
+    names_match = {\"input_max\": 'inhigh', 'input_min': 'inlow', 'output_max': 'outhigh', 'output_min': 'outlow'}
     for orig_name in names_match.keys():
         if orig_name in orig_input_names:
             new_input = shader.CreateInput(names_match[orig_name], input_type)
@@ -223,8 +214,14 @@ def convert_range(shader):
             orig_type_name = shader.GetInput(orig_name).GetTypeName()
             if input_type == Sdf.ValueTypeNames.Vector3f and orig_type_name == 'float':
                 orig_val = (orig_val, orig_val, orig_val)
+            elif input_type == Sdf.ValueTypeNames.Float and orig_type_name == 'color3f':
+                orig_val = orig_val[0]
             new_input.GetAttr().Set(orig_val)
+            if shader.GetInput(orig_name).GetConnectedSource() is not None:
+                source = shader.GetInput(orig_name).GetConnectedSource()
+                new_input.ConnectToSource(source[0].GetOutput(source[1]))
     check_inputs(shader)
+
 
 def convert_displacement(shader):
     shader.GetIdAttr().Set('ND_displacement_float')
@@ -233,24 +230,66 @@ def convert_displacement(shader):
     if not prim.HasAttribute('inputs:displacement'):
         input = shader.CreateInput('displacement', Sdf.ValueTypeNames.Float)
         source = orig_input.GetConnectedSource()
-        source_output = get_output_from_source(source)
-        if source_output.GetTypeName() == 'float':
-            input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
-        else:
-            input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+        input.ConnectToSource(source[0].GetOutput(source[1]))
+
 
 
 def convert_clamp(shader):
     out_type = shader.GetOutput('out').GetTypeName()
     orig_input = shader.GetInput('input')
     source = orig_input.GetConnectedSource()
+
     if out_type == 'float':
         shader.GetIdAttr().Set('ND_clamp_float')
-        input = shader.CreateInput('in', Sdf.ValueTypeNames.Float)
+        shader_type = Sdf.ValueTypeNames.Float
     else:
         shader.GetIdAttr().Set('ND_clamp_vector3')
-        input = shader.CreateInput('in', Sdf.ValueTypeNames.Vector3f)
+        shader_type = Sdf.ValueTypeNames.Vector3f
+    input = shader.CreateInput('in', shader_type)
+    low = shader.CreateInput('low', shader_type)
+    high = shader.CreateInput('high', shader_type)
+
+    if out_type == 'float':
+        low.GetAttr().Set(0)
+        high.GetAttr().Set(1)
+    else:
+        low.GetAttr().Set((0, 0, 0))
+        high.GetAttr().Set((1, 1, 1))
+
+    if shader.GetPrim().HasAttribute('inputs:min'):
+        attr_val = shader.GetInput('min').GetAttr().Get()
+        if out_type == 'float':
+            if attr_val is list:
+                low.GetAttr().Set(attr_val[0])
+            else:
+                low.GetAttr().Set(attr_val)
+        else:
+            if attr_val is not list:
+                low.GetAttr().Set((attr_val, attr_val, attr_val))
+            else:
+                low.GetAttr().Set(attr_val)
+        if shader.GetInput('min').GetConnectedSource() is not None:
+            source = shader.GetInput('min').GetConnectedSource()
+            low.ConnectToSource(source[0].GetOutput(source[1]))
+
+    if shader.GetPrim().HasAttribute('inputs:max'):
+        attr_val = shader.GetInput('max').GetAttr().Get()
+        if out_type == 'float':
+            if attr_val is list:
+                high.GetAttr().Set(attr_val[0])
+            else:
+                high.GetAttr().Set(attr_val)
+        else:
+            if attr_val is not list:
+                high.GetAttr().Set((attr_val, attr_val, attr_val))
+            else:
+                high.GetAttr().Set(attr_val)
+        if shader.GetInput('max').GetConnectedSource() is not None:
+            source = shader.GetInput('max').GetConnectedSource()
+            high.ConnectToSource(source[0].GetOutput(source[1]))
+
     input.ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+
     check_inputs(shader)
 
 
@@ -262,13 +301,12 @@ def convert_layer(shader):
     orig_input1_source = orig_input1.GetConnectedSource()
     orig_input2 = shader.GetInput('input2')
     orig_input2_source = orig_input2.GetConnectedSource()
-    
+
     input_fg = shader.CreateInput('fg', Sdf.ValueTypeNames.Token)
     input_bg = shader.CreateInput('bg', Sdf.ValueTypeNames.Token)
     input_mix = shader.CreateInput('mix', Sdf.ValueTypeNames.Float)
     input_bg.ConnectToSource(orig_input1_source[0].GetPrim().GetAttribute('outputs:out').GetPath())
     input_fg.ConnectToSource(orig_input2_source[0].GetPrim().GetAttribute('outputs:out').GetPath())
-    
 
     orig_mix1_val = 1.0
     orig_mix1_source = None
@@ -392,7 +430,8 @@ def convert_color_correct(shader):
     sub_shaders['parm2hue'][1].CreateInput('in3', Sdf.ValueTypeNames.Float).GetAttr().Set(1.0)
 
     source = shader.GetInput('input').GetConnectedSource()
-    shader.CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(source[0].GetPrim().GetAttribute('outputs:out').GetPath())
+    shader.CreateInput('in', Sdf.ValueTypeNames.Color3f).ConnectToSource(
+        source[0].GetPrim().GetAttribute('outputs:out').GetPath())
     shader.GetIdAttr().Set('')
     UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
     if prim.HasAttribute('inputs:contrast_pivot'):
@@ -433,7 +472,8 @@ def convert_ramp_rgb(shader):
         sub_shaders['uniformramp'][1].CreateInput(
             'value' + str(idx), Sdf.ValueTypeNames.Color3f).GetAttr().Set(colors[idx])
     shader.GetIdAttr().Set('')
-    shader.GetOutput('out').ConnectToSource(sub_shaders['uniformramp'][1].CreateOutput('out', Sdf.ValueTypeNames.Color3f))
+    shader.GetOutput('out').ConnectToSource(sub_shaders['uniformramp']
+                                            [1].CreateOutput('out', Sdf.ValueTypeNames.Color3f))
     UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
     check_inputs(shader)
 
@@ -472,12 +512,14 @@ def convert_ramp_float(shader):
     UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
     check_inputs(shader)
 
+
 def convert_ao(shader):
     shader.GetIdAttr().Set('ND_ambientocclusion_float')
 
 
 def convert_facing_ratio(shader):
     shader.GetIdAttr().Set('ND_hmtlxfacingratio_float')
+
 
 def convert_noise(shader):
     output_names = [x.GetBaseName() for x in shader.GetOutputs()]
@@ -528,7 +570,8 @@ for path in shaser_paths:
     elif id == 'arnold:ramp_float':
         convert_ramp_float(shader)
     elif id == 'arnold:noise':
-        convert_noise(shader)"	)
+        convert_noise(shader)
+"	)
 maintainstate	[ 0	locks=0 ]	(	"off"	)
 }
 
