@@ -21,7 +21,7 @@ Content-Type: text/plain
 comment ""
 position -2.70135 -3.06796
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
 0 "output1"
@@ -144,12 +144,13 @@ for proxy in list(proxies):
             if from_path in target_path:
                 source_prim_path = target_path.replace(from_path, replace_path)
                 source_prim = source_stage.GetPrimAtPath(source_prim_path)
-                bind_api = UsdShade.MaterialBindingAPI(source_prim)
-                mat = bind_api.ComputeBoundMaterial()[0]
-                mat_name = mat.GetPrim().GetName()
-                col_api = Usd.CollectionAPI.Apply(col, mat_name)
-                col_api.CreateExpansionRuleAttr(Usd.Tokens.explicitOnly)
-                col_api.IncludePath(proxy.GetPath())
+                if source_prim.IsValid():
+                    bind_api = UsdShade.MaterialBindingAPI(source_prim)
+                    mat = bind_api.ComputeBoundMaterial()[0]
+                    mat_name = mat.GetPrim().GetName()
+                    col_api = Usd.CollectionAPI.Apply(col, mat_name)
+                    col_api.CreateExpansionRuleAttr(Usd.Tokens.explicitOnly)
+                    col_api.IncludePath(proxy.GetPath())
 
                 
 
