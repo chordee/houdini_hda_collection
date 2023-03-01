@@ -19,22 +19,17 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position -2.70135 -3.06796
-connectornextid 3
+position 0.482258 -3.76909
+connectornextid 0
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
-0 "output1"
 }
 inputsNamed3
 {
-1 	sopcrowdimport2 0 1 "input1"
-2 	reference1 0 1 "input2"
 }
 inputs
 {
-0 	sopcrowdimport2 0 1
-1 	reference1 0 1
 }
 stat
 {
