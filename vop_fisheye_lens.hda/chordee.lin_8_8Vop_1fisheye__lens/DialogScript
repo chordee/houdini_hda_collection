@@ -1,0 +1,34 @@
+# Dialog script for chordee.lin::fisheye_lens automatically generated
+
+{
+    name	chordee.lin::fisheye_lens
+    script	chordee.lin::fisheye_lens
+    label	"Fisheye Lens"
+
+    rendermask	"VMantra OGL"
+    shadertype	cvex
+    input	float	fov	FOV
+    output	cvex	cvex	cvex
+    inputflags	fov	2
+    signature	"Default Inputs"	default	{ float cvex }
+
+    outputoverrides	default
+    {
+	___begin	auto
+			(0)
+    }
+
+    help {
+	""
+    }
+
+    parm {
+        name    "fov"
+        label   "FOV"
+        type    float
+        default { "180" }
+        range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+}
