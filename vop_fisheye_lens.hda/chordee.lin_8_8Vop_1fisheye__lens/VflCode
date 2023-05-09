@@ -1,0 +1,42 @@
+#line 1 "/mat/fisheye_lens1/"
+#line 15 "/mat/fisheye_lens1/"
+_Pragma("opname fisheye_lens1");
+_Pragma("oplabel \"Local Vop Code\"");
+_Pragma("opmininputs 0");
+_Pragma("opmaxinputs 0");
+_Pragma("label	fov	FOV");
+_Pragma("range	fov	0	1");
+
+
+
+
+
+cvex
+mat_fisheye_lens1(float fov = 180;
+	export vector P = { 0, 0, 0 };
+	export vector I = { 0, 0, 0 };
+	float x = 0;
+	float y = 0)
+{
+    vector	P1;
+    vector	I1;
+
+
+
+    float r = sqrt(x*x + y*y);
+    float phi = atan2(y, x);
+    float rfov = radians(fov);
+    float theta = r * (rfov / 2.0);
+
+    P1 = {0,0,0};
+    I1 = set( sin(theta)*cos(phi),
+            sin(theta)*sin(phi),
+            cos(theta) );
+
+
+
+    P = P1;
+
+
+    I = I1;
+}

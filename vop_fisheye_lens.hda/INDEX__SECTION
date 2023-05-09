@@ -6,10 +6,10 @@ Table:        Vop
 License:      
 Extra:        shadertype=cvex subtype=material 
 User:         
-Inputs:       0 to 1
+Inputs:       0 to 19
 Outputs:      2048
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Apr 20 19:36:09 2023
+Modified:     Tue May  9 11:24:17 2023
 
