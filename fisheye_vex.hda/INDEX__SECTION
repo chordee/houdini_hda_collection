@@ -1,0 +1,14 @@
+Operator:     fisheye_lens_vex
+Label:        Fisheye Lens VEX
+Path:         oplib:/Vop/fisheye_lens_vex?Vop/fisheye_lens_vex
+Icon:         
+Table:        Vop
+License:      
+Extra:        shadertype=vopmaterial subtype=material vopnetmask='cvex' 
+User:         
+Inputs:       0 to 5
+Subnet:       false
+Python:       false
+Empty:        false
+Modified:     Sat May 20 01:59:20 2023
+
