@@ -45,33 +45,6 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot.spareparmdef"
-Content-Type: text/plain
-
-    parm {
-        name    "lop_path"
-        label   "LOP Path"
-        type    oppath
-        default { "" }
-        parmtag { "oprelative" "." }
-        parmtag { "script_callback_language" "python" }
-    }
-    parm {
-        name    "primitives"
-        label   "Primitives"
-        type    string
-        default { "" }
-        menutoggle {
-            [ "import loputils" ]
-            [ "node = hou.node(kwargs['node'].parm('lop_path').eval())" ]
-            [ "return loputils.createPrimPatternMenu(node, input_idx=None, expressions=('Sop/lopimport','Lop/selectionrule'))" ]
-            language python
-        }
-        parmtag { "script_callback_language" "python" }
-        parmtag { "sidefx::usdpathtype" "primlist" }
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.userdata"
 Content-Type: text/plain
 
@@ -97,7 +70,7 @@ sopflags sopflags =
 comment ""
 position -1.11759e-08 5.48827
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -134,10 +107,16 @@ stage = lop.stage(0)
 geo = hou.pwd().geometry()
 
 from pxr import UsdGeom
+import numpy as np
 
 geo.addAttrib(hou.attribType.Point, 'orient', (0.0, 0.0, 0.0, 1.0))
 geo.addAttrib(hou.attribType.Point, 'index', 0)
 geo.addAttrib(hou.attribType.Point, 'scale', (1.0, 1.0, 1.0))
+
+positions = None
+scales = None
+orients = None
+indices = None
 
 # Add code to modify contents of geo.
 # Use drop down menu to select examples.
@@ -145,22 +124,52 @@ selection = hou.LopSelectionRule(prim_rule)
 paths = selection.expandedPaths(stage = stage)
 for path in paths:
     instancer = UsdGeom.PointInstancer(stage.GetPrimAtPath(path))
-    pos_val = instancer.GetPositionsAttr().Get()
+    pos_val = np.array(instancer.GetPositionsAttr().Get())
     scale_val = instancer.GetScalesAttr().Get()
-    orient_val = instancer.GetOrientationsAttr().Get()
-    indice_val = instancer.GetProtoIndicesAttr().Get()
-    print(path)
     
-    for idx, pos in enumerate(pos_val):
-        pt = geo.createPoint()
-        pt.setPosition(pos)
-        if scale_val is not None:
-            pt.setAttribValue('scale', scale_val[idx])
-        if orient_val is not None:
-            pt.setAttribValue('orient', list(orient_val[idx].GetImaginary()) + [orient_val[idx].GetReal()])
-        if indice_val is not None:
-            pt.setAttribValue('index', indice_val[idx])
+    if scale_val is None:
+        scale_val = np.full((pos_val.shape[0], 3), 1.0, dtype = np.float32)
+    else:
+        scale_val = np.array(scale_val, dtype = np.float32)
+    
+    orient_val = [list(x.GetImaginary()) + [x.GetReal()] for x in instancer.GetOrientationsAttr().Get()]
+    
+    if orient_val is None:
+        orient_val = np.tile(np.array([0.0, 0.0, 0.0, 1.0], dtype = np.float32), pos_val.shape[0])
+    else:
+        orient_val = np.array(orient_val, dtype = np.float32)
         
+    indice_val = instancer.GetProtoIndicesAttr().Get()
+    if indice_val is None:
+        indice_val = np.zeros((pos_val.shape[0], 1), dtype = np.int32)
+    else:
+        indice_val = np.array(indice_val, dtype = np.int32)
+    
+    if positions is None:
+        positions = pos_val
+    else:
+        positions = np.concatenate((positions, pos_val))
+        
+    if scales is None:
+        scales = scale_val
+    else:
+        scales = np.concatenate((scales, scale_val))
+        
+    if orients is None:
+        orients = orient_val
+    else:
+        orients = np.concatenate((orients, orient_val))
+        
+    if indices is None:
+        indices = indice_val
+    else:
+        indices = np.concatenate((indices, indice_val))
+        
+geo.createPoints(positions.tolist())
+geo.setPointFloatAttribValuesFromString('scale', scales.tobytes())
+geo.setPointFloatAttribValuesFromString('orient', orients.tobytes())
+geo.setPointIntAttribValuesFromString('index', indices.tobytes())
+
     "	)
 maintainstate	[ 0	locks=0 ]	(	"off"	)
 }
@@ -191,7 +200,7 @@ sopflags sopflags =
 comment ""
 position 0 3.53525
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }

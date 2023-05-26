@@ -6,6 +6,7 @@
     label	"Fetch PointInstancer Points"
 
     help {
+	""
     }
 
     inputlabel	1	"Sub-Network Input #1"
