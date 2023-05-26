@@ -1,0 +1,252 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = chordee.lin::fetch_pointinstancer_points
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -12.1269 -2.8176
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "lop_path"
+        label   "LOP Path"
+        type    oppath
+        default { "" }
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "primitives"
+        label   "Primitives"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "import loputils" ]
+            [ "node = hou.node(kwargs['node'].parm('lop_path').eval())" ]
+            [ "return loputils.createPrimPatternMenu(node, input_idx=None, expressions=('Sop/lopimport','Lop/selectionrule'))" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "sidefx::usdpathtype" "primlist" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.11759e-08 5.48827
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"lop = hou.node(hou.pwd().parent().parm('lop_path').eval())
+prim_rule = hou.pwd().parent().parm('primitives').eval()
+
+stage = lop.stage(0)
+
+geo = hou.pwd().geometry()
+
+from pxr import UsdGeom
+
+geo.addAttrib(hou.attribType.Point, 'orient', (0.0, 0.0, 0.0, 1.0))
+geo.addAttrib(hou.attribType.Point, 'index', 0)
+geo.addAttrib(hou.attribType.Point, 'scale', (1.0, 1.0, 1.0))
+
+# Add code to modify contents of geo.
+# Use drop down menu to select examples.
+selection = hou.LopSelectionRule(prim_rule)
+paths = selection.expandedPaths(stage = stage)
+for path in paths:
+    instancer = UsdGeom.PointInstancer(stage.GetPrimAtPath(path))
+    pos_val = instancer.GetPositionsAttr().Get()
+    scale_val = instancer.GetScalesAttr().Get()
+    orient_val = instancer.GetOrientationsAttr().Get()
+    indice_val = instancer.GetProtoIndicesAttr().Get()
+    print(path)
+    
+    for idx, pos in enumerate(pos_val):
+        pt = geo.createPoint()
+        pt.setPosition(pos)
+        if scale_val is not None:
+            pt.setAttribValue('scale', scale_val[idx])
+        if orient_val is not None:
+            pt.setAttribValue('orient', list(orient_val[idx].GetImaginary()) + [orient_val[idx].GetReal()])
+        if indice_val is not None:
+            pt.setAttribValue('index', indice_val[idx])
+        
+    "	)
+maintainstate	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/python1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0 3.53525
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	python1 0 1 "input1"
+}
+inputs
+{
+0 	python1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+2
+python1
+output0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

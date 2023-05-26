@@ -1,0 +1,38 @@
+# Dialog script for chordee.lin::fetch_pointinstancer_points automatically generated
+
+{
+    name	chordee.lin::fetch_pointinstancer_points
+    script	chordee.lin::fetch_pointinstancer_points
+    label	"Fetch PointInstancer Points"
+
+    help {
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "lop_path"
+        label   "LOP Path"
+        type    oppath
+        default { "" }
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "primitives"
+        label   "Primitives"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "import loputils" ]
+            [ "node = hou.node(kwargs['node'].parm('lop_path').eval())" ]
+            [ "return loputils.createPrimPatternMenu(node, input_idx=None, expressions=('Sop/lopimport','Lop/selectionrule'))" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+        parmtag { "sidefx::usdpathtype" "primlist" }
+    }
+}
