@@ -10,16 +10,22 @@ _Pragma("range	fov	0	1");
 
 
 
+_Pragma("label	mask	\"\"");
+_Pragma("hint	mask	toggle");
+
 
 cvex
 mat_fisheye_lens1(float fov = 180;
 	export vector P = { 0, 0, 0 };
 	export vector I = { 0, 0, 0 };
 	float x = 0;
-	float y = 0)
+	float y = 0;
+	int mask = 0;
+	export int valid = 0)
 {
     vector	P1;
     vector	I1;
+    int	valid1;
 
 
 
@@ -33,10 +39,17 @@ mat_fisheye_lens1(float fov = 180;
             sin(theta)*sin(phi),
             cos(theta) );
 
+    valid1 = 1;
+    if(mask==1 && r > 1)
+        valid1 = 0;
+
 
 
     P = P1;
 
 
     I = I1;
+
+
+    valid = valid1;
 }

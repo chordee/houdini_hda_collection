@@ -8,9 +8,11 @@
     rendermask	"VMantra OGL"
     shadertype	cvex
     input	float	fov	FOV
+    input	int	mask	""
     output	cvex	cvex	cvex
     inputflags	fov	2
-    signature	"Default Inputs"	default	{ float cvex }
+    inputflags	mask	2
+    signature	"Default Inputs"	default	{ float int cvex }
 
     outputoverrides	default
     {
@@ -210,6 +212,14 @@
         invisible
         default { "0" }
         range   { 0 1 }
+        parmtag { "parmvop" "1" }
+        parmtag { "shaderparmcontexts" "cvex" }
+    }
+    parm {
+        name    "mask"
+        label   "mask"
+        type    toggle
+        default { "off" }
         parmtag { "parmvop" "1" }
         parmtag { "shaderparmcontexts" "cvex" }
     }

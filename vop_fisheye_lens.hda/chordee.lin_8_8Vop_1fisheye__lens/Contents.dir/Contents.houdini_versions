@@ -1,8 +1,10 @@
 {
-	"values":["19.5.569"
+	"values":["19.5.435"
 	],
 	"indexes":{
+		"hdaroot/bind5.userdata":0,
 		"hdaroot/bind4.userdata":0,
+		"hdaroot/parm2.userdata":0,
 		"hdaroot/bind2.userdata":0,
 		"hdaroot/bind1.userdata":0,
 		"hdaroot/bind3.userdata":0,
