@@ -104,4 +104,17 @@ Reuse the volume texture which was exported from **Labs Volume Texture Export** 
 * outClr: RGB color from volume texture.  
 
 ---
+## create_crowd_collections_by_agent_stage_material (LOP)
+Create collections by the name of material binding with source agent mesh.
+<img src="imgs/crowd_collections_node.png" alt="Create Crowd Collections" height="120"/>
+
+* Collection: collection prim path
+* From Path
+* Replace Path
+
+
+---
 ## thunder_builder (SOP: Thunder Builder)
+
+
+
