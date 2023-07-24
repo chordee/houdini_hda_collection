@@ -19,20 +19,20 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 0 -0.441482
+position -4.16925 -0.421819
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
 1 "output1"
 }
 inputsNamed3
 {
-0 	assignmaterial1 1 1 "input1"
+0 	subnet_usd 0 1 "input1"
 }
 inputs
 {
-0 	assignmaterial1 0 1
+0 	subnet_usd 0 1
 }
 stat
 {
@@ -133,8 +133,12 @@ def check_inputs(shader):
                     source_type = Sdf.ValueTypeNames.Vector3f
                 elif type_name == 'token':
                     source_type = Sdf.ValueTypeNames.Token
-                elif source_type == 'string':
+                elif type_name == 'string':
                     source_type = Sdf.ValueTypeNames.String
+                elif type_name == 'color4f':
+                    source_type = Sdf.ValueTypeNames.Color4f
+                elif type_name == 'float4':
+                    source_type = Sdf.ValueTypeNames.Float4
                 i.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim().HasAttribute(
                     'outputs:out') else source[0].CreateOutput('out', source_type))
 
@@ -174,7 +178,7 @@ def convert_standard_surface(shader):
 
 
 def convert_image(shader):
-    shader.GetIdAttr().Set('ND_image_color3')
+    shader.GetIdAttr().Set('ND_image_color4')
     prim = shader.GetPrim()
     attr = prim.CreateAttribute('inputs:file', Sdf.ValueTypeNames.String)
     file_path = prim.GetAttribute('inputs:filename').Get()
@@ -458,7 +462,7 @@ def convert_color_correct(shader):
         prim.GetAttribute('inputs:gain').Set(prim.GetAttribute('inputs:multiply').Get()[0])
     if prim.HasAttribute('inputs:hue_shift'):
         prim.GetAttribute('inputs:hue').Set(prim.GetAttribute('inputs:hue_shift').Get())
-    if shader.GetInput('multiply').HasConnectedSource():
+    if shader.GetPrim().HasAttribute('inputs:multiply') and shader.GetInput('multiply').HasConnectedSource():
         mul_source = shader.GetInput('multiply').GetConnectedSource()
         shader.GetInput('gain').ConnectToSource(mul_source[0].GetOutput(mul_source[1]))
 
@@ -477,7 +481,6 @@ def convert_ramp_rgb(shader):
         sub_shaders[key].append(sub)
     positions = prim.GetAttribute('inputs:position').Get()
     type = shader.GetInput('type').GetAttr().Get() if shader.GetPrim().HasAttribute('inputs:type') else None
-    print(type)
     colors = prim.GetAttribute('inputs:color').Get()
     sub_shaders['numkeys'][1].CreateInput('value', Sdf.ValueTypeNames.Float).GetAttr().Set(len(positions))
     sub_shaders['numkeys'][1].CreateOutput('out', Sdf.ValueTypeNames.Float)
@@ -609,6 +612,73 @@ def convert_itility(shader):
     input = shader.CreateInput('in', value_type)
     input.ConnectToSource(shader.GetInput('color').GetConnectedSource()[0].GetPrim().GetAttribute('outputs:out').GetPath())
 
+def find_layer_enable(shader):
+    prim = shader.GetPrim()
+    enable_indices = list()
+    for i in range(1, 9, 1):
+        if not prim.HasAttribute('inputs:enable' + str(i)):
+            enable_indices.append(i)
+        else:
+            val = shader.GetInput('enable' + str(i)).GetAttr().Get()
+            if val is True:
+                enable_indices.append(i)
+    return enable_indices
+
+
+def convert_layer_rgba(shader):
+    mapping = {'over':'ND_over_color4', 'plus': 'ND_plus_color4', 'minus':'ND_minus_color4', 'out':'ND_out_color4', 'matte':'ND_matte_color4', 'in':'ND_in_color4', 'difference':'ND_difference_color4', 'color_dodge':'ND_dodge_color4f', 'color_burn':'ND_burn_color4','screen':'ND_screen_color4', 'max':'ND_max_color4', 'min':'ND_min_color4'}
+    prim = shader.GetPrim()
+    enable_indices = find_layer_enable(shader)
+    operations = list()
+    for i in enable_indices:
+        if not prim.HasAttribute('inputs:operation' + str(i)):
+            operations.append('over')
+        else:
+            val = shader.GetInput('operation' + str(i)).GetAttr().Get()
+            operations.append(val)
+    for idx, i in enumerate(reversed(range(len(enable_indices)))):
+        sub_mix = UsdShade.Shader.Define(stage, str(prim.GetPath()) + '/submix' + str(idx))
+        if operations[i] in mapping.keys():
+            sub_mix.GetIdAttr().Set(mapping[operations[i]])
+        else:
+            sub_mix.GetIdAttr().Set('ND_over_color3')
+        if operations[i] == 'min' or operations[i] == 'max':
+            fg = sub_mix.CreateInput('in1', Sdf.ValueTypeNames.Color3f)
+            bg = sub_mix.CreateInput('in2', Sdf.ValueTypeNames.Color3f)
+        else:
+            fg = sub_mix.CreateInput('fg', Sdf.ValueTypeNames.Color3f)
+            bg = sub_mix.CreateInput('bg', Sdf.ValueTypeNames.Color3f)
+        mix = sub_mix.CreateInput('mix', Sdf.ValueTypeNames.Float)
+        if prim.HasAttribute('inputs:mix' + str(i)):
+            orig_mix = shader.GetInput('mix' + str(i))
+            mix.GetAttr().Set(orig_mix.GetAttr().Get())
+            if orig_mix.HasConnectedSource():
+                source_input_source = orig_mix.GetConnectedSource()
+                mix.ConnectToSource(source_input_source[0].GetOutput(source_input_source[1]))
+        else:
+            mix.GetAttr().Set(1)
+
+        out = sub_mix.CreateOutput('out', Sdf.ValueTypeNames.Float4)
+        fg.ConnectToSource(shader.GetInput('input' + str(enable_indices[-1])))
+        if idx != 0:
+            b4_prim = stage.GetPrimAtPath(str(prim.GetPath()) + '/submix' + str(idx-1))
+            bg.ConnectToSource(UsdShade.Shader(b4_prim).GetOutput('out'))
+            if idx == (len(enable_indices) - 1):
+                print('kkk')
+                shader.GetOutput('out').ConnectToSource(sub_mix.GetOutput('out'))
+        else:
+            fg.ConnectToSource(shader.GetInput('input1'))
+
+                    
+    shader.GetIdAttr().Set('')
+    UsdShade.NodeGraph.Define(stage, shader.GetPrim().GetPath())
+    check_inputs(shader)
+    
+
+
+
+
+
 
 shader_ls = hou.LopSelectionRule('%type:Shader')
 material_ls = hou.LopSelectionRule('%type:Material')
@@ -653,6 +723,8 @@ for path in shaser_paths:
         convert_mix_rgba(shader)
     elif id == 'arnold:utility':
         convert_itility(shader)
+    elif id == 'arnold:layer_rgba':
+        convert_layer_rgba(shader)
         
     inputs = shader.GetInputs()
     for input in inputs:
