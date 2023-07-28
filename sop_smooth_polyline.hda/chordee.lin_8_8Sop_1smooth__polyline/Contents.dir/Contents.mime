@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -2.276 -1.678
+position -8.23052 -6.24614
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -329,34 +329,31 @@ grouptype	[ 0	locks=0 ]	(	"guess"	)
 class	[ 0	locks=0 ]	(	"detail"	)
 vex_numcount	[ 0	locks=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
-snippet	[ 0	locks=0 ]	(	"int npts = npoints(0);
+snippet	[ 0	locks=0 ]	(	"vector bezier(vector pos1, v1, pos2, v2; float bias, phase){
+    float length = distance(pos1, pos2) * bias;
+    vector p1 = pos1, p1_ = pos1 + normalize(v1) * length, p2 = pos2 - normalize(v2) * length, p2_ = pos2;
+    vector k1 = lerp(p1, p1_, phase);
+    vector k2 = lerp(p2, p2_, phase);
+    vector k3 = lerp(p1_, p2, phase);
+    vector k4 = lerp(k1, k3, phase);
+    vector k5 = lerp(k3, k2, phase);
+    vector k6 = lerp(k4, k5, phase);
+    return k6;
+}
+
+int npts = npoints(0);
 float bias = chf('bias');
 int step = chi('step');
 for(int i = 0; i < npts - 1; i++){
     vector pos1 = point(0, 'P', i);
     vector pos2 = point(0, 'P', i+1);
-    float dist = distance(pos1, pos2);
-    float length = dist * bias;
-    vector tangentu_1 = point(0, 'tangentu', i);
-    vector tangentu_2 = point(0, 'tangentu', i+1);
-    vector l1_d = normalize(tangentu_1);
-    vector l2_d = normalize(tangentu_2);
-    vector pos1_ = pos1 - (l1_d * length);
-    vector pos2_ = pos2 + (l2_d * length);
-    vector l1_s = pos1, l1_e = pos1_, l2_s = pos2_, l2_e = pos2;
-    vector l3_s = l1_e, l3_e = l2_s;
+    vector tan1 = point(0, 'tangentu', i);
+    vector tan2 = point(0, 'tangentu', i+1);
     for(int j = 1; j < step; j++){
         float phase = float(j)/step;
-        vector l21_s = lerp(l1_s, l1_e, phase);
-        vector l21_e = lerp(l3_s, l3_e, phase);
-        vector l22_s = l21_e;
-        vector l22_e = lerp(l2_s, l2_e, phase);
-        vector l31_s = lerp(l21_s, l21_e, phase);
-        vector l31_e = lerp(l22_s, l22_e, phase);
-        vector pos = lerp(l31_s, l31_e, phase);
-        int pt = addpoint(0, pos);
-        setpointattrib(0, '_order', pt, float(i) + phase);
-    
+        vector pp = bezier(pos1, -tan1, pos2, -tan2, bias, phase);
+        int pt = addpoint(0, pp);
+        setpointattrib(0, '_order', pt, i + phase);
     }
 
 }"	)
@@ -483,7 +480,7 @@ sopflags sopflags =
 comment ""
 position 0.003 3.90929
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 1 "output1"
@@ -717,7 +714,7 @@ sopflags sopflags =
 comment ""
 position 0.003 1.01508
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 }
