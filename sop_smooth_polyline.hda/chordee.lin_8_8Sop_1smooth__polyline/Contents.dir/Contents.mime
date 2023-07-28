@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -4.86086 -8.35315
+position -2.276 -1.678
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -40,11 +40,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	pointwrangle4 1 1 "input1"
+0 	polyframe1 1 1 "input1"
 }
 inputs
 {
-0 	pointwrangle4 0 1
+0 	polyframe1 0 1
 }
 stat
 {
@@ -347,13 +347,13 @@ for(int i = 0; i < npts - 1; i++){
     vector l3_s = l1_e, l3_e = l2_s;
     for(int j = 1; j < step; j++){
         float phase = float(j)/step;
-        vector l21_s = l1_s + (l1_e - l1_s) * phase;
-        vector l21_e = l3_s + (l3_e - l3_s) * phase;
+        vector l21_s = lerp(l1_s, l1_e, phase);
+        vector l21_e = lerp(l3_s, l3_e, phase);
         vector l22_s = l21_e;
-        vector l22_e = l2_s + (l2_e - l2_s) * phase;
-        vector l31_s = l21_s + (l21_e - l21_s) * phase;
-        vector l31_e = l22_s + (l22_e - l22_s) * phase;
-        vector pos = l31_s + (l31_e - l31_s) * phase;
+        vector l22_e = lerp(l2_s, l2_e, phase);
+        vector l31_s = lerp(l21_s, l21_e, phase);
+        vector l31_e = lerp(l22_s, l22_e, phase);
+        vector pos = lerp(l31_s, l31_e, phase);
         int pt = addpoint(0, pos);
         setpointattrib(0, '_order', pt, float(i) + phase);
     
