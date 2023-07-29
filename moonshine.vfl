@@ -13,3 +13,9 @@ vector bezier(vector pos1, t1, pos2, t2; float phase){
     vector res = lerp(k4, k5, phase);
     return res;
 }
+
+float tanh01(float arg, amount){
+    float tmp = efit(amount, 0, 1, -1, 1);
+    float result = efit(tanh(tmp * arg), tanh(-arg), tanh(arg), 0, 1);
+    return result;
+}
