@@ -1,0 +1,15 @@
+float normal_pdf(float u,a,n){
+    float res = 1 / (a * pow(2 * PI, .5)) * exp( - pow(n - u, 2) / (2 * pow(a, 2)));
+    return res;
+}
+
+vector bezier(vector pos1, t1, pos2, t2; float phase){
+    vector p1 = pos1, p1_ = pos1 + t1, p2 = pos2 + t2, p2_ = pos2;
+    vector k1 = lerp(p1, p1_, phase);
+    vector k2 = lerp(p2, p2_, phase);
+    vector k3 = lerp(p1_, p2, phase);
+    vector k4 = lerp(k1, k3, phase);
+    vector k5 = lerp(k3, k2, phase);
+    vector res = lerp(k4, k5, phase);
+    return res;
+}
