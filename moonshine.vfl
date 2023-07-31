@@ -19,3 +19,23 @@ float tanh01(float arg, amount){
     float result = efit(tanh(tmp * arg), tanh(-arg), tanh(arg), 0, 1);
     return result;
 }
+
+void random_order(float seed; float numbers[]){
+    float tmp[];
+    resize(tmp, len(numbers));
+    for(int i =0; i<len(tmp); i++){
+        tmp[i] = rand(seed + float(i)/1000);
+    }
+    int args[] = argsort(tmp);
+    numbers = reorder(numbers, args);
+}
+
+void random_order(float seed; string str){
+    float tmp[];
+    resize(tmp, len(str));
+    for(int i =0; i<len(tmp); i++){
+        tmp[i] = rand(seed + float(i)/1000);
+    }
+    int args[] = argsort(tmp);
+    str = reorder(str, args);
+}
