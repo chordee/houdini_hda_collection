@@ -20,22 +20,27 @@ float tanh01(float arg, amount){
     return result;
 }
 
-void random_order(float seed; float numbers[]){
+function int[] random_order_index(float seed; int length){
     float tmp[];
-    resize(tmp, len(numbers));
-    for(int i =0; i<len(tmp); i++){
+    resize(tmp, length);
+    for(int i = 0; i < len(tmp); i++){
         tmp[i] = rand(seed + float(i)/1000);
     }
     int args[] = argsort(tmp);
-    numbers = reorder(numbers, args);
+    return args;
 }
 
-void random_order(float seed; string str){
-    float tmp[];
-    resize(tmp, len(str));
-    for(int i =0; i<len(tmp); i++){
-        tmp[i] = rand(seed + float(i)/1000);
-    }
-    int args[] = argsort(tmp);
-    str = reorder(str, args);
+function float[] random_order(float seed; float numbers[]){
+    float result[] = reorder(numbers, random_order_index(seed, len(numbers)));
+    return result;
+}
+
+function int[] random_order(float seed; int numbers[]){
+    int result[] = reorder(numbers, random_order_index(seed, len(numbers)));
+    return result;
+}
+
+string random_order(float seed; string str){
+    string result = reorder(str, random_order_index(seed, len(str)));
+    return result;
 }
