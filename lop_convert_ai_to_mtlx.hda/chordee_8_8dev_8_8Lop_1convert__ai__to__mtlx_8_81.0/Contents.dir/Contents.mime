@@ -19,25 +19,26 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 comment ""
-position 0 -1.27647
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+position -1.76509 -0.0792695
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	subnet_usd 0 1 "input1"
+0 	sublayer1 1 1 "input1"
 }
 inputs
 {
-0 	subnet_usd 0 1
+0 	sublayer1 0 1
 }
 stat
 {
   create -1
   modify -1
-  author Chordee.lin@MoonShineFx06.moonshine.ad
+  author chordee.lin@MoonShineFx06.moonshine.ad
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -181,8 +182,27 @@ class Shader_Mapping:
         inputs = shader.GetInputs()
         for i in inputs:
             source_info = i.GetConnectedSource()
+            # print(source_info)
             if source_info is not None:
-                self.force_in_from_out(i)
+                if source_info[1] in ['r', 'g', 'b', 'a'] and UsdShade.Shader(source_info[0].GetPrim()).GetIdAttr().Get() == 'arnold:image':
+                    separate = self.create_separate(source_info[0].GetPrim(
+                    ), shader.GetPrim().GetName() + '_' + i.GetBaseName())
+                    separate.GetInput('in').ConnectToSource(source_info[0].GetOutput('out') if source_info[0].GetPrim().HasAttribute(
+                        'outputs:out') else source_info[0].CreateOutput('out', separate.GetInput('in').GetAttr().GetTypeName()))
+                    i.ConnectToSource(
+                        separate.GetOutput('out' + source_info[1]))
+                elif UsdShade.Shader(source_info[0].GetPrim()).GetIdAttr().Get() == 'arnold:color_correct' and source_info[0].GetPrim().HasAttribute('inputs:alpha_is_luminance') and source_info[0].GetPrim().GetAttribute('inputs:alpha_is_luminance').Get() is True:
+                    cc = UsdShade.Shader(source_info[0].GetPrim())
+                    cc.GetIdAttr().Set('ND_hsvadjust_color4')
+                    cc.CreateInput('in', Sdf.ValueTypeNames.Color4f).ConnectToSource(
+                        source_info[0].GetInput('input').GetConnectedSource()[0].GetOutput('out'))
+                    cc_out = cc.CreateOutput('out', Sdf.ValueTypeNames.Color3f)
+                    sep = self.create_separate(
+                        cc, shader.GetPrim().GetName() + '_alpha_is_luminance')
+                    sep.GetInput('in').ConnectToSource(cc_out)
+                    i.ConnectToSource(sep.GetOutput('outb'))
+                else:
+                    self.force_in_from_out(i)
 
     def force_in_from_out(self, new_in: Type[UsdShade.Shader]):
         source_info = new_in.GetConnectedSource()
@@ -249,7 +269,7 @@ class Shader_Mapping:
         self.__shader.GetIdAttr().Set('ND_image_color4')
         self.transfer_input(source='filename', dest='file')
         self.__shader.GetInput('file').Set(
-            self.__shader.GetInput('file').Get().replace('<udim>', '<UDIM>'))
+            self.__shader.GetInput('filename').Get())
 
     def structure_normalmap(self):
         self.__shader.GetIdAttr().Set('ND_normalmap')
@@ -270,6 +290,34 @@ class Shader_Mapping:
                                                Sdf.ValueTypeNames.Float)
             source_info = orig_in.GetConnectedSource()
             new_in.ConnectToSource(source_info[0].GetOutput(source_info[1]))
+
+    def create_separate(self, from_shader, shuffix: str, sep_type: str = 'ND_separate4_color4'):
+        from_shader_path = str(from_shader.GetPath())
+        shader_path = from_shader_path + '_' + shuffix
+        shader = UsdShade.Shader.Define(stage, shader_path)
+        self.initial_separate(shader, sep_type)
+        return shader
+
+    def initial_separate(self, shader, sep_type: str):
+        shader.CreateIdAttr(sep_type)
+        if 'color' in sep_type:
+            for o in ['outr', 'outg', 'outb']:
+                shader.CreateOutput(o, Sdf.ValueTypeNames.Float)
+        elif 'vector' in sep_type:
+            for o in ['outx', 'outy', 'outz']:
+                shader.CreateOutput(o, Sdf.ValueTypeNames.Float)
+        if 'separate3' in sep_type:
+            if 'color' in sep_type:
+                input = shader.CreateInput('in', Sdf.ValueTypeNames.Color3f)
+            else:
+                input = shader.CreateInptu('in', Sdf.ValueTypeNames.Vector3f)
+        else:
+            if 'color' in sep_type:
+                input = shader.CreateInput('in', Sdf.ValueTypeNames.Color4f)
+                shader.CreateOutput('outa', Sdf.ValueTypeNames.Float)
+            else:
+                input = shader.CreateInput('in', Sdf.ValueTypeNames.Vector4f)
+                shader.CreateOutput('outw', Sdf.ValueTypeNames.Float)
 
     def structure_color_correct(self):
         shader = self.__shader
@@ -672,7 +720,7 @@ class Shader_Mapping:
         source = orig_input.GetConnectedSource()
         input.ConnectToSource(source[0].GetOutput('out') if source[0].GetPrim(
         ).HasAttribute('outputs:out') else source[0].
-                              CreateOutput('out', input_type))
+            CreateOutput('out', input_type))
         names_match = {
             \"input_max\": 'inhigh',
             'input_min': 'inlow',
@@ -868,7 +916,8 @@ def main():
                         source_input_source[1]))
 
 
-main()"	)
+main()
+"	)
 maintainstate	[ 0	locks=0 ]	(	"off"	)
 }
 
