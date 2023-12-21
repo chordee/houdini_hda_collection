@@ -1,0 +1,14 @@
+Operator:     chordee.lin::arImage_string_to_assetpath
+Label:        ArImage String To AssetPath
+Path:         oplib:/chordee.lin::Lop/arImage_string_to_assetpath?chordee.lin::Lop/arImage_string_to_assetpath
+Icon:         opdef:/chordee.lin::Lop/arImage_string_to_assetpath?IconSVG
+Table:        Lop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Dec 19 12:41:39 2023
+

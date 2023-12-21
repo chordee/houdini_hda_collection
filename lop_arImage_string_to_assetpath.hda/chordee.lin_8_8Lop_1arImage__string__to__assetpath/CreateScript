@@ -1,0 +1,14 @@
+# Automatically generated script
+\set noalias = 1
+#
+#  Creation script for chordee.lin::arImage_string_to_assetpath operator
+#
+
+if ( "$arg1" == "" ) then
+    echo This script is intended as a creation script
+    exit
+endif
+
+# Node $arg1 (chordee.lin::Lop/arImage_string_to_assetpath)
+opexprlanguage -s hscript $arg1
+opuserdata -n '___Version___' -v '' $arg1

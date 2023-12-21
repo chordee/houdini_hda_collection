@@ -1,0 +1,303 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Lop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = chordee.lin::arImage_string_to_assetpath
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+comment ""
+position -13.0318 33.6137
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	camera1 1 1 "input1"
+}
+inputs
+{
+0 	camera1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 0 6.8941999999999997 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript1.init"
+Content-Type: text/plain
+
+type = pythonscript
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript1.def"
+Content-Type: text/plain
+
+comment ""
+position 3.18273 5.99648
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"node = hou.pwd()
+stage = node.editableStage()
+
+from pxr import Usd, UsdShade, Sdf
+
+# Add code to modify the stage.
+# Use drop down menu to select examples.
+
+source_node = node.parent().input(0)
+source_stage = source_node.stage()
+
+rule = hou.LopSelectionRule('%shadertype(arnold:image)')
+paths = rule.expandedPaths(stage=source_stage)
+for path in paths:
+    source_prim = source_stage.GetPrimAtPath(path)
+    shader = UsdShade.Shader(source_prim)
+    input = shader.GetInput('filename')
+    if input.GetTypeName() == 'string':
+        filename = input.Get()
+        assetpath = Sdf.AssetPath(filename)
+        prim = stage.OverridePrim(path)
+        attr = prim.CreateAttribute('inputs:filename', Sdf.ValueTypeNames.Asset)
+        attr.Set(assetpath)
+    "	)
+maintainstate	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/pythonscript1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+comment ""
+position 1.39569 2.28857
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	sublayer1 2 1 "input1"
+}
+inputs
+{
+0 	sublayer1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+modifiedprims	[ 0	locks=0 ]	(	"`lopinputprims(\".\", 0)`"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sublayer1.init"
+Content-Type: text/plain
+
+type = sublayer
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sublayer1.def"
+Content-Type: text/plain
+
+comment ""
+position 1.39444 3.44059
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on debug off
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+1 	pythonscript1 1 1 "input2"
+}
+inputs
+{
+0 	(0) 0 1
+1 	pythonscript1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author chordee.lin@MoonShineFx06.moonshine.ad
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sublayer1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+parentlayer_group	[ 0	locks=0 ]	(	0	)
+loadpayloads	[ 0	locks=0 ]	(	"on"	)
+setstagemetadata	[ 0	locks=0 ]	(	auto	)
+editrootlayer	[ 0	locks=0 ]	(	"on"	)
+findsublayers	[ 0	locks=0 ]	(	""	)
+removefoundsublayers	[ 0	locks=0 ]	(	"on"	)
+composition_group	[ 0	locks=0 ]	(	0	)
+sublayertype	[ 0	locks=0 ]	(	filesandinputs	)
+handlemissingfiles	[ 0	locks=0 ]	(	error	)
+positiontype	[ 0	locks=0 ]	(	strongest	)
+positionindex	[ 0	locks=0 ]	(	0	)
+files_separator	[ 0	locks=0 ]	(	)
+num_files	[ 0	locks=0 ]	(	1	)
+reload	[ 0	locks=0 ]	(	0	)
+inputs_separator	[ 0	locks=0 ]	(	)
+enable	[ 0	locks=0 ]	(	"on"	)
+sublayerfile_group1	[ 0	locks=0 ]	(	0	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+filepath1	[ 0	locks=0 ]	(	""	)
+mute1	[ 0	locks=0 ]	(	"off"	)
+timeoffset1	[ 0	locks=0 ]	(	0	)
+timescale1	[ 0	locks=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/sublayer1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+3
+pythonscript1
+output0
+sublayer1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--
