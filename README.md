@@ -82,8 +82,6 @@ v@rotation -> rotationPP
 * Particle Name: Name of the particle shape in Maya.
 * Python Module Path: File path to [nCache.py](https://github.com/chordee/mayaGeoCache/blob/master/nCache.py).
 
----
-
 ## export_Maya_geoCache (SOP: Export Maya geoCache)  
 
 *Export Maya geometry point cache directly from Houdini. (Multiple objects are supported.)*
@@ -101,8 +99,6 @@ REQUIREMENT:
 * Start Frame
 * End Frame
 * Python Module Path: File path to [nCache.py](https://github.com/chordee/mayaGeoCache/blob/master/nCache.py).
-
----
 
 ## Mandelbrot3D (VOP)
 
