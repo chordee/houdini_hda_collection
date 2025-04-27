@@ -2,8 +2,6 @@
 
 Houdini Digital Assets Collection
 
----
-
 ## fake_window (VOP: Fake Window)
 
 A shader similar to Unity's Fake Window. Outputs a simple color from the perspective camera.
@@ -18,8 +16,6 @@ A shader similar to Unity's Fake Window. Outputs a simple color from the perspec
     |![outUV](imgs/wall_outUV.png)|![id](imgs/wall_id.png)|![drawing](imgs/out_nor.png)|![inDepth](imgs/in_depth.png)|
     |:---:|:---:|:---:|:---:|
     |outUV|id|outNor|inDepth|
-
----
 
 ## grid_cutter (SOP: Grid Cutter)
 
@@ -38,8 +34,6 @@ A shader similar to Unity's Fake Window. Outputs a simple color from the perspec
 
 * Min Size: Limits the size of the smallest piece.
 
----
-
 ## line_cracker (SOP: Line Cracker)
 
 Fractures based on polyline projection (X/Z plane).
@@ -57,8 +51,6 @@ Fractures based on polyline projection (X/Z plane).
 
 * Iterations: Increase to better match the input line. (May not be a perfect match.)
 * Iteration Threshold: Avoids extremely small pieces.
-
----
 
 ## export_Maya_nParticles_cache (SOP: Export Maya nParticle cache)  
 
@@ -120,8 +112,6 @@ REQUIREMENT:
   
 ![Mandelbrot3D](imgs/mandelbrot3d.png)  
 
----  
-
 ## volume_texture (VOP: Volume Texture)  
 
 Reuse the volume texture exported from **Labs Volume Texture Export** in Houdini.
@@ -133,8 +123,6 @@ Reuse the volume texture exported from **Labs Volume Texture Export** in Houdini
 * V_Tile
 * outClr: RGB color from the volume texture.
 
----
-
 ## create_crowd_collections_by_agent_stage_material (LOP)
 
 Create collections based on the material binding name of the source agent mesh.
@@ -143,7 +131,5 @@ Create collections based on the material binding name of the source agent mesh.
 * Collection: collection prim path
 * From Path
 * Replace Path
-
----
 
 ## thunder_builder (SOP: Thunder Builder)
